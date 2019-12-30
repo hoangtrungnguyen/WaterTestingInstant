@@ -1,4 +1,4 @@
-package com.hackathon.watertestinginstant.ui.dashboard
+package com.hackathon.watertestinginstant.ui.main.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.hackathon.watertestinginstant.R
 
+@Suppress("DEPRECATION")
 class DashboardFragment : Fragment() {
 
     private lateinit var dashboardViewModel: DashboardViewModel
