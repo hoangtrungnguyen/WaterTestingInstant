@@ -1,5 +1,9 @@
 package com.hackathon.watertestinginstant.bluetooth
 
-enum class ConnectStatus {
-    False, Pending, True
+sealed class ConnectStatus {
+
+    data class True(var status: String)
+    data class Pending(var status: String)
+    data class False(var status: String)
+
 }

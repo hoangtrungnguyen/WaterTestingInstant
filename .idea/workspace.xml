@@ -6,168 +6,30 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="rxxxx" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_v4_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_media_media_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_ivbaranov_rxbluetooth2_2_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_base_17_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_17_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_tasks_17_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_auto_value_auto_value_annotations_1_6_5_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_auth_19_2_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_auth_interop_19_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_common_19_3_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_components_16_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_rx2_replaying_share_2_1_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_rxrelay2_rxrelay_2_1_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_polidea_rxandroidble2_dagger_library_shadow_1_10_5_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_polidea_rxandroidble2_rxandroidble_1_10_5_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxjava2_rxandroid_2_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxjava2_rxjava_2_2_8_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_reactivestreams_reactive_streams_1_0_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/appl/Constants.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/appl/WaterTestingApplication.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/BluetoothReceiver.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/ConnectStatus.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/SerialListener.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/SerialService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/SerialSocket.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/data/LoginDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/data/LoginRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/data/Result.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/data/model/LoggedInUser.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/database/Cache.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/notification/notification.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/login/LoggedInUserView.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/login/LoginActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/login/LoginFormState.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/login/LoginResult.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/login/LoginViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/login/LoginViewModelFactory.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/ConnectBluetoothViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/RxConnectActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/TerminalFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/profile/ProfileFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/InternetPermission.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/LoginExceptionHandler.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/UI.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_send_white_24dp.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_rx_connect.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_rx_connect.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_terminal.xml" afterDir="false" />
+    <list default="true" id="0e32d42b-c1ac-4d7e-bdba-b56ae8bc17a2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/socketextension.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_1_1_0_alpha02_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_1_1_0_alpha02_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_ktx_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_ktx_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_resources_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_resources_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_1_0_rc01_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_1_0_rc01_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_ktx_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_ktx_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_1_2_0_alpha02_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_1_2_0_alpha02_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_interpolator_interpolator_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_interpolator_interpolator_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_extensions_2_2_0_alpha03_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_extensions_2_2_0_alpha03_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_2_0_alpha03_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_2_0_alpha03_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_2_0_alpha03_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_2_0_alpha03_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_ktx_2_2_0_alpha03_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_ktx_2_2_0_alpha03_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_ktx_2_2_0_alpha03_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_ktx_2_2_0_alpha03_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_process_2_2_0_alpha03_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_process_2_2_0_alpha03_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_2_0_alpha03_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_2_0_alpha03_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_service_2_2_0_alpha03_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_service_2_2_0_alpha03_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_2_0_alpha03_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_2_0_alpha03_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_ktx_2_2_0_alpha03_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_ktx_2_2_0_alpha03_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_savedstate_1_0_0_alpha03_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_savedstate_1_0_0_alpha03_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_loader_loader_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_loader_loader_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_localbroadcastmanager_localbroadcastmanager_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_localbroadcastmanager_localbroadcastmanager_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_common_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_common_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_common_ktx_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_common_ktx_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_ktx_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_ktx_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_ktx_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_ktx_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_savedstate_savedstate_1_0_0_rc01_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_savedstate_savedstate_1_0_0_rc01_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_core_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_core_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_ext_junit_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_ext_junit_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_monitor_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_monitor_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_runner_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_runner_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_transition_transition_1_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_transition_transition_1_0_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/navEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/application/Injection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/appl/Injection.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/application/ViewModelFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/appl/ViewModelFactory.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/application/WaterTestingApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/dashboard/DashboardFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/history/HistoryFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/dashboard/DashboardViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/history/HistoryViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/ConnectStatus.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/ConnectStatus.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/SerialSocket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/SerialSocket.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/HomeFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/HomeViewModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/notifications/NotificationsFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/notifications/NotificationsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/profile/ProfileViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_notifications.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-    </list>
-    <list id="22991ee1-a4d1-49b3-8a57-a387af08cd3f" name="Apply: tesst scan blue tooth" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/BluetoothGatt.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/ByteArray.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/LocationPermission.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/RxAndroidBle.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/ScanExceptionHandler.kt" afterDir="false" />
-    </list>
-    <list id="bac11190-30d1-4a68-acf7-5382f0431874" name="Apply: test" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/NavigationExtenstion.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/NavigationExtenstion.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/profile.xml" afterDir="false" />
     </list>
     <ignored path="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -184,7 +46,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="33008ac4a0c4227f" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="R58M71XZJXN" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -200,87 +62,64 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainViewModel.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="50" column="45" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/ConnectStatus.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/data/LoginRepository.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="117">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/data/Result.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="6" selection-start-line="6" selection-end-line="17" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/RxConnectActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
-              <folding>
-                <element signature="e#2500#2543#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-208">
+              <caret line="116" column="32" lean-forward="true" selection-start-line="116" selection-start-column="32" selection-end-line="116" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/UI.kt">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/TerminalFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+            <state relative-caret-position="330">
+              <caret line="83" column="10" lean-forward="true" selection-start-line="83" selection-start-column="10" selection-end-line="83" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_rx_connect.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/ByteArray.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="81" column="25" lean-forward="true" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="37" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.polidea.rxandroidble2/rxandroidble/1.10.5/5e7caf1baaba575320228171c0962969a4a9393f/rxandroidble-1.10.5-sources.jar!/com/polidea/rxandroidble2/RxBleDevice.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="70" column="27" lean-forward="true" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.polidea.rxandroidble2/rxandroidble/1.10.5/5e7caf1baaba575320228171c0962969a4a9393f/rxandroidble-1.10.5-sources.jar!/com/polidea/rxandroidble2/RxBleConnection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/bluetooth/BluetoothGatt.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="1498" column="31" selection-start-line="1498" selection-start-column="31" selection-end-line="1498" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/BluetoothReceiver.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="99" column="58" lean-forward="true" selection-start-line="99" selection-start-column="58" selection-end-line="99" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.1.0/70f29099a9d448c5628873c0314d133e9de7fdf3/navigation-runtime-2.1.0-sources.jar!/androidx/navigation/NavDeepLinkBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="155" column="30" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/navigation/home.xml">
-          <provider selected="true" editor-type-id="nav-designer" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="13" column="36" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="36" />
+            <state relative-caret-position="13">
+              <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -288,8 +127,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/HomeFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="87" column="26" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
+            <state relative-caret-position="114">
+              <caret line="84" column="49" lean-forward="true" selection-start-line="84" selection-start-column="49" selection-end-line="86" />
+              <folding>
+                <element signature="e#56#631#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-livedata-core/2.2.0-alpha03/6dcd7f31093b360c4a8bced748159e6fd237ba52/lifecycle-livedata-core-2.2.0-alpha03-sources.jar!/androidx/lifecycle/MutableLiveData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+              <folding>
+                <element signature="e#1283#1284#0" expanded="true" />
+                <element signature="e#1321#1322#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/SerialSocket.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="129" column="31" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -328,12 +192,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="nguynguyen_socket_bluetooth" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_notifications.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/notifications/NotificationsFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
@@ -372,53 +239,21 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/data/SerialSocket.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/ConnectBluetoothViewModel.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/UI.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainViewModel.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/appl/ViewModelFactory.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/SerialSocket.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/TerminalFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/HomeFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/navigation/home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/BluetoothReceiver.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_rx_connect.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/RxConnectActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/socketextension.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/SerialSocket.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/HomeFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/ConnectStatus.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainViewModel.kt" />
       </list>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/app/src/main/res/navigation/profile.xml">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="4" changelist="bac11190-30d1-4a68-acf7-5382f0431874" />
-        <range start1="4" end1="4" start2="5" end2="9" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/app/src/main/res/navigation/history.xml">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="4" changelist="bac11190-30d1-4a68-acf7-5382f0431874" />
-        <range start1="4" end1="4" start2="5" end2="9" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainActivity.kt">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="7" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-        <range start1="3" end1="4" start2="8" end2="9" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-        <range start1="5" end1="5" start2="10" end2="11" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-        <range start1="6" end1="6" start2="12" end2="13" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-        <range start1="7" end1="7" start2="14" end2="15" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-        <range start1="8" end1="12" start2="16" end2="17" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-        <range start1="13" end1="13" start2="18" end2="21" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-        <range start1="15" end1="15" start2="23" end2="25" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-        <range start1="16" end1="16" start2="26" end2="46" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-        <range start1="22" end1="22" start2="52" end2="53" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-        <range start1="23" end1="24" start2="54" end2="54" changelist="bac11190-30d1-4a68-acf7-5382f0431874" />
-        <range start1="27" end1="27" start2="57" end2="84" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-        <range start1="33" end1="34" start2="90" end2="91" changelist="bac11190-30d1-4a68-acf7-5382f0431874" />
-        <range start1="37" end1="38" start2="94" end2="95" changelist="bac11190-30d1-4a68-acf7-5382f0431874" />
-        <range start1="46" end1="47" start2="103" end2="104" changelist="bac11190-30d1-4a68-acf7-5382f0431874" />
-        <range start1="55" end1="55" start2="112" end2="128" changelist="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" />
-      </ranges>
-    </file>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="426" />
@@ -429,11 +264,108 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="bluetooth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="navigation" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Default Changelist'; set:Default Changelist; class com.intellij.packageDependencies.ChangeListScope">
           <expand>
@@ -454,6 +386,128 @@
               <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="hackathon" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="hackathon" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="watertestinginstant" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="hackathon" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="watertestinginstant" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="bluetooth" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="hackathon" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="watertestinginstant" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="ui" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="hackathon" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="watertestinginstant" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="ui" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="login" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="hackathon" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="watertestinginstant" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="ui" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="hackathon" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="watertestinginstant" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="ui" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\HP\Documents\GitHub\WaterTestingInstant-Android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="My Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -502,141 +556,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="appl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="bluetooth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="history" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="watertestinginstant" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="navigation" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="My Application" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Course" />
     </panes>
   </component>
@@ -659,6 +578,10 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
+    <key name="android.template.packageName">
+      <recent name="com.hackathon.watertestinginstant.ui.login" />
+      <recent name="com.hackathon.watertestinginstant.ui.main.home" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.hackathon.watertestinginstant.ui" />
       <recent name="com.hackathon.watertestinginstant" />
@@ -666,10 +589,6 @@
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.hackathon.watertestinginstant.bluetooth" />
       <recent name="com.hackathon.watertestinginstant.view.ui" />
-    </key>
-    <key name="android.template.packageName">
-      <recent name="com.hackathon.watertestinginstant.ui.login" />
-      <recent name="com.hackathon.watertestinginstant.ui.main.home" />
     </key>
     <key name="android.template.parentActivityClass">
       <recent name="" />
@@ -758,9 +677,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="da1b9fb5-7865-412d-9ad2-8a82b9bd37ad" name="Default Changelist" comment="" />
-      <changelist id="bac11190-30d1-4a68-acf7-5382f0431874" name="Apply: test" comment="" />
-      <changelist id="22991ee1-a4d1-49b3-8a57-a387af08cd3f" name="Apply: tesst scan blue tooth" comment="" />
+      <changelist id="0e32d42b-c1ac-4d7e-bdba-b56ae8bc17a2" name="Default Changelist" comment="" />
       <created>1577700264850</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -768,11 +685,21 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2866397" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32955465" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
@@ -794,7 +721,6 @@
       <window_info anchor="bottom" id="Run" order="10" weight="0.3289256" />
       <window_info anchor="bottom" id="Debug" order="11" weight="0.3289256" />
       <window_info anchor="bottom" id="Messages" order="12" />
-      <window_info anchor="right" id="Hierarchy" weight="0.32955465" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
@@ -802,6 +728,7 @@
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Preview" order="5" weight="0.29554656" />
       <window_info anchor="right" id="Assistant" order="6" weight="0.302834" />
+      <window_info anchor="right" id="Hierarchy" order="7" weight="0.32955465" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -815,6 +742,17 @@
               </option>
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/nguyen" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
               </option>
               <option name="COLUMN_ORDER">
                 <list>
@@ -833,7 +771,13 @@
       <map>
         <entry key="Branch">
           <value>
-            <list />
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/nguyen" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
         <entry key="User">
@@ -855,9 +799,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/SerialSocket.kt</url>
-          <line>111</line>
+          <line>112</line>
           <properties />
-          <option name="timeStamp" value="7" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -877,213 +821,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/SerialSocket.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="111" column="46" selection-start-line="111" selection-start-column="46" selection-end-line="111" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/java/lang/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="1213" column="18" selection-start-line="1213" selection-start-column="18" selection-end-line="1213" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/content/ContextWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1613">
-          <caret line="624" column="18" selection-start-line="624" selection-start-column="18" selection-end-line="624" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/bluetooth/BluetoothPbap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="84" column="12" selection-start-line="84" selection-start-column="12" selection-end-line="84" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/bluetooth/BluetoothDevice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="992" column="18" selection-start-line="992" selection-start-column="18" selection-end-line="992" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.50/8ac406cf33e942265c4abb33ee0acdee79292dd6/kotlin-stdlib-common-1.3.50-sources.jar!/generated/_Collections.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="203" column="34" selection-start-line="203" selection-start-column="34" selection-end-line="203" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.fragment/fragment/1.2.0-alpha02/2d5c57ce649567791ab660fbbe2355a1d0ba9af1/fragment-1.2.0-alpha02-sources.jar!/androidx/fragment/app/FragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="804" column="16" selection-start-line="804" selection-start-column="16" selection-end-line="804" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.1.0/9865019bbd2d95e41dede3d8ebf964aa93f97766/appcompat-1.1.0-sources.jar!/androidx/appcompat/app/AppCompatActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
-          <folding>
-            <element signature="e#2924#2925#0" expanded="true" />
-            <element signature="e#2947#2948#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainViewModel.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/util/SparseArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="69" column="11" selection-start-line="69" selection-start-column="11" selection-end-line="69" selection-end-column="11" />
-          <folding>
-            <element signature="e#3082#3083#0" expanded="true" />
-            <element signature="e#3106#3107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="24154" column="16" selection-start-line="24154" selection-start-column="16" selection-end-line="24154" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation.xml">
-      <provider editor-type-id="nav-designer" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/navigation/history.xml">
-      <provider editor-type-id="nav-designer" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.1.0/70f29099a9d448c5628873c0314d133e9de7fdf3/navigation-runtime-2.1.0-sources.jar!/androidx/navigation/Navigation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="56" column="32" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/bluetooth/BluetoothAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="618" selection-start-line="618" selection-end-line="618" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/data/Result.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/SerialService.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="116" column="17" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="17" />
-          <folding>
-            <element signature="e#53#383#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/navigation-args/debug/com/hackathon/watertestinginstant/ui/main/home/TerminalFragmentArgs.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime-ktx/2.1.0/1fad01b6a197b7708c952d7808848767f6fb1cbe/navigation-runtime-ktx-2.1.0-sources.jar!/androidx/navigation/Activity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/app/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="3884" column="19" selection-start-line="3884" selection-start-column="19" selection-end-line="3884" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.core/core-ktx/1.1.0/8e51cf92327310f53f74ba17a62d465f6fdde392/core-ktx-1.1.0-sources.jar!/androidx/core/view/ViewGroup.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.50/bc0c767786c4a3c042a364e69d3f3dd5ff5253a5/kotlin-stdlib-1.3.50-sources.jar!/kotlin/Ranges.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.50/8ac406cf33e942265c4abb33ee0acdee79292dd6/kotlin-stdlib-common-1.3.50-sources.jar!/generated/_Ranges.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="703" column="21" selection-start-line="703" selection-start-column="21" selection-end-line="703" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/NavigationExtenstion.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/content/Intent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="9569" column="14" selection-start-line="9569" selection-start-column="14" selection-end-line="9569" selection-end-column="14" />
-          <folding>
-            <element signature="e#361512#361513#0" expanded="true" />
-            <element signature="e#361541#361542#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/879e4a0fcd0f09a2dd7a58e3ad25c787/material-1.0.0/jars/classes.jar!/com/google/android/material/bottomnavigation/BottomNavigationView.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="207" column="16" selection-start-line="207" selection-start-column="16" selection-end-line="207" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/bluetooth/BluetoothGattCharacteristic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -1166,40 +903,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-718">
-          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/TerminalFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-start-column="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.1.0/70f29099a9d448c5628873c0314d133e9de7fdf3/navigation-runtime-2.1.0-sources.jar!/androidx/navigation/NavDeepLinkBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="155" column="30" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/navigation/home.xml">
-      <provider selected="true" editor-type-id="nav-designer" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="13" column="36" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1231,20 +938,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/HomeFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="87" column="26" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_rx_connect.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="453">
           <caret line="81" column="25" lean-forward="true" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="37" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/UI.kt">
       <provider selected="true" editor-type-id="text-editor">
@@ -1253,13 +953,233 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/login/LoginViewModelFactory.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/login/LoggedInUserView.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/login/LoginFormState.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/NavigationExtenstion.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.50/8ac406cf33e942265c4abb33ee0acdee79292dd6/kotlin-stdlib-common-1.3.50-sources.jar!/kotlin/contracts/ContractBuilder.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="149" column="18" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.50/bc0c767786c4a3c042a364e69d3f3dd5ff5253a5/kotlin-stdlib-1.3.50-sources.jar!/kotlin/util/Synchronized.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/navigation/home.xml">
+      <provider selected="true" editor-type-id="nav-designer" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="13" column="36" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/login/LoginActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-507" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.2.8/ad84eaacebe8ef666a792794f50c6702d6951d0/rxjava-2.2.8-sources.jar!/io/reactivex/Observable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="8479" column="27" selection-start-line="8479" selection-start-column="27" selection-end-line="8479" selection-end-column="27" />
+          <folding>
+            <element signature="e#469271#469272#0" expanded="true" />
+            <element signature="e#469314#469315#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/InternetPermission.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/LocationPermission.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/LoginExceptionHandler.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/RxAndroidBle.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/ScanExceptionHandler.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-429" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-common/1.1.1/113450f5f2a971252086c89dd26cde062455fbe8/kotlinx-coroutines-core-common-1.1.1-sources.jar!/CancellableContinuation.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="159" column="30" selection-start-line="159" selection-start-column="30" selection-end-line="159" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/socketextension.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding>
+            <element signature="e#51#161#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.50/8ac406cf33e942265c4abb33ee0acdee79292dd6/kotlin-stdlib-common-1.3.50-sources.jar!/kotlin/util/Result.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/os/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-783">
+          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/os/Handler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="398" column="47" selection-start-line="395" selection-start-column="7" selection-end-line="398" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-livedata-core/2.2.0-alpha03/6dcd7f31093b360c4a8bced748159e6fd237ba52/lifecycle-livedata-core-2.2.0-alpha03-sources.jar!/androidx/lifecycle/LiveData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="289" column="9" lean-forward="true" selection-start-line="289" selection-start-column="9" selection-end-line="289" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-livedata-core/2.2.0-alpha03/6dcd7f31093b360c4a8bced748159e6fd237ba52/lifecycle-livedata-core-2.2.0-alpha03-sources.jar!/androidx/lifecycle/MutableLiveData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+          <folding>
+            <element signature="e#1283#1284#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/util/ByteArray.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/TerminalFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="83" column="10" lean-forward="true" selection-start-line="83" selection-start-column="10" selection-end-line="83" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/SerialSocket.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="129" column="31" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/RxConnectActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
+        <state relative-caret-position="-208">
+          <caret line="116" column="32" lean-forward="true" selection-start-line="116" selection-start-column="32" selection-end-line="116" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/home/HomeFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="84" column="49" lean-forward="true" selection-start-line="84" selection-start-column="49" selection-end-line="86" />
           <folding>
-            <element signature="e#2500#2543#0" expanded="true" />
+            <element signature="e#56#631#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/data/LoginRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/data/Result.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="6" selection-start-line="6" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/bluetooth/ConnectStatus.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hackathon/watertestinginstant/ui/main/MainViewModel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="50" column="45" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="45" />
         </state>
       </provider>
     </entry>

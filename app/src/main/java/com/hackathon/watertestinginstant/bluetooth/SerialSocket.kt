@@ -11,12 +11,13 @@ import android.util.Log
 import com.hackathon.watertestinginstant.appl.BLUETOOTH_SPP
 import com.hackathon.watertestinginstant.appl.INTENT_ACTION_DISCONNECT
 import com.hackathon.watertestinginstant.ui.main.MainViewModel
+import com.hackathon.watertestinginstant.ui.util.toHex
 import java.io.IOException
 import java.util.*
 import java.util.concurrent.Executors
 
 
-class SerialSocket : Runnable {
+    class SerialSocket( /*private var resultTask: Result<*>*/) : Runnable {
     private val TAG = this.javaClass.simpleName
 
     private val disconnectBroadcastReceiver: BroadcastReceiver
@@ -111,7 +112,8 @@ class SerialSocket : Runnable {
                 while (true) {
                     len = socket.inputStream.read(buffer)
                     val data = buffer.copyOf(len)
-                    viewModel?.postResult(Result.success(data))
+//                    viewModel?.postResult(Result.success(data))
+                    Log.d("sssssocket",data.toHex())
                 }
             }
         } catch (e: Exception) {
@@ -124,9 +126,11 @@ class SerialSocket : Runnable {
     // Closes the client socket and causes the thread to finish.
     fun cancel(e: Exception) {
         try {
+            viewModel?.postStatus("${e.message}")
             viewModel?.postResult(Result.failure(e))
             socket?.close()
         } catch (ignored: Exception) {
+
         }
 
         socket = null
