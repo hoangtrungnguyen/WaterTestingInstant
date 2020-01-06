@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "472246461235",
+    "firebase_url": "https://watertestinginstant.firebaseio.com",
+    "project_id": "watertestinginstant",
+    "storage_bucket": "watertestinginstant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472246461235:android:435cdd4162b330d7285446",
+        "android_client_info": {
+          "package_name": "com.hackathon.watertestinginstant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472246461235-7ipcm7fg2u4c935a2umd34vbieen5add.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hackathon.watertestinginstant",
+            "certificate_hash": "b783c7dddf8cfd0c4a628570a6f95c8c6adbe3ad"
+          }
+        },
+        {
+          "client_id": "472246461235-ci345um8oi0sn91s00sigrfs7kpftk4q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlXs4tsiSPxmsUXQJbYP6xv3L9jehgI9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472246461235-ci345um8oi0sn91s00sigrfs7kpftk4q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

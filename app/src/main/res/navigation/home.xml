@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/home">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/terminalFragment"
+        android:name="com.hackathon.watertestinginstant.ui.main.home.TerminalFragment"
+        android:label="fragment_terminal"
+        tools:layout="@layout/fragment_terminal" >
+        <argument
+            android:name="macAddress"
+            app:argType="string"
+            android:defaultValue="Null" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="com.hackathon.watertestinginstant.ui.main.home.TerminalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.hackathon.watertestinginstant.ui.main.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_terminalFragment"
+            app:destination="@id/terminalFragment" />
+    </fragment>
 </navigation>

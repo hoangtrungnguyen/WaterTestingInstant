@@ -1,0 +1,39 @@
+Index: app/src/main/java/com/hackathon/watertestinginstant/ui/util/UI.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/hackathon/watertestinginstant/ui/util/UI.kt	(date 1578218266784)
++++ app/src/main/java/com/hackathon/watertestinginstant/ui/util/UI.kt	(date 1578218266784)
+@@ -0,0 +1,31 @@
++package com.hackathon.watertestinginstant.ui.util
++import android.app.Activity
++import android.app.PendingIntent.getActivity
++import android.content.Context
++import android.view.View
++import android.view.inputmethod.InputMethodManager
++import androidx.annotation.StringRes
++import com.google.android.material.snackbar.Snackbar
++import androidx.core.content.ContextCompat.getSystemService
++import androidx.core.content.ContextCompat.getSystemService
++
++
++
++
++
++internal fun Activity.showSnackbarShort(text: CharSequence) {
++    Snackbar.make(findViewById(android.R.id.content), text, Snackbar.LENGTH_SHORT).show()
++}
++
++internal fun Activity.showSnackbarShort(@StringRes text: Int) {
++    Snackbar.make(findViewById(android.R.id.content), text, Snackbar.LENGTH_SHORT).show()
++}
++internal fun Activity.hideKeyboard() {
++    try {
++        val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
++        imm.hideSoftInputFromWindow(this.currentFocus!!.windowToken, 0)
++    } catch (e: Exception) {
++        showError(e)
++    }
++
++}
