@@ -5,14 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.firebase.iid.FirebaseInstanceId
 import com.hackathon.watertestinginstant.R
-import com.hackathon.watertestinginstant.api.Client
-import com.hackathon.watertestinginstant.api.WaterApi
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
+import com.hackathon.watertestinginstant.data.Result
 import com.hackathon.watertestinginstant.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 
+@Suppress("DEPRECATION")
 class ProfileFragment : Fragment() {
 
     private lateinit var profileViewModel: ProfileViewModel
@@ -34,6 +36,16 @@ class ProfileFragment : Fragment() {
             WaterTestingApplication.mAuth.signOut()
             LoginActivity.newInstance(activity!!)
         }
+
+        profileViewModel.result.observe(viewLifecycleOwner, Observer {
+            if(it is Result.Success){
+                json.text = (it.data.size.toString())
+            } else {
+                json.text = ((it as Result.Error).exception.message)
+            }
+        })
+
+        call_api.setOnClickListener { profileViewModel.syncApi() }
 
     }
 }

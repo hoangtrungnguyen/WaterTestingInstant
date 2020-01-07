@@ -5,9 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hackathon.watertestinginstant.api.Client
+import com.hackathon.watertestinginstant.api.MarsProperty
+import com.hackathon.watertestinginstant.api.WaterApi
 import com.hackathon.watertestinginstant.data.Result
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeout
 
 class ProfileViewModel : ViewModel() {
 
@@ -16,16 +19,19 @@ class ProfileViewModel : ViewModel() {
     }
     val text: LiveData<String> = _text
 
-    val data = MutableLiveData<Result<String>>()
+    val result = MutableLiveData<Result<List<MarsProperty>>>()
+
 
     fun syncApi() {
         viewModelScope.launch {
-            try {
-                Client.getProperties().collect { value ->
-                    data.postValue(Result.Success(value))
+            withTimeout(3000) {
+                try {
+                    val value = WaterApi.retrofitService.getPropertiesAsync().await()
+
+                    result.postValue(Result.Success(value))
+                } catch (e: Exception) {
+                    result.postValue(Result.Error(e))
                 }
-            } catch (e: Exception) {
-                data.postValue(Result.Error(e))
             }
         }
     }

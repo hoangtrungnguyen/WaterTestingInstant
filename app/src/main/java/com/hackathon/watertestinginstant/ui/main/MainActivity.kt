@@ -2,6 +2,7 @@ package com.hackathon.watertestinginstant.ui.main
 
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
@@ -50,6 +51,8 @@ class MainActivity : AppCompatActivity() {
 
     private var currentNavController: LiveData<NavController>? = null
 
+    private lateinit var receiver: BroadcastReceiver
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -71,7 +74,8 @@ class MainActivity : AppCompatActivity() {
             addAction(BluetoothAdapter.ACTION_STATE_CHANGED)
 
         }
-        this.registerReceiver(BluetoothReceiver(this), filter)
+        receiver = BluetoothReceiver(this)
+        this.registerReceiver(receiver, filter)
     }
 
     override fun onStart() {
@@ -140,5 +144,6 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         isPause = true
+        this.unregisterReceiver(receiver)
     }
 }

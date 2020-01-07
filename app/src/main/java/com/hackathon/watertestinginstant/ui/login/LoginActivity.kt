@@ -43,6 +43,16 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val currentUser = WaterTestingApplication.mAuth.currentUser
+        if (currentUser != null) {
+            MainActivity.newInstance(this)
+            setResult(Activity.RESULT_OK)
+            finish()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
         loginViewModel = ViewModelProviders.of(
             this,
             ViewModelFactory(WaterTestingApplication.appDataBase.waterDao())
@@ -50,27 +60,5 @@ class LoginActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_login)
     }
-
-    override fun onStart() {
-        super.onStart()
-        val currentUser = WaterTestingApplication.mAuth.currentUser
-
-        if (currentUser != null)
-            MainActivity.newInstance(this)
-    }
 }
 
-/**
- * Extension function to simplify setting an afterTextChanged action to EditText components.
- */
-fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
-    this.addTextChangedListener(object : TextWatcher {
-        override fun afterTextChanged(editable: Editable?) {
-            afterTextChanged.invoke(editable.toString())
-        }
-
-        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-
-        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
-    })
-}

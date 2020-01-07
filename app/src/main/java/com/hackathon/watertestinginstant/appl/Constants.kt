@@ -15,4 +15,6 @@ val BASE_URL = "https://lman-test.firebaseapp.com"
 
 val key = "d4627862d17c429f5b5285fb09aeb150"
 
-val BASE_URL_TEST = "https://api.themoviedb.org/3/movie/550?api_key=${key}"
+val BASE_URL_FILM_ADB = "https://api.themoviedb.org/3/movie/550?api_key=${key}"
+
+val BASE_URL_MARS = "https://android-kotlin-fun-mars-server.appspot.com/"

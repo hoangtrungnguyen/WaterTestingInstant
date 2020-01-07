@@ -10,6 +10,7 @@ import com.polidea.rxandroidble2.LogOptions
 import com.polidea.rxandroidble2.RxBleClient
 import bleshadow.dagger.Provides
 import bleshadow.javax.inject.Singleton
+import com.google.firebase.messaging.FirebaseMessaging
 
 
 class WaterTestingApplication : Application() {
@@ -40,5 +41,6 @@ class WaterTestingApplication : Application() {
         mAuth = FirebaseAuth.getInstance()
         application = this
         appDataBase = AppDataBase.getInstance(this)
+        FirebaseMessaging.getInstance().isAutoInitEnabled = true
     }
 }

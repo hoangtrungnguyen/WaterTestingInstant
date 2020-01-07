@@ -5,7 +5,11 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.*
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.iid.FirebaseInstanceId
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.bluetooth.ConnectStatus
 import com.hackathon.watertestinginstant.bluetooth.SerialSocket
@@ -20,7 +24,7 @@ import kotlin.coroutines.resume
 
 class MainViewModel(val application: WaterTestingApplication, val waterDao: WaterDao) :
     AndroidViewModel(application) {
-
+    private val TAG = this.javaClass.simpleName
 
     private val _status = MutableLiveData<String>()
     val status: LiveData<String> = _status
@@ -46,7 +50,21 @@ class MainViewModel(val application: WaterTestingApplication, val waterDao: Wate
     var serialSocket: SerialSocket? = null
 
     init {
+        FirebaseInstanceId.getInstance().instanceId
+            .addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    Log.w(TAG, "getInstanceId failed", task.exception)
+                    return@OnCompleteListener
+                }
 
+                // Get new Instance ID token
+                val token = task.result?.token
+
+                // Log and toast
+                val msg = "Token $token"
+                Log.d(TAG, msg)
+                Toast.makeText(application, msg, Toast.LENGTH_SHORT).show()
+            })
     }
 
     fun postResult(data: Result<ByteArray>) {

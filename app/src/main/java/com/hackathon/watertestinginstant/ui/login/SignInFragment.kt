@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.firebase.iid.FirebaseInstanceId
 
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
@@ -21,6 +22,7 @@ import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
 import kotlinx.android.synthetic.main.activity_login.*
 import com.hackathon.watertestinginstant.data.Result
 import com.hackathon.watertestinginstant.database.AppDataBase
+import com.hackathon.watertestinginstant.ui.util.afterTextChanged
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 
 /**
