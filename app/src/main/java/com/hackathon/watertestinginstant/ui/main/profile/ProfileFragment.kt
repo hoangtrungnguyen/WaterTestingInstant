@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.hackathon.watertestinginstant.R
+import com.hackathon.watertestinginstant.api.Client
+import com.hackathon.watertestinginstant.api.WaterApi
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -32,5 +34,6 @@ class ProfileFragment : Fragment() {
             WaterTestingApplication.mAuth.signOut()
             LoginActivity.newInstance(activity!!)
         }
+
     }
 }

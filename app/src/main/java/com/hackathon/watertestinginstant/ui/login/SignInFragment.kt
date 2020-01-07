@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
+import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.ui.main.MainActivity
 import com.hackathon.watertestinginstant.ui.util.hideKeyBoard
 import com.hackathon.watertestinginstant.ui.util.showError
@@ -25,6 +26,7 @@ import kotlinx.android.synthetic.main.fragment_sign_in.*
 /**
  * A simple [Fragment] subclass.
  */
+@Suppress("DEPRECATION")
 class SignInFragment : Fragment() {
 
     private lateinit var loginViewModel: LoginViewModel
@@ -39,16 +41,11 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        try {
-            loginViewModel = activity?.run {
-                ViewModelProviders.of(
-                    this,
-                    ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
-                )[LoginViewModel::class.java]
-            } ?: throw Exception("Invalid Activity")
-        } catch (e:Exception){
-            activity?.showSnackbarShort(e.toString())
-        }
+        loginViewModel = ViewModelProviders.of(
+                this,
+                ViewModelFactory(WaterTestingApplication.appDataBase.waterDao())
+            )[LoginViewModel::class.java]
+
 
         loginViewModel.loginFormState.observe(viewLifecycleOwner, Observer {
             val loginState = it ?: return@Observer
@@ -65,7 +62,7 @@ class SignInFragment : Fragment() {
         })
 
         loginViewModel.loginResult.observe(viewLifecycleOwner, Observer {
-            if(it == null){
+            if (it == null) {
                 activity?.showSnackbarShort("Authentication Failed")
             }
             val loginResult = it

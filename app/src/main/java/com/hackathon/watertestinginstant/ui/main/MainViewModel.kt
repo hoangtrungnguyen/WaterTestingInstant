@@ -35,7 +35,7 @@ class MainViewModel(val application: WaterTestingApplication, val waterDao: Wate
         it.map {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 "The quality of the water:\nPH: ${it.PH}\nTurbidity: ${it.Turbidity}\nTDS${it.TDS}\n" +
-                        "at ${LocalDate.ofEpochDay(it.time.time)}"
+                        "at ${LocalDate.ofEpochDay(it.time)}"
             } else {
                 "The quality of the water:\nPH: ${it.PH}\nTurbidity: ${it.Turbidity}\nTDS${it.TDS}\n" +
                         "at ${it.time}"

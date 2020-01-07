@@ -99,6 +99,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
 
+    kapt "android.arch.persistence.room:compiler:1.1.1"
+
+    def kotlin_coroutine = "1.3.3"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutine"
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'

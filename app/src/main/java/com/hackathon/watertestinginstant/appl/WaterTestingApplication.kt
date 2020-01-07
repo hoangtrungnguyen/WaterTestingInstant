@@ -1,11 +1,16 @@
 package com.hackathon.watertestinginstant.appl
 
 import android.app.Application
+import bleshadow.dagger.Module
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+import com.hackathon.watertestinginstant.database.AppDataBase
 import com.polidea.rxandroidble2.LogConstants
 import com.polidea.rxandroidble2.LogOptions
 import com.polidea.rxandroidble2.RxBleClient
+import bleshadow.dagger.Provides
+import bleshadow.javax.inject.Singleton
+
 
 class WaterTestingApplication : Application() {
     companion object {
@@ -14,6 +19,8 @@ class WaterTestingApplication : Application() {
 
         lateinit var application: WaterTestingApplication
         lateinit var mAuth: FirebaseAuth
+
+        lateinit var appDataBase :AppDataBase
     }
     // Reference to the application graph that is used across the whole app
 //    val appComponent = DaggerAp.create()
@@ -32,5 +39,6 @@ class WaterTestingApplication : Application() {
         FirebaseApp.initializeApp(this)
         mAuth = FirebaseAuth.getInstance()
         application = this
+        appDataBase = AppDataBase.getInstance(this)
     }
 }

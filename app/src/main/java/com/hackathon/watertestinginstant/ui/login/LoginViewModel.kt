@@ -17,7 +17,6 @@ import java.io.IOException
 
 
 class LoginViewModel(
-    private val loginRepository: LoginRepository,
     private val mAuth: FirebaseAuth?,
     private val application: WaterTestingApplication
 ) : AndroidViewModel(application) {

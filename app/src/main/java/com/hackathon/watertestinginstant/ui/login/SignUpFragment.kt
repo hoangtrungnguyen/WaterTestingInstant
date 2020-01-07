@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.hackathon.watertestinginstant.ui.login
 
 
@@ -31,16 +33,10 @@ class SignUpFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        try {
-            loginViewModel = activity?.run {
-                ViewModelProviders.of(
-                    this,
-                    ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
-                )[LoginViewModel::class.java]
-            } ?: throw Exception("Invalid Activity")
-        } catch (e: Exception) {
-            activity?.showSnackbarShort(e.toString())
-        }
+        loginViewModel = ViewModelProviders.of(
+                this,
+                ViewModelFactory(WaterTestingApplication.appDataBase.waterDao())
+            )[LoginViewModel::class.java]
     }
 
     override fun onCreateView(

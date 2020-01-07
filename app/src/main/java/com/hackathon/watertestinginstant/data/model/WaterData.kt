@@ -1,6 +1,7 @@
 package com.hackathon.watertestinginstant.data.model
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
 import java.util.*
 
@@ -10,7 +11,8 @@ data class WaterData(
     val PH: Double = 7.0,
     val Turbidity: Double = 0.0,
     val TDS: Double = 0.0,
-    val time: Date = Date()
+    @PrimaryKey
+    val time: Long = System.currentTimeMillis()
 )
 
 class Converters {

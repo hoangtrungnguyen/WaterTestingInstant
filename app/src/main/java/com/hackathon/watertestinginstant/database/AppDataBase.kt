@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 
 @Database(entities = [WaterData::class],version = 1)
-@TypeConverters(Converters::class)
+//@TypeConverters(Converters::class)
 abstract class AppDataBase : RoomDatabase() {
     abstract fun waterDao(): WaterDao
 

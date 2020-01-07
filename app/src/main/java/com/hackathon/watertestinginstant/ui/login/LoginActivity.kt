@@ -45,12 +45,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         loginViewModel = ViewModelProviders.of(
             this,
-            ViewModelFactory(AppDataBase.getInstance(this).waterDao())
+            ViewModelFactory(WaterTestingApplication.appDataBase.waterDao())
         ).get(LoginViewModel::class.java)
 
         setContentView(R.layout.activity_login)
-
-
     }
 
     override fun onStart() {

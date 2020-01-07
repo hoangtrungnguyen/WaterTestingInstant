@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
 
-
     private var currentNavController: LiveData<NavController>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
