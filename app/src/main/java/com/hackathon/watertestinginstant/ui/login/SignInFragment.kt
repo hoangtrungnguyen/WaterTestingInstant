@@ -12,12 +12,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 
 import com.hackathon.watertestinginstant.R
+import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.ui.main.MainActivity
 import com.hackathon.watertestinginstant.ui.util.hideKeyBoard
 import com.hackathon.watertestinginstant.ui.util.showError
 import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
 import kotlinx.android.synthetic.main.activity_login.*
 import com.hackathon.watertestinginstant.data.Result
+import com.hackathon.watertestinginstant.database.AppDataBase
+import kotlinx.android.synthetic.main.fragment_sign_in.*
+
 /**
  * A simple [Fragment] subclass.
  */
@@ -35,8 +39,16 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory())
-            .get(LoginViewModel::class.java)
+        try {
+            loginViewModel = activity?.run {
+                ViewModelProviders.of(
+                    this,
+                    ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
+                )[LoginViewModel::class.java]
+            } ?: throw Exception("Invalid Activity")
+        } catch (e:Exception){
+            activity?.showSnackbarShort(e.toString())
+        }
 
         loginViewModel.loginFormState.observe(viewLifecycleOwner, Observer {
             val loginState = it ?: return@Observer
@@ -53,7 +65,10 @@ class SignInFragment : Fragment() {
         })
 
         loginViewModel.loginResult.observe(viewLifecycleOwner, Observer {
-            val loginResult = it ?: return@Observer
+            if(it == null){
+                activity?.showSnackbarShort("Authentication Failed")
+            }
+            val loginResult = it
 
             loading.visibility = View.GONE
             if (loginResult is Result.Success && loginResult.data != null) {

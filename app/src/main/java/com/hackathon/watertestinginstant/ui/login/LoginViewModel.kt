@@ -2,6 +2,7 @@ package com.hackathon.watertestinginstant.ui.login
 
 import android.util.Log
 import android.util.Patterns
+import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,8 +14,6 @@ import com.hackathon.watertestinginstant.data.LoginRepository
 import com.hackathon.watertestinginstant.data.Result
 import com.hackathon.watertestinginstant.ui.util.isInternetConnection
 import java.io.IOException
-import java.lang.Exception
-import java.lang.NullPointerException
 
 
 class LoginViewModel(
@@ -54,12 +53,13 @@ class LoginViewModel(
                             Log.d(TAG, "createUserWithEmail:success")
                             val user = mAuth.currentUser
                             _loginResult.postValue(
-                                if (user != null) Result.Success(user)
-                                else Result.Error(NullPointerException("No user found"))
+                                if (user != null) {
+                                    Result.Success(user)
+                                } else Result.Error(NullPointerException("No user found"))
                             )
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException())
+                            Log.w(TAG, "signInWithEmailAndPassword:failure", task.getException())
                             _loginResult.postValue(
                                 Result.Error(
                                     task.exception ?: Exception("Unknown Exception")
@@ -74,6 +74,32 @@ class LoginViewModel(
             _loginResult.postValue(Result.Error(IOException("Error logging in", e)))
         }
 
+    }
+
+
+    fun signUp(email: String, password: String) {
+        mAuth?.apply {
+            createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful()) { // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "createUserWithEmail:success")
+                        val user = mAuth.currentUser
+                        _loginResult.postValue(
+                            if (user != null) {
+                                Result.Success(user)
+
+                            } else Result.Error(NullPointerException("No user found"))
+                        )
+                    } else { // If sign in fails, display a message to the user.
+                        Log.w(TAG, "createUserWithEmail:failure", task.getException())
+                        _loginResult.postValue(
+                            Result.Error(
+                                task.exception ?: Exception("Unknown Exception")
+                            )
+                        )
+                    }
+                }
+        }
     }
 
 
