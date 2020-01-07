@@ -17,7 +17,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.navArgs
 
 import com.hackathon.watertestinginstant.R
+import com.hackathon.watertestinginstant.appl.ViewModelFactory
+import com.hackathon.watertestinginstant.database.AppDataBase
 import com.hackathon.watertestinginstant.ui.main.MainViewModel
+import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
 import com.hackathon.watertestinginstant.ui.util.toHex
 import kotlinx.android.synthetic.main.fragment_terminal.*
 
@@ -46,9 +49,16 @@ class TerminalFragment : Fragment() {
         val bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
         device = bluetoothAdapter.getRemoteDevice(macAddress)
 
-        viewModel = activity?.run {
-            ViewModelProviders.of(this)[MainViewModel::class.java]
-        } ?: throw Exception("Invalid Activity")
+        try {
+            viewModel = activity?.run {
+                ViewModelProviders.of(
+                    this,
+                    ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
+                )[MainViewModel::class.java]
+            } ?: throw Exception("Invalid Activity")
+        } catch (e:Exception){
+            activity?.showSnackbarShort(e.toString())
+        }
 
 
     }

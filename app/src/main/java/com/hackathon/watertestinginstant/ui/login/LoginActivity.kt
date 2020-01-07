@@ -24,7 +24,6 @@ import kotlinx.android.synthetic.main.activity_login.*
 @Suppress("DEPRECATION")
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var loginViewModel: LoginViewModel
 
     companion object {
         fun newInstance(context: Context) {
@@ -38,84 +37,7 @@ class LoginActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_login)
 
-        loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory())
-            .get(LoginViewModel::class.java)
 
-        loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
-            val loginState = it ?: return@Observer
-
-            // disable login button unless both username / password is valid
-            login.isEnabled = loginState.isDataValid
-
-            if (loginState.usernameError != null) {
-                username.error = getString(loginState.usernameError)
-            }
-            if (loginState.passwordError != null) {
-                password.error = getString(loginState.passwordError)
-            }
-        })
-
-        loginViewModel.loginResult.observe(this@LoginActivity, Observer {
-            val loginResult = it ?: return@Observer
-
-            loading.visibility = View.GONE
-            if (loginResult is Result.Success && loginResult.data != null) {
-                MainActivity.newInstance(this)
-                setResult(Activity.RESULT_OK)
-                finish()
-            }
-            if (loginResult is Result.Error) {
-                showError(loginResult.exception)
-            }
-        })
-
-        loginViewModel.isInternetConnected.observe(this, Observer {
-            if (it == false) {
-                showSnackbarShort("No internet connection")
-                loading.visibility = View.GONE
-
-            }
-        })
-
-        username.afterTextChanged {
-            loginViewModel.loginDataChanged(
-                username.text.toString(),
-                password.text.toString()
-            )
-        }
-
-        password.apply {
-            //For test purpose only
-            this.setText("12345678")
-            username.setText("user2@gmail.com")
-
-
-
-            afterTextChanged {
-                loginViewModel.loginDataChanged(
-                    username.text.toString(),
-                    password.text.toString()
-                )
-            }
-
-            setOnEditorActionListener { _, actionId, _ ->
-                when (actionId) {
-                    EditorInfo.IME_ACTION_DONE ->
-                        loginViewModel.login(
-                            username.text.toString(),
-                            password.text.toString()
-                        )
-                }
-                false
-            }
-
-            login.setOnClickListener {
-                loading.visibility = View.VISIBLE
-                this@LoginActivity.hideKeyBoard()
-                loginViewModel.login(username.text.toString(), password.text.toString())
-
-            }
-        }
     }
 
     override fun onStart() {

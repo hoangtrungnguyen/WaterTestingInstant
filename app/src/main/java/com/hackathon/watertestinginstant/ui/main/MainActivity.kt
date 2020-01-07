@@ -7,18 +7,20 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.size
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
+import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.bluetooth.BluetoothReceiver
-import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
+import com.hackathon.watertestinginstant.database.AppDataBase
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -29,17 +31,19 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(context, MainActivity::class.java)
             context.startActivity(intent)
         }
+
         const val TAB_HOME = 0
-        const val TAB_HISTORY= 1
+        const val TAB_HISTORY = 1
         const val TAB_PROFILE = 2
 
-        val tabs = mapOf<Int,Int>(
+        val tabs = mapOf<Int, Int>(
             TAB_HOME to R.id.home,
             TAB_HISTORY to R.id.history,
-            TAB_PROFILE to  R.id.profile
+            TAB_PROFILE to R.id.profile
         )
 
     }
+
     private val TAG = this.javaClass.simpleName
 
     private lateinit var viewModel: MainViewModel
@@ -50,7 +54,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel = ViewModelProviders.of(this, ViewModelFactory()).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(
+            this,
+            ViewModelFactory(AppDataBase.getInstance(WaterTestingApplication.application).waterDao())
+        ).get(MainViewModel::class.java)
 
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
@@ -58,9 +65,6 @@ class MainActivity : AppCompatActivity() {
 
         val filter = IntentFilter()
         filter.apply {
-            addAction(BluetoothDevice.ACTION_ACL_CONNECTED)
-            addAction(BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED)
-            addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED)
             addAction(BluetoothDevice.ACTION_BOND_STATE_CHANGED)
             addAction(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED)
             addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED)
@@ -111,11 +115,23 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-     var isPause : Boolean = true
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.header_menu, menu);
+        return true;
+    }
 
-    fun setNav(bottomPosition: Int){
-        if(bottomPosition in 0 until bottom_nav.menu.size()){
-            Log.d(TAG,"Index out of bound")
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.sync -> return true //TODO send file to ser
+        }
+        return false
+    }
+
+    var isPause: Boolean = true
+
+    fun setNav(bottomPosition: Int) {
+        if (bottomPosition in 0 until bottom_nav.menu.size()) {
+            Log.d(TAG, "Index out of bound")
             return
         }
         bottom_nav.selectedItemId = tabs[bottomPosition] ?: R.id.home

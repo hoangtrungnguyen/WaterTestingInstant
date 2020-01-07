@@ -69,6 +69,7 @@
     <string name="error_unknown_error">Unknown error</string>
     <string name="error_no_message">No message found for reason=%d. Consider adding one.</string>
     <string name="logout">Logout</string>
+    <string name="sync">Sync</string>
 
 
 </resources>

@@ -94,7 +94,6 @@ class BluetoothReceiver(val main: MainActivity) : BroadcastReceiver() {
                             main.findNavController(R.id.nav_host_fragment)
                                 .navigate(deeplink)
 
-
                         }
 
                         main.setNav(MainActivity.TAB_HOME)
@@ -115,9 +114,11 @@ class BluetoothReceiver(val main: MainActivity) : BroadcastReceiver() {
         }
     }
 
-    fun getAddressMatchDevice(bluetoothAdapter: BluetoothAdapter, name: String): String? = try {
+    private fun getAddressMatchDevice(bluetoothAdapter: BluetoothAdapter, name: String): String? = try {
         bluetoothAdapter.bondedDevices.first { it.name == name }.address
     } catch (e: Exception) {
         null
     }
+
+
 }

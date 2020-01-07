@@ -29,7 +29,11 @@
         <receiver
             android:name=".bluetooth.BluetoothReceiver"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="false"><!--receive from outside android source-->
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
 
         <service android:name=".bluetooth.SerialService" />
 

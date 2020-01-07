@@ -17,7 +17,7 @@ import java.util.*
 import java.util.concurrent.Executors
 
 
-    class SerialSocket( /*private var resultTask: Result<*>*/) : Runnable {
+class SerialSocket( /*private var resultTask: Result<*>*/) : Runnable {
     private val TAG = this.javaClass.simpleName
 
     private val disconnectBroadcastReceiver: BroadcastReceiver
@@ -89,7 +89,7 @@ import java.util.concurrent.Executors
         try {
             socket = device?.createRfcommSocketToServiceRecord(BLUETOOTH_SPP)
             socket?.connect()
-            viewModel?.postStatus("Connected")
+            viewModel?.postStatus("Socket connected")
         } catch (e: Exception) {
             cancel(e)
             return
@@ -97,13 +97,13 @@ import java.util.concurrent.Executors
 
 
         _connected = true
-
+        viewModel?.postStatus("Connected")
         try {
 
             socket?.use { socket ->
                 // Connect to the remote device through the socket. This call blocks
                 // until it succeeds or throws an exception.
-                socket.connect()
+
                 _connected = (socket.isConnected)
                 // The connection attempt succeeded. Perform work associated with
                 // the connection in a separate thread.
@@ -112,8 +112,8 @@ import java.util.concurrent.Executors
                 while (true) {
                     len = socket.inputStream.read(buffer)
                     val data = buffer.copyOf(len)
-//                    viewModel?.postResult(Result.success(data))
-                    Log.d("sssssocket",data.toHex())
+                    viewModel?.postResult(Result.success(data))
+                    Log.d("sssssocket", data.toHex())
                 }
             }
         } catch (e: Exception) {

@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.fragment.app.ListFragment
 import androidx.navigation.fragment.findNavController
 import com.hackathon.watertestinginstant.appl.BLUETOOTH_SPP
+import com.hackathon.watertestinginstant.ui.main.MainViewModel
 import java.util.*
 import kotlin.Comparator
 import kotlin.collections.ArrayList
@@ -23,7 +24,6 @@ class HomeFragment : ListFragment() {
     private var bluetoothAdapter: BluetoothAdapter? = null
     private var listAdapter: ArrayAdapter<BluetoothDevice>? = null
 
-
     private var listDevices = ArrayList<BluetoothDevice>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +31,8 @@ class HomeFragment : ListFragment() {
         setHasOptionsMenu(true)
         if (activity!!.packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH))
             bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
+
+
 
         listAdapter = object : ArrayAdapter<BluetoothDevice>(context!!, 0, listDevices) {
             @SuppressLint("ViewHolder")

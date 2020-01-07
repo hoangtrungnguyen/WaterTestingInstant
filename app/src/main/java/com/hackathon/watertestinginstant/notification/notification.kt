@@ -64,3 +64,8 @@ fun Service.createNotification(notificationMsg: String) {
     val notification = builder.build()
     startForeground(NOTIFY_MANAGER_START_FOREGROUND_SERVICE, notification)
 }
+
+
+fun Context.notificationReceiver(){
+
+}
