@@ -9,19 +9,21 @@ import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.bluetooth.BluetoothReceiver
 import com.hackathon.watertestinginstant.database.AppDataBase
+import com.hackathon.watertestinginstant.ui.util.isInternetConnection
+import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -76,6 +78,10 @@ class MainActivity : AppCompatActivity() {
         }
         receiver = BluetoothReceiver(this)
         this.registerReceiver(receiver, filter)
+
+        viewModel.syncRes.observe(this, Observer {
+            showSnackbarShort(it.toString())
+        })
     }
 
     override fun onStart() {
@@ -108,7 +114,7 @@ class MainActivity : AppCompatActivity() {
 
         // Whenever the selected controller changes, setup the action bar.
         controller.observe(this, Observer { navController ->
-            //            setupActionBarWithNavController(navController)
+            setupActionBarWithNavController(navController)
         })
         currentNavController = controller
     }
@@ -124,11 +130,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.sync -> return true //TODO send file to ser
+        when (item.itemId) {
+            R.id.sync -> {
+                if(!application.isInternetConnection()){
+                    showSnackbarShort("No internet connection, can't sync with the system")
+                    return false
+                }
+                viewModel.syncData()
+                return true
+            }//TODO send file to ser
         }
         return false
     }
+
+
 
     var isPause: Boolean = true
 
@@ -144,6 +159,6 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         isPause = true
-        this.unregisterReceiver(receiver)
+//        this.unregisterReceiver(receiver)
     }
 }

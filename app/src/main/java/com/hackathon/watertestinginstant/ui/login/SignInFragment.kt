@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.iid.FirebaseInstanceId
 
 import com.hackathon.watertestinginstant.R
@@ -44,9 +45,9 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loginViewModel = ViewModelProviders.of(
-                this,
-                ViewModelFactory(WaterTestingApplication.appDataBase.waterDao())
-            )[LoginViewModel::class.java]
+            this,
+            ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
+        )[LoginViewModel::class.java]
 
 
         loginViewModel.loginFormState.observe(viewLifecycleOwner, Observer {
@@ -73,7 +74,6 @@ class SignInFragment : Fragment() {
             if (loginResult is Result.Success && loginResult.data != null) {
                 MainActivity.newInstance(context!!)
                 activity?.setResult(Activity.RESULT_OK)
-                activity?.finish()
             }
             if (loginResult is Result.Error) {
                 activity?.showError(loginResult.exception)
@@ -120,12 +120,19 @@ class SignInFragment : Fragment() {
                 false
             }
 
-            login.setOnClickListener {
-                loading.visibility = View.VISIBLE
-                activity?.hideKeyBoard()
-                loginViewModel.login(username.text.toString(), password.text.toString())
-
-            }
         }
+
+        login.setOnClickListener {
+            loading.visibility = View.VISIBLE
+            activity?.hideKeyBoard()
+            loginViewModel.login(username.text.toString(), password.text.toString())
+
+        }
+        tvSignInGoogle.setOnClickListener {
+
+        }
+
+        signup.setOnClickListener { findNavController().navigate(R.id.action_signInFragment_to_signUpFragment) }
+
     }
 }

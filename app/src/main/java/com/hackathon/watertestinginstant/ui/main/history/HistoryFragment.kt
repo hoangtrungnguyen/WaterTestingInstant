@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
+import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.database.AppDataBase
 import com.hackathon.watertestinginstant.ui.main.MainViewModel
 import kotlinx.android.synthetic.main.fragment_history.*
@@ -20,18 +21,15 @@ import kotlinx.android.synthetic.main.fragment_history.*
 class HistoryFragment : Fragment() {
 
     private lateinit var historyViewModel: HistoryViewModel
-    private lateinit var mainViewModel: MainViewModel
 
     private val adapterHistory = HistoryAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activity?.let {
-            mainViewModel = ViewModelProviders.of(
-                it,
-                ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
-            )[MainViewModel::class.java]
-        }
+        historyViewModel = ViewModelProviders.of(
+            this,
+            ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
+        )[HistoryViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -52,10 +50,8 @@ class HistoryFragment : Fragment() {
         with(rcvData) {
             this.adapter = adapterHistory
         }
-        mainViewModel.waterData.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                adapterHistory.updateData(it)
-            }
+        historyViewModel.waterData.observe(viewLifecycleOwner, Observer {
+            it?.let { adapterHistory.updateData(it) }
         })
     }
 }

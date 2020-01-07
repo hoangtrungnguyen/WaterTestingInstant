@@ -10,7 +10,13 @@ import com.polidea.rxandroidble2.LogOptions
 import com.polidea.rxandroidble2.RxBleClient
 import bleshadow.dagger.Provides
 import bleshadow.javax.inject.Singleton
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.messaging.FirebaseMessaging
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 
 class WaterTestingApplication : Application() {
@@ -20,8 +26,7 @@ class WaterTestingApplication : Application() {
 
         lateinit var application: WaterTestingApplication
         lateinit var mAuth: FirebaseAuth
-
-        lateinit var appDataBase :AppDataBase
+        lateinit var fireBaseDB: FirebaseDatabase
     }
     // Reference to the application graph that is used across the whole app
 //    val appComponent = DaggerAp.create()
@@ -40,7 +45,9 @@ class WaterTestingApplication : Application() {
         FirebaseApp.initializeApp(this)
         mAuth = FirebaseAuth.getInstance()
         application = this
-        appDataBase = AppDataBase.getInstance(this)
+
         FirebaseMessaging.getInstance().isAutoInitEnabled = true
+
+        fireBaseDB = FirebaseDatabase.getInstance()
     }
 }

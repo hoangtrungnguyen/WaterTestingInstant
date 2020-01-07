@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.data.model.WaterData
+import java.time.LocalDate
 import java.util.zip.Inflater
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
@@ -41,6 +42,8 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
         fun bind(item: WaterData) {
             val tvDate: TextView = view.findViewById(R.id.tvDate)
             val tvHP : TextView = view.findViewById(R.id.tvHP)
+            tvDate.setText(item.time.toString())
+            tvHP.text = item.PH.toString()
         }
     }
 }

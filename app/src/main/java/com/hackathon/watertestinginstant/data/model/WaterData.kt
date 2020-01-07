@@ -13,7 +13,11 @@ data class WaterData(
     val TDS: Double = 0.0,
     @PrimaryKey
     val time: Long = System.currentTimeMillis()
-)
+){
+    override fun toString(): String {
+        return "WaterData(PH=$PH, Turbidity=$Turbidity, TDS=$TDS, time=$time)"
+    }
+}
 
 class Converters {
     @TypeConverter

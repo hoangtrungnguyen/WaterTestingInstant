@@ -15,6 +15,7 @@ import com.hackathon.watertestinginstant.bluetooth.ConnectStatus
 import com.hackathon.watertestinginstant.bluetooth.SerialSocket
 import com.hackathon.watertestinginstant.data.model.WaterData
 import com.hackathon.watertestinginstant.database.WaterDao
+import com.hackathon.watertestinginstant.ui.util.isInternetConnection
 import com.hackathon.watertestinginstant.ui.util.useCancellably
 import kotlinx.coroutines.*
 import java.io.Closeable
@@ -24,7 +25,7 @@ import kotlin.coroutines.resume
 
 class MainViewModel(val application: WaterTestingApplication, val waterDao: WaterDao) :
     AndroidViewModel(application) {
-    private val TAG = this.javaClass.simpleName
+    private val TAG = "MainViewModel"
 
     private val _status = MutableLiveData<String>()
     val status: LiveData<String> = _status
@@ -32,20 +33,6 @@ class MainViewModel(val application: WaterTestingApplication, val waterDao: Wate
     private val _data = MutableLiveData<Result<ByteArray>>()
     val data: LiveData<Result<ByteArray>> = _data
 
-    val waterData = waterDao.getAll()
-
-
-    val waterDataString = Transformations.map(waterData) {
-        it.map {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                "The quality of the water:\nPH: ${it.PH}\nTurbidity: ${it.Turbidity}\nTDS${it.TDS}\n" +
-                        "at ${LocalDate.ofEpochDay(it.time)}"
-            } else {
-                "The quality of the water:\nPH: ${it.PH}\nTurbidity: ${it.Turbidity}\nTDS${it.TDS}\n" +
-                        "at ${it.time}"
-            }
-        }
-    }
 
     var serialSocket: SerialSocket? = null
 
@@ -65,6 +52,7 @@ class MainViewModel(val application: WaterTestingApplication, val waterDao: Wate
                 Log.d(TAG, msg)
                 Toast.makeText(application, msg, Toast.LENGTH_SHORT).show()
             })
+
     }
 
     fun postResult(data: Result<ByteArray>) {
@@ -99,5 +87,28 @@ class MainViewModel(val application: WaterTestingApplication, val waterDao: Wate
         }
     }
 
+    val syncRes = MutableLiveData<Result<String>>()
+
+    val waterData = waterDao.getAll()
+
+    fun syncData() {
+        // Write a message to the database
+        val database = WaterTestingApplication.fireBaseDB
+        val myRef = database.getReference("waterdata")
+        viewModelScope.launch {
+            Log.d("sssss", "syncing...")
+            try {
+                waterData.value?.forEach {
+                    myRef.setValue(it.toString())
+                }
+                if (waterDao.getAll().value != null)
+                    syncRes.postValue(Result.success("Sync success"))
+                else
+                    syncRes.postValue(Result.failure(Exception("No data from local storage")))
+            } catch (e: Exception) {
+                syncRes.postValue(Result.failure(e))
+            }
+        }
+    }
 
 }

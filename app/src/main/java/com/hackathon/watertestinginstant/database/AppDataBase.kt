@@ -8,9 +8,10 @@ import com.hackathon.watertestinginstant.data.model.WaterData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 
-@Database(entities = [WaterData::class],version = 1)
+@Database(entities = [WaterData::class], version = 1)
 //@TypeConverters(Converters::class)
 abstract class AppDataBase : RoomDatabase() {
     abstract fun waterDao(): WaterDao
@@ -52,10 +53,9 @@ abstract class AppDataBase : RoomDatabase() {
                     wordDao.deleteAll()
 
                     // Add sample words.
-                    var word = WaterData()
+                    var word = WaterData(TDS = Random(10).nextDouble())
                     wordDao.insert(word)
-                    word = WaterData()
-                    delay(2000)
+                    word = WaterData(TDS = Random(15).nextDouble(), PH = Random(7).nextDouble())
                     wordDao.insert(word)
                 }
             }

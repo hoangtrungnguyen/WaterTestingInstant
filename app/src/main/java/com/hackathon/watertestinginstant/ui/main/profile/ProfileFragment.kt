@@ -9,8 +9,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.iid.FirebaseInstanceId
 import com.hackathon.watertestinginstant.R
+import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.data.Result
+import com.hackathon.watertestinginstant.database.AppDataBase
 import com.hackathon.watertestinginstant.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -25,7 +27,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         profileViewModel =
-            ViewModelProviders.of(this).get(ProfileViewModel::class.java)
+            ViewModelProviders.of(this,ViewModelFactory(AppDataBase.getInstance(context!!).waterDao()))[ProfileViewModel::class.java]
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
         return root
     }
@@ -38,7 +40,7 @@ class ProfileFragment : Fragment() {
         }
 
         profileViewModel.result.observe(viewLifecycleOwner, Observer {
-            if(it is Result.Success){
+            if (it is Result.Success) {
                 json.text = (it.data.size.toString())
             } else {
                 json.text = ((it as Result.Error).exception.message)
@@ -46,6 +48,6 @@ class ProfileFragment : Fragment() {
         })
 
         call_api.setOnClickListener { profileViewModel.syncApi() }
-
+        add_dummy_data.setOnClickListener { profileViewModel.saveData() }
     }
 }
