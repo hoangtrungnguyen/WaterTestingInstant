@@ -72,6 +72,7 @@ dependencies {
 
     def room_version = "2.2.3"
     implementation "androidx.room:room-runtime:$room_version"
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
     annotationProcessor "androidx.room:room-compiler:$room_version"
     // For Kotlin use kapt instead of annotationProcessor
     // optional - Kotlin Extensions and Coroutines support for Room
@@ -83,6 +84,7 @@ dependencies {
     //bluetooth
     implementation 'com.github.ivbaranov:rxbluetooth2:2.1.1'
     implementation 'com.jakewharton.rx2:replaying-share:2.1.1'
+    compileOnly 'com.google.android.things:androidthings:1.0'
 
     //FireBase
     implementation 'com.google.firebase:firebase-auth:19.2.0'
@@ -98,7 +100,7 @@ dependencies {
     implementation "com.squareup.moshi:moshi:$version_moshi"
     implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
 
-    def version_retrofit = "2.5.0"
+    def version_retrofit = "2.6.0"
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
 
@@ -120,4 +122,3 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
-
