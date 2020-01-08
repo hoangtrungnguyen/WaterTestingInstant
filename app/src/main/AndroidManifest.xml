@@ -39,7 +39,7 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".bluetooth.SerialService" />
+        <service android:name=".bluetooth.BluetoothLeService" />
 
         <service
             android:name=".notification.FirebaseMessageService"
@@ -81,6 +81,11 @@
             <nav-graph android:value="@navigation/home"/>
             <nav-graph android:value="@navigation/history"/>
             <nav-graph android:value="@navigation/profile"/>
+        </activity>
+
+
+        <activity android:name=".ui.main.scan.ScanActivity">
+
         </activity>
     </application>
 

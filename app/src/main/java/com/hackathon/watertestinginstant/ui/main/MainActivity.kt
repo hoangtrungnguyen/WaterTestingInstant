@@ -77,8 +77,9 @@ class MainActivity : AppCompatActivity() {
             addAction(BluetoothAdapter.ACTION_STATE_CHANGED)
 
         }
+
         receiver = BluetoothReceiver(this)
-        this.registerReceiver(receiver, filter)
+//        this.registerReceiver(receiver, filter)
 
         viewModel.syncRes.observe(this, Observer {
             showSnackbarShort(it.toString())
@@ -159,6 +160,6 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         isPause = true
-        this.unregisterReceiver(receiver)
+//        this.unregisterReceiver(receiver)
     }
 }

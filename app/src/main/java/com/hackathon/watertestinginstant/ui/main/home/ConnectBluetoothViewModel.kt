@@ -12,6 +12,7 @@ import com.github.ivbaranov.rxbluetooth.BluetoothConnection
 import com.hackathon.watertestinginstant.appl.BLUETOOTH_SPP
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication.Companion.rxBleClient
+import com.hackathon.watertestinginstant.bluetooth.ACTION_DATA_AVAILABLE
 import com.hackathon.watertestinginstant.bluetooth.ConnectStatus
 import com.hackathon.watertestinginstant.ui.util.toHex
 import com.polidea.rxandroidble2.RxBleConnection
@@ -26,6 +27,8 @@ class ConnectBluetoothViewModel(val application: WaterTestingApplication) :
     val data = MutableLiveData<String>()
     val status = MutableLiveData<String>()
 
+    var bluetoothGatt: BluetoothGatt? = null
+
     init {
 
     }
@@ -35,7 +38,7 @@ class ConnectBluetoothViewModel(val application: WaterTestingApplication) :
         val blu = BluetoothAdapter.getDefaultAdapter()
         val device = blu.bondedDevices.first { it.address == macAddress }
 
-        device.connectGatt(WaterTestingApplication.application, true, object :
+        bluetoothGatt = device.connectGatt(application, false, object :
             BluetoothGattCallback() {
             override fun onCharacteristicRead(
                 gatt: BluetoothGatt?,
@@ -57,7 +60,9 @@ class ConnectBluetoothViewModel(val application: WaterTestingApplication) :
                     BluetoothGatt.STATE_DISCONNECTING -> status.postValue("Disconnecting...")
 
                 }
+                val s = ACTION_DATA_AVAILABLE
             }
+
         })
 
     }
