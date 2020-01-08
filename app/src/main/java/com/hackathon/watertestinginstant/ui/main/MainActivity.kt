@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.observe
 import androidx.navigation.NavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -136,7 +137,6 @@ class MainActivity : AppCompatActivity() {
                     showSnackbarShort("No internet connection, can't sync with the system")
                     return false
                 }
-                viewModel.syncData()
                 return true
             }//TODO send file to ser
         }
@@ -159,6 +159,6 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         isPause = true
-//        this.unregisterReceiver(receiver)
+        this.unregisterReceiver(receiver)
     }
 }

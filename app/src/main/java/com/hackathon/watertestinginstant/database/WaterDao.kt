@@ -21,6 +21,6 @@ interface WaterDao {
     fun getAll(): LiveData<List<WaterData>>
 
     @Query("SELECT * FROM WaterDataTable WHERE time between :from and :to")
-    fun getDataBetween(from: Long, to: Long): List<WaterData>
+    fun getDataBetween(from: Long, to: Long): List<WaterData>?
 
 }

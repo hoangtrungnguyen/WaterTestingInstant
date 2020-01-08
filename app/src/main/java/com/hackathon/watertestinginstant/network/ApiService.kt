@@ -1,18 +1,19 @@
-package com.hackathon.watertestinginstant.api
+package com.hackathon.watertestinginstant.network
 
 import com.squareup.moshi.Json
-import io.reactivex.Observable
 import kotlinx.coroutines.Deferred
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
     @GET("realestate")
-    fun getPropertiesAsync(): Deferred<List<MarsProperty>>
+     fun getPropertiesAsync(): Deferred<List<MarsProperty>>
 
-    @GET("save")
-    fun saveTestingData()
+    @POST("save")
+    fun saveTestingData(@Path(value = "save") data: String):Deferred<String>
 }
-
 /**
  * This data class defines a Mars property which includes an ID, the image URL, the type (sale
  * or rental) and the price (monthly if it's a rental).

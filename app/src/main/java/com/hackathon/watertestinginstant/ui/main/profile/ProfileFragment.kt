@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.google.firebase.iid.FirebaseInstanceId
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
@@ -39,15 +38,16 @@ class ProfileFragment : Fragment() {
             LoginActivity.newInstance(activity!!)
         }
 
-        profileViewModel.result.observe(viewLifecycleOwner, Observer {
-            if (it is Result.Success) {
-                json.text = (it.data.size.toString())
+        profileViewModel.mars.observe(viewLifecycleOwner, Observer {
+            if (it.isSuccess) {
+                json.text = (it.getOrNull()?.size.toString())
             } else {
-                json.text = ((it as Result.Error).exception.message)
+                json.text = (it.exceptionOrNull()?.message)
             }
         })
 
-        call_api.setOnClickListener { profileViewModel.syncApi() }
+        call_api.setOnClickListener { profileViewModel.callApi() }
         add_dummy_data.setOnClickListener { profileViewModel.saveData() }
+        sync.setOnClickListener { profileViewModel.syncData() }
     }
 }

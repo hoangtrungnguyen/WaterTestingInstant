@@ -29,13 +29,14 @@ import kotlinx.android.synthetic.main.fragment_terminal.*
  */
 @Suppress("DEPRECATION")
 class TerminalFragment : Fragment() {
-    companion object{
+    companion object {
         val MAC_ADDRESS = "macAddress"
     }
 
     var macAddress: String? = null
 
-    private lateinit var viewModel: MainViewModel
+    //    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModelConnect: ConnectBluetoothViewModel
 
     private lateinit var device: BluetoothDevice
 
@@ -49,17 +50,22 @@ class TerminalFragment : Fragment() {
         val bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
         device = bluetoothAdapter.getRemoteDevice(macAddress)
 
-        try {
-            viewModel = activity?.run {
-                ViewModelProviders.of(
-                    this,
-                    ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
-                )[MainViewModel::class.java]
-            } ?: throw Exception("Invalid Activity")
-        } catch (e:Exception){
-            activity?.showSnackbarShort(e.toString())
-        }
+//        try {
+//            viewModel = activity?.run {
+//                ViewModelProviders.of(
+//                    this,
+//                    ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
+//                )[MainViewModel::class.java]
+//            } ?: throw Exception("Invalid Activity")
+//        } catch (e:Exception){
+//            activity?.showSnackbarShort(e.toString())
+//        }
+        viewModelConnect = ViewModelProviders.of(
+            activity!!,
+            ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
+        )[ConnectBluetoothViewModel::class.java]
 
+        macAddress?.let { viewModelConnect.connectAndReceive(it) }
 
     }
 
@@ -78,22 +84,31 @@ class TerminalFragment : Fragment() {
         receive_text.movementMethod = ScrollingMovementMethod.getInstance()
         send_btn.setOnClickListener {}
 
-        viewModel.connect(device)
+//        viewModel.connect(device)
     }
 
     private fun initView() {
 
-        viewModel.data.observe(viewLifecycleOwner, Observer {
-            if (it.isSuccess)
-                it.getOrNull()?.let {
-                    receive_text.append(it.toHex())
-                }
-            else
-                receive_text.append(it.exceptionOrNull().toString())
+//        viewModel.data.observe(viewLifecycleOwner, Observer {
+//            if (it.isSuccess)
+//                it.getOrNull()?.let {
+//                    receive_text.append(it.toHex())
+//                }
+//            else
+//                receive_text.append(it.exceptionOrNull().toString())
+//
+//        })
+//
+//        viewModel.status.observe(viewLifecycleOwner, Observer {
+//            val spn = SpannableStringBuilder(it + '\n')
+//            spn.setSpan(
+//                ForegroundColorSpan(resources.getColor(R.color.colorStatusText)),
+//                0, spn.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+//            )
+//            receive_text.append(spn)
+//        })
 
-        })
-
-        viewModel.status.observe(viewLifecycleOwner, Observer {
+        viewModelConnect.status.observe(viewLifecycleOwner, Observer {
             val spn = SpannableStringBuilder(it + '\n')
             spn.setSpan(
                 ForegroundColorSpan(resources.getColor(R.color.colorStatusText)),
@@ -102,5 +117,8 @@ class TerminalFragment : Fragment() {
             receive_text.append(spn)
         })
 
+        viewModelConnect.data.observe(viewLifecycleOwner, Observer {
+            receive_text.append("$it\n")
+        })
     }
 }

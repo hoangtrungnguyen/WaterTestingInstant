@@ -1,5 +1,6 @@
 package com.hackathon.watertestinginstant.ui.util
 import android.app.Activity
+import android.bluetooth.BluetoothClass
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -48,3 +49,5 @@ fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
     })
 }
+
+val s = BluetoothClass.Service.INFORMATION

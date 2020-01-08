@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/profile"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile"
     app:startDestination="@id/notificationsFragment">
 
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="com.hackathon.watertestinginstant.ui.main.profile.ProfileFragment"
-        android:label="NotificationsFragment" />
+        android:label="NotificationsFragment" >
+        <action
+            android:id="@+id/action_notificationsFragment_to_addDeviceFragment"
+            app:destination="@id/addDeviceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addDeviceFragment"
+        android:name="com.hackathon.watertestinginstant.ui.main.profile.AddDeviceFragment"
+        android:label="Add Device"
+        tools:layout="@layout/add_device_fragment" />
 </navigation>

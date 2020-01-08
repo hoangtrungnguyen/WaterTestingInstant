@@ -14,21 +14,44 @@
 
     <TextView
         android:id="@+id/json"
-        tools:text="ưyyyyyyyyyyyyyyyy8b yyyyyyyyyyyyyyyqnwwwwwwwwwwww"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/call_api" />
+        app:layout_constraintTop_toBottomOf="@+id/call_api"
+        tools:text="ưyyyyyyyyyyyyyyyy8b yyyyyyyyyyyyyyyqnwwwwwwwwwwww" />
+
+    <Button
+        android:id="@+id/sync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Sync data"
+        app:layout_constraintBottom_toTopOf="@+id/add_dummy_data"
+        app:layout_constraintEnd_toEndOf="@+id/add_dummy_data"
+        app:layout_constraintStart_toStartOf="@+id/add_dummy_data"
+        app:layout_constraintTop_toBottomOf="@+id/json"
+        app:layout_constraintVertical_bias="0.45" />
 
     <Button
         android:id="@+id/add_dummy_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="256dp"
         android:text="Add Dummy Data"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintBottom_toTopOf="@+id/add_device"
+        app:layout_constraintEnd_toEndOf="@+id/add_device"
+        app:layout_constraintStart_toStartOf="@+id/add_device"
+        app:layout_constraintTop_toBottomOf="@+id/sync" />
+
+    <Button
+        android:id="@+id/add_device"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Device"
+        app:layout_constraintBottom_toTopOf="@+id/tvLogout"
+        app:layout_constraintEnd_toEndOf="@+id/tvLogout"
+        app:layout_constraintStart_toStartOf="@+id/tvLogout"
+        app:layout_constraintTop_toBottomOf="@+id/add_dummy_data" />
 
     <TextView
         android:id="@+id/tvLogout"
@@ -39,7 +62,7 @@
         android:textColor="@android:color/holo_red_light"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.795"
+        app:layout_constraintTop_toBottomOf="@+id/add_device"
+        app:layout_constraintVertical_bias="0.195"
         tools:layout_editor_absoluteX="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

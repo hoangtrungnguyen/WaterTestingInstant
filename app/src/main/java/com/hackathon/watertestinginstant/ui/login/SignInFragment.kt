@@ -46,7 +46,7 @@ class SignInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loginViewModel = ViewModelProviders.of(
             this,
-            ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
+            LoginViewModelFactory()
         )[LoginViewModel::class.java]
 
 

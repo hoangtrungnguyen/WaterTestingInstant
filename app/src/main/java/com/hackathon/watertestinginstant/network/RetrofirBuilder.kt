@@ -1,4 +1,4 @@
-package com.hackathon.watertestinginstant.api
+package com.hackathon.watertestinginstant.network
 
 import com.hackathon.watertestinginstant.appl.BASE_URL
 import com.hackathon.watertestinginstant.appl.BASE_URL_MARS
