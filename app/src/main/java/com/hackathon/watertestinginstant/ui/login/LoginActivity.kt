@@ -8,12 +8,18 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
+import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.IdpResponse
+import com.google.firebase.auth.FirebaseAuth
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.database.AppDataBase
 import com.hackathon.watertestinginstant.ui.main.MainActivity
+import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
+import kotlinx.android.synthetic.main.activity_login.*
 
 
+val SIGN_IN_WITH_SOCIAL_ACC = 72
 @Suppress("DEPRECATION")
 class LoginActivity : AppCompatActivity() {
 
@@ -22,6 +28,10 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(context, LoginActivity::class.java)
             context.startActivity(intent)
         }
+
+        val providers = arrayListOf(
+            AuthUI.IdpConfig.GoogleBuilder().build()
+        )
     }
 
     private lateinit var loginViewModel: LoginViewModel
@@ -38,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
 //            setResult(Activity.RESULT_OK)
 //        }
         setContentView(com.hackathon.watertestinginstant.R.layout.activity_login)
+        // Create and launch sign-in intent
     }
 
     override fun onStart() {
@@ -52,5 +63,5 @@ class LoginActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
     }
-}
 
+}

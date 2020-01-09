@@ -1,10 +1,13 @@
 package com.hackathon.watertestinginstant.ui.main.profile
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hackathon.watertestinginstant.appl.BASE_URL
+import com.hackathon.watertestinginstant.appl.BASE_URL_MARS
+import com.hackathon.watertestinginstant.data.model.Message
 import com.hackathon.watertestinginstant.data.model.WaterData
 import com.hackathon.watertestinginstant.database.WaterDao
 import com.hackathon.watertestinginstant.network.MarsProperty
@@ -15,10 +18,8 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import okhttp3.ResponseBody
+import retrofit2.*
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.Body
@@ -74,6 +75,7 @@ class ProfileViewModel(val waterDao: WaterDao) : ViewModel() {
         val client = retrofit.create(ApiClient::class.java)
         client.sample("Test").enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
+                Log.d("2222222nor", call.request().toString())
                 result.postValue(kotlin.Result.success(response.body() ?: "NULL"))
             }
 
@@ -95,16 +97,18 @@ class ProfileViewModel(val waterDao: WaterDao) : ViewModel() {
 
         val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .addConverterFactory(MoshiConverterFactory.create())
 
         val retrofit: Retrofit = builder.build()
 
         val client = retrofit.create(ApiClient::class.java)
         viewModelScope.launch(Dispatchers.IO) {
+            val value = client.sampleKt("Test")
             try {
-                val value = client.sampleKt("ass").await()
-                result.postValue(Result.success(value ?: "NULL"))
+                Log.d("222222222222",value.request().toString())
+                val json = value.await()
+                result.postValue(Result.success(json))
             } catch (e: java.lang.Exception) {
                 result.postValue(Result.failure(e))
             }
@@ -116,10 +120,11 @@ class ProfileViewModel(val waterDao: WaterDao) : ViewModel() {
         fun sample(@Body message: String): Call<String>
 
         @POST("save")
-        fun sampleKt(@Body message: String): Deferred<String?>
+        fun sampleKt(@Body message: String): Call<String>
 
         @GET("realestate")
         fun getMars(): Call<String>
+
     }
 
     fun getData() {
