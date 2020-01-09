@@ -32,7 +32,7 @@ class ViewModelFactory (val waterDao: WaterDao): ViewModelProvider.Factory {
         else if (modelClass.isAssignableFrom(ProfileViewModel::class.java))
             return ProfileViewModel(waterDao) as T
         else if (modelClass.isAssignableFrom(ConnectBluetoothViewModel::class.java))
-            return ConnectBluetoothViewModel(WaterTestingApplication.application) as T
+            return ConnectBluetoothViewModel(waterDao,WaterTestingApplication.application) as T
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

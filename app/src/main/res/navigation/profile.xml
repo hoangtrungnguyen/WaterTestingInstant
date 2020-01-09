@@ -8,9 +8,9 @@
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="com.hackathon.watertestinginstant.ui.main.profile.ProfileFragment"
-        android:label="NotificationsFragment" >
+        android:label="Profile">
         <action
-            android:id="@+id/action_notificationsFragment_to_addDeviceFragment"
+            android:id="@+id/action_profile_to_scan"
             app:destination="@id/addDeviceFragment" />
     </fragment>
     <fragment

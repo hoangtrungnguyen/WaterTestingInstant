@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.*
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.iid.FirebaseInstanceId
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.bluetooth.ConnectStatus
@@ -27,14 +28,9 @@ class MainViewModel(val application: WaterTestingApplication, val waterDao: Wate
     AndroidViewModel(application) {
     private val TAG = "MainViewModel"
 
-    private val _status = MutableLiveData<String>()
-    val status: LiveData<String> = _status
+    private val _user = MutableLiveData<FirebaseUser>()
+    val user: LiveData<FirebaseUser> = _user
 
-    private val _data = MutableLiveData<Result<ByteArray>>()
-    val data: LiveData<Result<ByteArray>> = _data
-
-
-    var serialSocket: SerialSocket? = null
 
     init {
         FirebaseInstanceId.getInstance().instanceId
@@ -50,65 +46,11 @@ class MainViewModel(val application: WaterTestingApplication, val waterDao: Wate
                 // Log and toast
                 val msg = "Token $token"
                 Log.d(TAG, msg)
-                Toast.makeText(application, msg, Toast.LENGTH_SHORT).show()
+//                Toast.makeText(application, msg, Toast.LENGTH_SHORT).show()
             })
 
-    }
+        _user.postValue(WaterTestingApplication.mAuth.currentUser)
 
-    fun postResult(data: Result<ByteArray>) {
-        _data.postValue(data)
-        saveData(data)
-    }
-
-    fun postStatus(status: String) {
-        _status.postValue(status)
-    }
-
-    fun connect(device: BluetoothDevice) {
-        try {
-            serialSocket = SerialSocket()
-            _status.postValue("Connecting")
-            serialSocket?.connect(application, this, device)
-        } catch (e: Exception) {
-            _status.postValue(e.message)
-        }
-    }
-
-    fun disconnect() {
-        serialSocket?.disconnect()
-    }
-
-    fun saveData(data: Result<ByteArray>) {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                val item = WaterData()
-                waterDao.insert(item)
-            }
-        }
-    }
-
-    val syncRes = MutableLiveData<Result<String>>()
-
-    val waterData = waterDao.getAll()
-
-    fun syncData() {
-        // Write a message to the database
-        val database = WaterTestingApplication.fireBaseDB
-        val myRef = database.getReference("waterdata")
-        viewModelScope.launch {
-            Log.d("sssss", "syncing...")
-            try {
-                waterData.value?.forEach {
-                    myRef.setValue(it.toString())
-                }
-                if (waterDao.getAll().value != null)
-                    syncRes.postValue(Result.success("Sync success"))
-                else
-                    syncRes.postValue(Result.failure(Exception("No data from local storage")))
-            } catch (e: Exception) {
-                syncRes.postValue(Result.failure(e))
-            }
-        }
     }
 
 }

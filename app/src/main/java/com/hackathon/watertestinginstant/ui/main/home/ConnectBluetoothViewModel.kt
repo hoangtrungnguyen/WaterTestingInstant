@@ -1,33 +1,88 @@
 package com.hackathon.watertestinginstant.ui.main.home
 
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothGatt
-import android.bluetooth.BluetoothGattCallback
-import android.bluetooth.BluetoothGattCharacteristic
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.bluetooth.*
+import androidx.lifecycle.*
 import com.github.ivbaranov.rxbluetooth.BluetoothConnection
 import com.hackathon.watertestinginstant.appl.BLUETOOTH_SPP
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
+import com.hackathon.watertestinginstant.appl.WaterTestingApplication.Companion.application
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication.Companion.rxBleClient
+import com.hackathon.watertestinginstant.bluetooth.ACTION_DATA_AVAILABLE
 import com.hackathon.watertestinginstant.bluetooth.ConnectStatus
+import com.hackathon.watertestinginstant.bluetooth.SerialSocket
+import com.hackathon.watertestinginstant.data.model.WaterData
+import com.hackathon.watertestinginstant.database.WaterDao
 import com.hackathon.watertestinginstant.ui.util.toHex
 import com.polidea.rxandroidble2.RxBleConnection
 import com.polidea.rxandroidble2.RxBleDevice
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlin.random.Random
 
 
-class ConnectBluetoothViewModel(val application: WaterTestingApplication) :
+class ConnectBluetoothViewModel(val waterDao: WaterDao, application: WaterTestingApplication) :
     AndroidViewModel(application) /*, SerialListener*/ {
-    val data = MutableLiveData<String>()
-    val status = MutableLiveData<String>()
+
+    var bluetoothGatt: BluetoothGatt? = null
+
+    private val _status = MutableLiveData<String>()
+    val status: LiveData<String> = _status
+
+    private val _data = MutableLiveData<Result<ByteArray>>()
+    val data: LiveData<Result<ByteArray>> = _data
+
+    val waterData = waterDao.getAll()
+
+    var serialSocket: SerialSocket? = null
 
     init {
 
+    }
+
+
+    fun latest(): LiveData<Double> {
+        return Transformations.map(waterDao.getLatest()) {
+            Random.nextDouble(5.0, 100.0)
+        }
+    }
+
+    fun postResult(data: Result<ByteArray>) {
+        _data.postValue(data)
+        saveData(data)
+    }
+
+    fun postStatus(status: String) {
+        _status.postValue(status)
+    }
+
+    fun connect(device: BluetoothDevice) {
+        try {
+            serialSocket = SerialSocket()
+            _status.postValue("Connecting")
+            serialSocket?.connect(application, this, device)
+        } catch (e: Exception) {
+            _status.postValue(e.message)
+        }
+    }
+
+    fun getLatest() {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+
+            }
+        }
+    }
+
+    fun saveData(data: Result<ByteArray>) {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                val item = WaterData(TDS = Random(15).nextDouble(), PH = Random(7).nextDouble())
+                waterDao.insert(item)
+            }
+        }
     }
 
 
@@ -35,14 +90,14 @@ class ConnectBluetoothViewModel(val application: WaterTestingApplication) :
         val blu = BluetoothAdapter.getDefaultAdapter()
         val device = blu.bondedDevices.first { it.address == macAddress }
 
-        device.connectGatt(WaterTestingApplication.application, true, object :
+        bluetoothGatt = device.connectGatt(application, false, object :
             BluetoothGattCallback() {
             override fun onCharacteristicRead(
                 gatt: BluetoothGatt?,
                 characteristic: BluetoothGattCharacteristic?,
                 status: Int
             ) {
-                data.postValue(characteristic?.value?.toHex())
+//                data.postValue(characteristic?.value?.toHex())
             }
 
             override fun onConnectionStateChange(
@@ -51,13 +106,15 @@ class ConnectBluetoothViewModel(val application: WaterTestingApplication) :
                 newState: Int
             ) {
                 when (newState) {
-                    BluetoothGatt.STATE_CONNECTING -> status.postValue("Connecting...")
-                    BluetoothGatt.STATE_CONNECTED -> status.postValue("Connected")
-                    BluetoothGatt.STATE_DISCONNECTED -> status.postValue("Disconnected")
-                    BluetoothGatt.STATE_DISCONNECTING -> status.postValue("Disconnecting...")
+//                    BluetoothGatt.STATE_CONNECTING -> status.postValue("Connecting...")
+//                    BluetoothGatt.STATE_CONNECTED -> status.postValue("Connected")
+//                    BluetoothGatt.STATE_DISCONNECTED -> status.postValue("Disconnected")
+//                    BluetoothGatt.STATE_DISCONNECTING -> status.postValue("Disconnecting...")
 
                 }
+                val s = ACTION_DATA_AVAILABLE
             }
+
         })
 
     }

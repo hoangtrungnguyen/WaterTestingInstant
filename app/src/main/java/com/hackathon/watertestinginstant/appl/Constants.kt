@@ -11,7 +11,7 @@ public val NOTIFY_MANAGER_START_FOREGROUND_SERVICE = 1001
 
 val BLUETOOTH_SPP = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
 
-val BASE_URL = "https://lman-test.firebaseapp.com"
+val BASE_URL = "https://lman-test.firebaseapp.com/"
 
 val key = "d4627862d17c429f5b5285fb09aeb150"
 

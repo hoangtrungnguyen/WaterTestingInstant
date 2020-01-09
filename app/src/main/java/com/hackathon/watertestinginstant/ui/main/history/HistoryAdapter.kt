@@ -28,7 +28,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater
-            .inflate(R.layout.item_water_test_history, parent, false)
+            .inflate(R.layout.item_history, parent, false)
 
         return ViewHolder(view)
     }
@@ -40,10 +40,14 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(item: WaterData) {
-            val tvDate: TextView = view.findViewById(R.id.tvDate)
-            val tvHP : TextView = view.findViewById(R.id.tvHP)
-            tvDate.setText(item.time.toString())
+            val tvDate: TextView = view.findViewById(R.id.date)
+            val tvHP : TextView = view.findViewById(R.id.hp)
+            val tvTurbidity: TextView = view.findViewById(R.id.turbidity)
+            val tvTDS: TextView = view.findViewById(R.id.tds)
+            tvTurbidity.text = item.Turbidity.toString()
+            tvDate.text = item.time.toString()
             tvHP.text = item.PH.toString()
+            tvTDS.text = item.TDS.toString()
         }
     }
 }
