@@ -19,7 +19,7 @@ import kotlin.Comparator
 import kotlin.collections.ArrayList
 
 @Suppress("DEPRECATION")
-class HomeFragment : ListFragment() {
+class HomeFragment() : ListFragment() {
 
     private var bluetoothAdapter: BluetoothAdapter? = null
     private var listAdapter: ArrayAdapter<BluetoothDevice>? = null

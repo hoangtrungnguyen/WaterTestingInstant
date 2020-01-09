@@ -2,21 +2,12 @@ package com.hackathon.watertestinginstant.ui.main.home
 
 import android.bluetooth.*
 import androidx.lifecycle.*
-import com.github.ivbaranov.rxbluetooth.BluetoothConnection
-import com.hackathon.watertestinginstant.appl.BLUETOOTH_SPP
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication.Companion.application
-import com.hackathon.watertestinginstant.appl.WaterTestingApplication.Companion.rxBleClient
 import com.hackathon.watertestinginstant.bluetooth.ACTION_DATA_AVAILABLE
-import com.hackathon.watertestinginstant.bluetooth.ConnectStatus
 import com.hackathon.watertestinginstant.bluetooth.SerialSocket
 import com.hackathon.watertestinginstant.data.model.WaterData
 import com.hackathon.watertestinginstant.database.WaterDao
-import com.hackathon.watertestinginstant.ui.util.toHex
-import com.polidea.rxandroidble2.RxBleConnection
-import com.polidea.rxandroidble2.RxBleDevice
-import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

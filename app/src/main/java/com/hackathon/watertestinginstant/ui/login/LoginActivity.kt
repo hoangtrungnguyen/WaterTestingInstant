@@ -42,13 +42,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        val currentUser = WaterTestingApplication.mAuth.currentUser
-//        if (currentUser != null) {
-//            MainActivity.newInstance(this)
-//            setResult(Activity.RESULT_OK)
-//        }
         setContentView(com.hackathon.watertestinginstant.R.layout.activity_login)
-        // Create and launch sign-in intent
     }
 
     override fun onStart() {
