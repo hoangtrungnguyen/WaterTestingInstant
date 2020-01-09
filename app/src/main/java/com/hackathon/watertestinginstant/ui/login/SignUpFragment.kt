@@ -12,6 +12,7 @@ import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
@@ -104,6 +105,10 @@ class SignUpFragment : Fragment() {
         signup.setOnClickListener {
             loading.visibility = View.VISIBLE
             loginViewModel.signUp(username.text.toString(), password.text.toString())
+        }
+
+        signin.setOnClickListener {
+            findNavController().navigate(R.id.action_signUpFragment_to_signInFragment);
         }
     }
 }

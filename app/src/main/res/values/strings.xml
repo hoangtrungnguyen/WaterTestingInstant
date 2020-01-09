@@ -70,6 +70,8 @@
     <string name="error_no_message">No message found for reason=%d. Consider adding one.</string>
     <string name="logout">Logout</string>
     <string name="sync">Sync</string>
+    <string name="sign_up_text"><u>Sign Up</u></string>
+    <string name="sign_in_text">Sign In</string>
 
 
 </resources>

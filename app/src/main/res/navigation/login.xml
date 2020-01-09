@@ -9,7 +9,11 @@
         android:id="@+id/signUpFragment"
         android:name="com.hackathon.watertestinginstant.ui.login.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.hackathon.watertestinginstant.ui.login.SignInFragment"
