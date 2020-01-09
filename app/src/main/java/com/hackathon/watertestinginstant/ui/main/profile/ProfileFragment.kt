@@ -2,6 +2,7 @@ package com.hackathon.watertestinginstant.ui.main.profile
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,7 +41,9 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tvLogout.setOnClickListener {
+            Log.d("SignOut",(WaterTestingApplication.mAuth.currentUser?.uid).toString())
             WaterTestingApplication.mAuth.signOut()
+            Log.d("SignOut",(WaterTestingApplication.mAuth.currentUser?.uid).toString())
             LoginActivity.newInstance(activity!!)
         }
 
@@ -51,6 +54,8 @@ class ProfileFragment : Fragment() {
                 json.text = (it.exceptionOrNull()?.message)
             }
         })
+
+        profileViewModel.result.observe(viewLifecycleOwner, Observer {  })
 
         call_api.setOnClickListener { profileViewModel.callApi() }
         add_dummy_data.setOnClickListener { profileViewModel.saveData() }

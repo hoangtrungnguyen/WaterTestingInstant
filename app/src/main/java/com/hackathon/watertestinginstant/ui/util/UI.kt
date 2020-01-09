@@ -1,11 +1,15 @@
+@file:Suppress("DEPRECATION")
+
 package com.hackathon.watertestinginstant.ui.util
 import android.app.Activity
 import android.bluetooth.BluetoothClass
+import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import com.google.android.material.snackbar.Snackbar
 import androidx.core.content.ContextCompat.getSystemService
@@ -48,6 +52,10 @@ fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
 
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
     })
+}
+
+fun Context.setBkg(view: View, @ColorRes res: Int){
+    view.setBackgroundColor(this.resources.getColor(res))
 }
 
 val s = BluetoothClass.Service.INFORMATION

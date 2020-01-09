@@ -84,8 +84,8 @@ class HomeFragment : ListFragment() {
 //        val args = Bundle()
 //        args.putString(TerminalFragment.MAC_ADDRESS, device.address)
 
-        val action = HomeFragmentDirections.actionHomeFragmentToTerminalFragment(device.address)
-        this.findNavController().navigate(action)
+//        val action = HomeFragmentDirections.actionHomeFragmentToTerminalFragment(device.address)
+//        this.findNavController().navigate(action)
 
 //        startActivity(RxConnectActivity.newInstance(context!!, device.address, BLUETOOTH_SPP ))
 

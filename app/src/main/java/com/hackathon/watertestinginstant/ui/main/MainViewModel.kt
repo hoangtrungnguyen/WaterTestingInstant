@@ -27,14 +27,6 @@ class MainViewModel(val application: WaterTestingApplication, val waterDao: Wate
     AndroidViewModel(application) {
     private val TAG = "MainViewModel"
 
-    private val _status = MutableLiveData<String>()
-    val status: LiveData<String> = _status
-
-    private val _data = MutableLiveData<Result<ByteArray>>()
-    val data: LiveData<Result<ByteArray>> = _data
-
-
-    var serialSocket: SerialSocket? = null
 
     init {
         FirebaseInstanceId.getInstance().instanceId
@@ -53,62 +45,6 @@ class MainViewModel(val application: WaterTestingApplication, val waterDao: Wate
                 Toast.makeText(application, msg, Toast.LENGTH_SHORT).show()
             })
 
-    }
-
-    fun postResult(data: Result<ByteArray>) {
-        _data.postValue(data)
-        saveData(data)
-    }
-
-    fun postStatus(status: String) {
-        _status.postValue(status)
-    }
-
-    fun connect(device: BluetoothDevice) {
-        try {
-            serialSocket = SerialSocket()
-            _status.postValue("Connecting")
-            serialSocket?.connect(application, this, device)
-        } catch (e: Exception) {
-            _status.postValue(e.message)
-        }
-    }
-
-    fun disconnect() {
-        serialSocket?.disconnect()
-    }
-
-    fun saveData(data: Result<ByteArray>) {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                val item = WaterData()
-                waterDao.insert(item)
-            }
-        }
-    }
-
-    val syncRes = MutableLiveData<Result<String>>()
-
-    val waterData = waterDao.getAll()
-
-    fun syncData() {
-        // Write a message to the database
-        val database = WaterTestingApplication.fireBaseDB
-        val myRef = database.getReference("waterdata")
-        viewModelScope.launch {
-            Log.d("sssss", "syncing...")
-            try {
-                waterData.value?.forEach {
-                    myRef.setValue(it.toString())
-                }
-                if (waterDao.getAll().value != null)
-                    syncRes.postValue(Result.success("Sync success"))
-                else
-                    syncRes.postValue(Result.failure(Exception("No data from local storage")))
-            } catch (e: Exception) {
-                syncRes.postValue(Result.failure(e))
-            }
-        }
     }
 
 }

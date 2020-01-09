@@ -12,7 +12,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object RetrofitClient {
 
     val retrofit: Retrofit by lazy {
-        getClient(BASE_URL_MARS)
+        getClient(BASE_URL)
     }
     /**
      * Build the Moshi object that Retrofit will be using, making sure to add the Kotlin adapter for

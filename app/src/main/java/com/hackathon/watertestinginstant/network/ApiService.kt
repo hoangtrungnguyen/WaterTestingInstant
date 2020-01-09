@@ -12,7 +12,7 @@ interface ApiService {
      fun getPropertiesAsync(): Deferred<List<MarsProperty>>
 
     @POST("save")
-    fun saveTestingData(@Path(value = "save") data: String):Deferred<String>
+    fun saveTestingData(@Body data: String):Deferred<String>
 }
 /**
  * This data class defines a Mars property which includes an ID, the image URL, the type (sale

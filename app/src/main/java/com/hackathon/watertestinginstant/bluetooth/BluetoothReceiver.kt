@@ -15,7 +15,6 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.ui.main.MainActivity
-import com.hackathon.watertestinginstant.ui.main.home.HomeFragmentDirections
 import com.hackathon.watertestinginstant.ui.main.home.TerminalFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Dispatchers

@@ -78,12 +78,9 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        receiver = BluetoothReceiver(this)
+//        receiver = BluetoothReceiver(this)
 //        this.registerReceiver(receiver, filter)
 
-        viewModel.syncRes.observe(this, Observer {
-            showSnackbarShort(it.toString())
-        })
     }
 
     override fun onStart() {
@@ -140,6 +137,11 @@ class MainActivity : AppCompatActivity() {
                 }
                 return true
             }//TODO send file to ser
+            R.id.device ->{
+                val intentBluetooth = Intent()
+                intentBluetooth.action = android.provider.Settings.ACTION_BLUETOOTH_SETTINGS
+                startActivity(intentBluetooth)
+            }
         }
         return false
     }

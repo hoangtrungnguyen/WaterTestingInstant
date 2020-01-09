@@ -37,8 +37,12 @@ class ProfileViewModel(val waterDao: WaterDao) : ViewModel() {
     @ExperimentalCoroutinesApi
     fun callApi() {
         viewModelScope.launch {
-            val value = WaterApi.retrofitService.getPropertiesAsync().await()
-            mars.postValue(kotlin.Result.success(value))
+            try{
+            val value = WaterApi.retrofitService.saveTestingData("da").await()
+//            mars.postValue(kotlin.Result.success(value))
+            } catch (e :java.lang.Exception){
+                result.postValue(kotlin.Result.failure(e))
+            }
         }
     }
 

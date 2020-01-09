@@ -17,6 +17,9 @@ interface WaterDao {
     @Query("DELETE FROM WaterDataTable")
     fun deleteAll()
 
+    @Query("SELECT * FROM WaterDataTable ORDER BY time DESC")
+    fun getLatest(): LiveData<WaterData>
+
     @Query("SELECT * FROM WaterDataTable")
     fun getAll(): LiveData<List<WaterData>>
 

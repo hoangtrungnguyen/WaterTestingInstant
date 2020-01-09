@@ -35,7 +35,7 @@ class TerminalFragment : Fragment() {
 
     var macAddress: String? = null
 
-        private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: MainViewModel
     private lateinit var viewModelConnect: ConnectBluetoothViewModel
 
     private lateinit var device: BluetoothDevice
@@ -57,7 +57,7 @@ class TerminalFragment : Fragment() {
                     ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
                 )[MainViewModel::class.java]
             } ?: throw Exception("Invalid Activity")
-        } catch (e:Exception){
+        } catch (e: Exception) {
             activity?.showSnackbarShort(e.toString())
         }
 
@@ -67,7 +67,7 @@ class TerminalFragment : Fragment() {
         )[ConnectBluetoothViewModel::class.java]
 
 //        macAddress?.let { viewModelConnect.connectAndReceive(it) }
-        viewModel.connect(device)
+        viewModelConnect.connect(device)
     }
 
     override fun onCreateView(
@@ -92,36 +92,19 @@ class TerminalFragment : Fragment() {
 
     private fun initView() {
 
-        viewModel.data.observe(viewLifecycleOwner, Observer {
-            if (it.isSuccess)
-                it.getOrNull()?.let {
-                    receive_text.append(it.toString(Charsets.UTF_8))
-                }
-            else
-                receive_text.append(it.exceptionOrNull().toString())
 
-        })
-
-        viewModel.status.observe(viewLifecycleOwner, Observer {
+        viewModelConnect.status.observe(viewLifecycleOwner, Observer {
             val spn = SpannableStringBuilder(it + '\n')
             spn.setSpan(
                 ForegroundColorSpan(resources.getColor(R.color.colorStatusText)),
                 0, spn.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
             receive_text.append(spn)
+            receive_text.append("\n")
         })
 
-//        viewModelConnect.status.observe(viewLifecycleOwner, Observer {
-//            val spn = SpannableStringBuilder(it + '\n')
-//            spn.setSpan(
-//                ForegroundColorSpan(resources.getColor(R.color.colorStatusText)),
-//                0, spn.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-//            )
-//            receive_text.append(spn)
-//        })
-//
-//        viewModelConnect.data.observe(viewLifecycleOwner, Observer {
-//            receive_text.append("$it\n")
-//        })
+        viewModelConnect.data.observe(viewLifecycleOwner, Observer {
+            receive_text.append("$it\n")
+        })
     }
 }

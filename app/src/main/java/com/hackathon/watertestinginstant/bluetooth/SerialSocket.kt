@@ -8,16 +8,18 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.util.Log
+import androidx.lifecycle.ViewModel
 import com.hackathon.watertestinginstant.appl.BLUETOOTH_SPP
 import com.hackathon.watertestinginstant.appl.INTENT_ACTION_DISCONNECT
 import com.hackathon.watertestinginstant.ui.main.MainViewModel
+import com.hackathon.watertestinginstant.ui.main.home.ConnectBluetoothViewModel
 import com.hackathon.watertestinginstant.ui.util.toHex
 import java.io.IOException
 import java.util.*
 import java.util.concurrent.Executors
 
 
-class SerialSocket( /*private var resultTask: Result<*>*/) : Runnable {
+class SerialSocket( /*private var resultTask: Result<*>*/)  : Runnable {
     private val TAG = this.javaClass.simpleName
 
     private val disconnectBroadcastReceiver: BroadcastReceiver
@@ -25,7 +27,7 @@ class SerialSocket( /*private var resultTask: Result<*>*/) : Runnable {
     private var context: Context? = null
     private var socket: BluetoothSocket? = null
 
-    private var viewModel: MainViewModel? = null
+    private var viewModel: ConnectBluetoothViewModel? = null
 
     private var _connected = false
 
@@ -46,7 +48,7 @@ class SerialSocket( /*private var resultTask: Result<*>*/) : Runnable {
      * connect-success and most connect-errors are returned asynchronously to listener
      */
     @Throws(IOException::class)
-    fun connect(context: Context, viewModel: MainViewModel, device: BluetoothDevice) {
+    fun  connect(context: Context, viewModel: ConnectBluetoothViewModel, device: BluetoothDevice) {
         if (_connected)
             throw IOException("already connected")
         this.context = context
