@@ -26,6 +26,7 @@ import com.hackathon.watertestinginstant.database.AppDataBase
 import com.hackathon.watertestinginstant.ui.util.isInternetConnection
 import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.nav_header_drawer.*
 
 
 @Suppress("DEPRECATION")
