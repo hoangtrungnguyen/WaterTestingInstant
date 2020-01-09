@@ -1,5 +1,7 @@
 package com.hackathon.watertestinginstant.ui.main.history
 
+import android.graphics.Canvas
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.ContextMenu
 import android.view.LayoutInflater
@@ -10,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
@@ -49,6 +52,16 @@ class HistoryFragment : Fragment() {
     private fun initView() {
         with(rcvData) {
             this.adapter = adapterHistory
+            addItemDecoration(object : RecyclerView.ItemDecoration(){
+                override fun getItemOffsets(
+                    outRect: Rect,
+                    view: View,
+                    parent: RecyclerView,
+                    state: RecyclerView.State
+                ) {
+                    view.setPadding(10,10,10,10)
+                }
+            })
         }
         historyViewModel.waterData.observe(viewLifecycleOwner, Observer {
             it?.let { adapterHistory.updateData(it) }

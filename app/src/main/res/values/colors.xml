@@ -9,6 +9,8 @@
     <color name="colorStatusText">#FFDB58</color>
     <color name="terminal">#393C4B</color>
 
+    <color name="item_history">#E1F5FE</color>
+
 
 
 </resources>

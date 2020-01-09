@@ -74,6 +74,7 @@ class SignInFragment : Fragment() {
             if (loginResult is Result.Success && loginResult.data != null) {
                 MainActivity.newInstance(context!!)
                 activity?.setResult(Activity.RESULT_OK)
+                activity?.finish()
             }
             if (loginResult is Result.Error) {
                 activity?.showError(loginResult.exception)
@@ -87,6 +88,7 @@ class SignInFragment : Fragment() {
 
             }
         })
+
 
         username.afterTextChanged {
             loginViewModel.loginDataChanged(

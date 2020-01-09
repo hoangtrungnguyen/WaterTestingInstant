@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
 
 //        receiver = BluetoothReceiver(this)
 //        this.registerReceiver(receiver, filter)
-
+        setUpNavigationDrawer()
     }
 
     override fun onStart() {
@@ -94,6 +94,14 @@ class MainActivity : AppCompatActivity() {
         // and its selectedItemId, we can proceed with setting up the
         // BottomNavigationBar with Navigation
         setupBottomNavigationBar()
+    }
+
+
+    private fun setUpNavigationDrawer() {
+        viewModel.user.observe(this, Observer {
+            nav_view_name.text = it.displayName
+            nav_view_email.text = it.email
+        })
     }
 
     /**
@@ -128,16 +136,17 @@ class MainActivity : AppCompatActivity() {
         return true;
     }
 
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.sync -> {
-                if(!application.isInternetConnection()){
+                if (!application.isInternetConnection()) {
                     showSnackbarShort("No internet connection, can't sync with the system")
                     return false
                 }
                 return true
             }//TODO send file to ser
-            R.id.device ->{
+            R.id.device -> {
                 val intentBluetooth = Intent()
                 intentBluetooth.action = android.provider.Settings.ACTION_BLUETOOTH_SETTINGS
                 startActivity(intentBluetooth)
@@ -145,7 +154,6 @@ class MainActivity : AppCompatActivity() {
         }
         return false
     }
-
 
 
     var isPause: Boolean = true

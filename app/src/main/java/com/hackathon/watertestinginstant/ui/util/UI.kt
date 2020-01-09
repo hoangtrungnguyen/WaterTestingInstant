@@ -20,7 +20,7 @@ import androidx.core.content.ContextCompat.getSystemService
 
 
 internal fun Activity.showSnackbarShort(text: CharSequence) {
-    Snackbar.make(findViewById(android.R.id.content), text, Snackbar.LENGTH_LONG).show()
+    Snackbar.make(findViewById(android.R.id.content), text, Snackbar.LENGTH_SHORT).show()
 }
 
 

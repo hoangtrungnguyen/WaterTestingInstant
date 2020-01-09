@@ -17,11 +17,12 @@ import com.hackathon.watertestinginstant.data.Result
 import com.hackathon.watertestinginstant.database.AppDataBase
 import com.hackathon.watertestinginstant.ui.login.LoginActivity
 import com.hackathon.watertestinginstant.ui.main.scan.ScanActivity
+import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 @Suppress("DEPRECATION")
 class ProfileFragment : Fragment() {
-
+    private val TAG = this.javaClass.simpleName
     private lateinit var profileViewModel: ProfileViewModel
 
     override fun onCreateView(
@@ -44,6 +45,7 @@ class ProfileFragment : Fragment() {
             Log.d("SignOut",(WaterTestingApplication.mAuth.currentUser?.uid).toString())
             WaterTestingApplication.mAuth.signOut()
             Log.d("SignOut",(WaterTestingApplication.mAuth.currentUser?.uid).toString())
+            activity?.finish()
             LoginActivity.newInstance(activity!!)
         }
 
@@ -55,11 +57,19 @@ class ProfileFragment : Fragment() {
             }
         })
 
-        profileViewModel.result.observe(viewLifecycleOwner, Observer {  })
+        profileViewModel.result.observe(viewLifecycleOwner, Observer {
+            try {
+                activity!!.showSnackbarShort(it.toString())
+                json.text = "API Water: $it"
+            } catch (e: Exception){
 
-        call_api.setOnClickListener { profileViewModel.callApi() }
+            }
+        })
+
         add_dummy_data.setOnClickListener { profileViewModel.saveData() }
+        call_api.setOnClickListener { profileViewModel.maintain() }
         sync.setOnClickListener { profileViewModel.syncData() }
+
         add_device.setOnClickListener {
             findNavController().navigate(R.id.action_profile_to_scan)
         }

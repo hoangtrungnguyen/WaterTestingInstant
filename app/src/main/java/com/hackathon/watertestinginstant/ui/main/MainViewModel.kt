@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.*
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.iid.FirebaseInstanceId
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.bluetooth.ConnectStatus
@@ -27,6 +28,9 @@ class MainViewModel(val application: WaterTestingApplication, val waterDao: Wate
     AndroidViewModel(application) {
     private val TAG = "MainViewModel"
 
+    private val _user = MutableLiveData<FirebaseUser>()
+    val user: LiveData<FirebaseUser> = _user
+
 
     init {
         FirebaseInstanceId.getInstance().instanceId
@@ -42,8 +46,10 @@ class MainViewModel(val application: WaterTestingApplication, val waterDao: Wate
                 // Log and toast
                 val msg = "Token $token"
                 Log.d(TAG, msg)
-                Toast.makeText(application, msg, Toast.LENGTH_SHORT).show()
+//                Toast.makeText(application, msg, Toast.LENGTH_SHORT).show()
             })
+
+        _user.postValue(WaterTestingApplication.mAuth.currentUser)
 
     }
 

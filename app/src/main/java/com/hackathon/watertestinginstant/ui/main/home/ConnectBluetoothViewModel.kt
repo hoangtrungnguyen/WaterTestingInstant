@@ -23,7 +23,7 @@ import kotlinx.coroutines.withContext
 import kotlin.random.Random
 
 
-class ConnectBluetoothViewModel(val waterDao: WaterDao, application: WaterTestingApplication ) :
+class ConnectBluetoothViewModel(val waterDao: WaterDao, application: WaterTestingApplication) :
     AndroidViewModel(application) /*, SerialListener*/ {
 
     var bluetoothGatt: BluetoothGatt? = null
@@ -36,15 +36,17 @@ class ConnectBluetoothViewModel(val waterDao: WaterDao, application: WaterTestin
 
     val waterData = waterDao.getAll()
 
-    val latestTesting = Transformations.map(waterDao.getLatest()){
-        Random.nextDouble(5.0,100.0)
-    }
-
     var serialSocket: SerialSocket? = null
-
 
     init {
 
+    }
+
+
+    fun latest(): LiveData<Double> {
+        return Transformations.map(waterDao.getLatest()) {
+            Random.nextDouble(5.0, 100.0)
+        }
     }
 
     fun postResult(data: Result<ByteArray>) {
@@ -66,9 +68,9 @@ class ConnectBluetoothViewModel(val waterDao: WaterDao, application: WaterTestin
         }
     }
 
-    fun getLatest(){
+    fun getLatest() {
         viewModelScope.launch {
-            withContext(Dispatchers.IO){
+            withContext(Dispatchers.IO) {
 
             }
         }
@@ -82,22 +84,6 @@ class ConnectBluetoothViewModel(val waterDao: WaterDao, application: WaterTestin
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     fun connectAndReceive(macAddress: String) {

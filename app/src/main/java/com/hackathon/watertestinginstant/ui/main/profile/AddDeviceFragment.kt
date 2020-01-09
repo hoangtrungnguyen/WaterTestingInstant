@@ -3,22 +3,24 @@ package com.hackathon.watertestinginstant.ui.main.profile
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothGatt
-import android.bluetooth.BluetoothGattCallback
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
-
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.hackathon.watertestinginstant.R
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.add_device_fragment.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeout
+
 
 @Suppress("DEPRECATION")
 class AddDeviceFragment : Fragment() {
@@ -49,7 +51,7 @@ class AddDeviceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.add_device_fragment, container, false)
+        return inflater.inflate(com.hackathon.watertestinginstant.R.layout.add_device_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -58,6 +60,22 @@ class AddDeviceFragment : Fragment() {
         // TODO: Use the ViewModel
         scan_device.setOnClickListener { scanLeDevice(true) }
         stop_scan_device.setOnClickListener { scanLeDevice(false) }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val animation = AnimationUtils.loadAnimation(context, R.anim.bottom_anim_hide)
+        animation.start()
+        val bt = activity!!.findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bt.startAnimation(animation)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        val animation = AnimationUtils.loadAnimation(context, R.anim.bottom_anim_unhide)
+        animation.start()
+        val bt = activity!!.findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bt.startAnimation(animation)
     }
 
     fun scanLeDevice(enable: Boolean) {

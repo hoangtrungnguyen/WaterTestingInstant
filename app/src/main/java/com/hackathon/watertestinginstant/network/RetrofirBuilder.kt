@@ -7,6 +7,8 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 
 
 object RetrofitClient {
@@ -14,6 +16,7 @@ object RetrofitClient {
     val retrofit: Retrofit by lazy {
         getClient(BASE_URL)
     }
+
     /**
      * Build the Moshi object that Retrofit will be using, making sure to add the Kotlin adapter for
      * full Kotlin compatibility.
@@ -24,10 +27,22 @@ object RetrofitClient {
 
 
     private fun getClient(baseUrl: String): Retrofit {
+        val logging = HttpLoggingInterceptor()
+        // set your desired log level
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+        logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
+//        logging.setLevel(HttpLoggingInterceptor.Level.NONE)
+        logging.setLevel(HttpLoggingInterceptor.Level.HEADERS)
+        val httpClient = OkHttpClient.Builder()
+        // add your other interceptors …
+        // add logging as last interceptor
+        httpClient.addInterceptor(logging)
+
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .client(httpClient.build())
             .build()
     }
 }

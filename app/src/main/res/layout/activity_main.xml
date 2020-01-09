@@ -36,6 +36,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -60,14 +61,14 @@
                 android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
                 <ImageView
-                    android:id="@+id/activity_main_imv_avatar"
+                    android:id="@+id/nav_view_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/activity_vertical_margin"
                     app:srcCompat="@drawable/googleg_standard_color_18" />
 
                 <TextView
-                    android:id="@+id/activity_main_tv_user_name"
+                    android:id="@+id/nav_view_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/activity_vertical_margin"
@@ -75,7 +76,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
                 <TextView
-                    android:id="@+id/activity_main_tv_email"
+                    android:id="@+id/nav_view_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="yellowcode.books@gmail.com" />
