@@ -10,7 +10,9 @@
     <color name="terminal">#393C4B</color>
 
     <color name="item_history">#E1F5FE</color>
-
+    <color name="gradient_begin">#852979FF</color>
+    <color name="gradient_center">#9A5AC4FC</color>
+    <color name="gradient_end">#DD00E5FF</color>
 
 
 </resources>
