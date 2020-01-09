@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import com.firebase.ui.auth.AuthUI
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
@@ -44,6 +45,11 @@ class ProfileFragment : Fragment() {
         tvLogout.setOnClickListener {
             Log.d("SignOut",(WaterTestingApplication.mAuth.currentUser?.uid).toString())
             WaterTestingApplication.mAuth.signOut()
+            AuthUI.getInstance()
+                .signOut(context!!)
+                .addOnCompleteListener {
+                    // ...
+                }
             Log.d("SignOut",(WaterTestingApplication.mAuth.currentUser?.uid).toString())
             activity?.finish()
             LoginActivity.newInstance(activity!!)

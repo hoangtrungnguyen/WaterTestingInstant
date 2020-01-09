@@ -2,6 +2,7 @@ package com.hackathon.watertestinginstant.ui.login
 
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,9 @@ import android.view.inputmethod.EditorInfo
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.IdpResponse
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.iid.FirebaseInstanceId
 
 import com.hackathon.watertestinginstant.R
@@ -136,5 +140,35 @@ class SignInFragment : Fragment() {
 
         signup.setOnClickListener { findNavController().navigate(R.id.action_signInFragment_to_signUpFragment) }
 
+        tvSignInGoogle.setOnClickListener {
+//            (activity as? MainActivity)?.findViewById<View>(R.id.loadingMain)?.visibility = View.VISIBLE
+            loading.visibility = View.VISIBLE
+            startActivityForResult(
+                AuthUI.getInstance()
+                    .createSignInIntentBuilder()
+                    .setAvailableProviders(LoginActivity.providers)
+                    .build(), SIGN_IN_WITH_SOCIAL_ACC
+            )
+        }
+
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == SIGN_IN_WITH_SOCIAL_ACC) {
+            val response = IdpResponse.fromResultIntent(data)
+
+            if (resultCode == Activity.RESULT_OK) {
+                // Successfully signed in
+                val user = FirebaseAuth.getInstance().currentUser
+                MainActivity.newInstance(context!!)
+                activity?.finish()
+            } else {
+                activity?.showSnackbarShort("Sign In no Ok")
+            }
+            loading.visibility = View.GONE
+        }
     }
 }

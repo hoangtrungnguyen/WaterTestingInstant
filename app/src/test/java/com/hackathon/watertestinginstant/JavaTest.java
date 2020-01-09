@@ -20,17 +20,16 @@ public class JavaTest {
 
     static boolean isARainbow(String rangeColor) {
         String[] rain = new String[]{"red", "orange", "yellow", "green", "blue", "indigo", "violet"};
-        while (rangeColor.length() > 0) {
-            for (String i : rain) {
-                if (rangeColor.contains(i)) {
-                    rangeColor = rangeColor.replace(i, "");
-                } else {
-                    return false;
-                }
-            }
+//        Matcher matcher =
+        for (String i : rain) {
+            Pattern pt = Pattern.compile(i);
+            Matcher matcher = pt.matcher(i);
+//            while (matcher.start()){
+//                rangeColor.
+//            }
         }
 
-        return true ;
+        return true;
     }
 }
 
