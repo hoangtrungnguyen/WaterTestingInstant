@@ -41,7 +41,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(item: WaterData) {
             val tvDate: TextView = view.findViewById(R.id.date)
-            val tvHP : TextView = view.findViewById(R.id.hp)
+            val tvHP : TextView = view.findViewById(R.id.ph)
             val tvTurbidity: TextView = view.findViewById(R.id.turbidity)
             val tvTDS: TextView = view.findViewById(R.id.tds)
             tvTurbidity.text = item.Turbidity.toString()

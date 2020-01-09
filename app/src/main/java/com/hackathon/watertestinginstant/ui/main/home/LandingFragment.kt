@@ -60,7 +60,7 @@ class LandingFragment : Fragment() {
         viewModelConnect.waterData.observe(viewLifecycleOwner, Observer {
             it.sortedBy { it.time }
             val waterData = it.first()
-            hp.text = waterData.PH.toString()
+            ph.text = waterData.PH.toString()
             turbidity.text = waterData.Turbidity.toString()
             tds.text = waterData.TDS.toString()
             date.text = waterData.time.toString()
