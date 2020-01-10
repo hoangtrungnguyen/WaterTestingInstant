@@ -1,4 +1,4 @@
-package com.hackathon.watertestinginstant.ui.util
+package com.hackathon.watertestinginstant.util
 
 import android.Manifest
 import android.app.Activity

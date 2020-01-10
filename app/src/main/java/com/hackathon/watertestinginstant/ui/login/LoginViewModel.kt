@@ -2,7 +2,6 @@ package com.hackathon.watertestinginstant.ui.login
 
 import android.util.Log
 import android.util.Patterns
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,9 +9,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
-import com.hackathon.watertestinginstant.data.LoginRepository
 import com.hackathon.watertestinginstant.data.Result
-import com.hackathon.watertestinginstant.ui.util.isInternetConnection
+import com.hackathon.watertestinginstant.database.userId
+import com.hackathon.watertestinginstant.util.isInternetConnection
 import java.io.IOException
 
 
@@ -31,7 +30,10 @@ class LoginViewModel(
     private val _isInternetConnected = MutableLiveData<Boolean>()
     val isInternetConnected: LiveData<Boolean> = _isInternetConnected
 
+    val DBref = WaterTestingApplication.fireBaseDB.reference
+
     init {
+
         _isInternetConnected.postValue(application.isInternetConnection())
     }
 
@@ -80,14 +82,13 @@ class LoginViewModel(
         mAuth?.apply {
             createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
-                    if (task.isSuccessful()) { // Sign in success, update UI with the signed-in user's information
+                    if (task.isSuccessful) { // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "createUserWithEmail:success")
                         val user = mAuth.currentUser
+                        DBref.setValue(user)
                         _loginResult.postValue(
-                            if (user != null) {
-                                Result.Success(user)
-
-                            } else Result.Error(NullPointerException("No user found"))
+                            if (user != null) Result.Success(user)
+                            else Result.Error(NullPointerException("No user found"))
                         )
                     } else { // If sign in fails, display a message to the user.
                         Log.w(TAG, "createUserWithEmail:failure", task.getException())

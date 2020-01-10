@@ -15,19 +15,14 @@ import androidx.navigation.fragment.findNavController
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.iid.FirebaseInstanceId
 
 import com.hackathon.watertestinginstant.R
-import com.hackathon.watertestinginstant.appl.ViewModelFactory
-import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.ui.main.MainActivity
-import com.hackathon.watertestinginstant.ui.util.hideKeyBoard
-import com.hackathon.watertestinginstant.ui.util.showError
-import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
-import kotlinx.android.synthetic.main.activity_login.*
+import com.hackathon.watertestinginstant.util.hideKeyBoard
+import com.hackathon.watertestinginstant.util.showError
+import com.hackathon.watertestinginstant.util.showSnackbarShort
 import com.hackathon.watertestinginstant.data.Result
-import com.hackathon.watertestinginstant.database.AppDataBase
-import com.hackathon.watertestinginstant.ui.util.afterTextChanged
+import com.hackathon.watertestinginstant.util.afterTextChanged
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 
 /**

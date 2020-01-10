@@ -1,4 +1,4 @@
-package com.hackathon.watertestinginstant.ui.util
+package com.hackathon.watertestinginstant.util
 import android.bluetooth.BluetoothGattCharacteristic
 
 fun BluetoothGattCharacteristic.hasProperty(property: Int): Boolean = (properties and property) > 0

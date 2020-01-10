@@ -20,8 +20,7 @@ import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.database.AppDataBase
 import com.hackathon.watertestinginstant.ui.main.MainViewModel
-import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
-import com.hackathon.watertestinginstant.ui.util.toHex
+import com.hackathon.watertestinginstant.util.showSnackbarShort
 import kotlinx.android.synthetic.main.fragment_terminal.*
 
 /**

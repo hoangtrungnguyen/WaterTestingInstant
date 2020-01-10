@@ -1,6 +1,5 @@
 package com.hackathon.watertestinginstant.ui.login
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,14 +8,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.firebase.ui.auth.AuthUI
-import com.firebase.ui.auth.IdpResponse
-import com.google.firebase.auth.FirebaseAuth
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
-import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.database.AppDataBase
-import com.hackathon.watertestinginstant.ui.main.MainActivity
-import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
-import kotlinx.android.synthetic.main.activity_login.*
 
 
 val SIGN_IN_WITH_SOCIAL_ACC = 72

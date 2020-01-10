@@ -1,6 +1,5 @@
 package com.hackathon.watertestinginstant.ui.main.profile
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,11 +13,9 @@ import com.firebase.ui.auth.AuthUI
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
-import com.hackathon.watertestinginstant.data.Result
 import com.hackathon.watertestinginstant.database.AppDataBase
 import com.hackathon.watertestinginstant.ui.login.LoginActivity
-import com.hackathon.watertestinginstant.ui.main.scan.ScanActivity
-import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
+import com.hackathon.watertestinginstant.util.showSnackbarShort
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 @Suppress("DEPRECATION")

@@ -3,6 +3,10 @@ package com.hackathon.watertestinginstant.ui.main.profile
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothGatt
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,17 +14,19 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.hackathon.watertestinginstant.R
-import kotlinx.android.synthetic.main.activity_main.*
+import com.hackathon.watertestinginstant.util.isLocationPermissionGranted
+import com.hackathon.watertestinginstant.util.requestLocationPermission
 import kotlinx.android.synthetic.main.add_device_fragment.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.*
 
+
+val REQUEST_ENABLE_BT = 9999
 
 @Suppress("DEPRECATION")
 class AddDeviceFragment : Fragment() {
@@ -29,7 +35,7 @@ class AddDeviceFragment : Fragment() {
         fun newInstance() = AddDeviceFragment()
     }
 
-    private var mScanning: Boolean = false
+    private var mScanning = MutableLiveData<Boolean>()
     var bluetoothGatt: BluetoothGatt? = null
 
     private lateinit var bluetoothAdapter: BluetoothAdapter
@@ -37,21 +43,56 @@ class AddDeviceFragment : Fragment() {
     private lateinit var viewModel: AddDeviceViewModel
 
     private val leDeviceListAdapter = LeDeviceListAdapter() {
-//        bluetoothGatt = it.connectGatt(context!!, false, object : BluetoothGattCallback() {
+        //        bluetoothGatt = it.connectGatt(context!!, false, object : BluetoothGattCallback() {
 //
 //        })
+    }
+
+    // Create a BroadcastReceiver for ACTION_FOUND.
+    private val receiver = object : BroadcastReceiver() {
+
+        override fun onReceive(context: Context, intent: Intent) {
+            val action: String = intent.action ?: return
+            when (action) {
+                BluetoothDevice.ACTION_FOUND -> {
+                    // Discovery has found a device. Get the BluetoothDevice
+                    // object and its info from the Intent.
+                    val device: BluetoothDevice? =
+                        intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)
+                    leDeviceListAdapter.addItem(device)
+                }
+            }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
+        mScanning.postValue(false)
+
+        val pairedDevices: Set<BluetoothDevice>? = bluetoothAdapter.bondedDevices
+        leDeviceListAdapter.updateData(pairedDevices)
+
+        if (!bluetoothAdapter?.isEnabled) {
+            val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT)
+        }
+
+// Register for broadcasts when a device is discovered.
+        val filter = IntentFilter(BluetoothDevice.ACTION_FOUND)
+        activity?.registerReceiver(receiver, filter)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(com.hackathon.watertestinginstant.R.layout.add_device_fragment, container, false)
+
+        return inflater.inflate(
+            R.layout.add_device_fragment,
+            container,
+            false
+        )
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -68,6 +109,11 @@ class AddDeviceFragment : Fragment() {
         animation.start()
         val bt = activity!!.findViewById<BottomNavigationView>(R.id.bottom_nav)
         bt.startAnimation(animation)
+        devices.adapter = leDeviceListAdapter
+
+        mScanning.observe(this, Observer {
+            if (it) status.text = "Scanning ..." else status.text = "Done"
+        })
     }
 
     override fun onStop() {
@@ -79,32 +125,56 @@ class AddDeviceFragment : Fragment() {
     }
 
     fun scanLeDevice(enable: Boolean) {
-        when (enable) {
-            true -> {
-                // Stops scanning after a pre-defined scan period.
-                CoroutineScope(Dispatchers.IO).launch {
-                    withTimeout(5000)
-                    {
-                        mScanning = false
-                        bluetoothAdapter.stopLeScan(leScanCallback)
+        if (!context!!.isLocationPermissionGranted()) {
+            activity!!.requestLocationPermission()
+        }
+        mScanning.postValue(true)
+        CoroutineScope(Dispatchers.Main).launch {
+
+            when (enable) {
+                true -> {
+                    // Stops scanning after a pre-defined scan period.
+                    CoroutineScope(Dispatchers.IO).launch {
+                        withTimeout(5000)
+                        {
+                            mScanning.postValue(false)
+                            bluetoothAdapter.stopLeScan(leScanCallback)
+                        }
                     }
+                    mScanning.postValue(true)
+                    bluetoothAdapter.startLeScan(leScanCallback)
                 }
-                mScanning = true
-                bluetoothAdapter.startLeScan(leScanCallback)
-            }
-            else -> {
-                mScanning = false
-                bluetoothAdapter.stopLeScan(leScanCallback)
+                else -> {
+                    mScanning.postValue(false)
+                    bluetoothAdapter.stopLeScan(leScanCallback)
+                }
             }
         }
     }
 
     private val leScanCallback = BluetoothAdapter.LeScanCallback { device, rssi, scanRecord ->
-        CoroutineScope(Dispatchers.IO).launch {
-            leDeviceListAdapter.addItem(device)
+        CoroutineScope(Dispatchers.Main).launch {
+            leDeviceListAdapter.addUnique(device)
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        data?.let {
+            if (data.action == BluetoothAdapter.ACTION_REQUEST_ENABLE) {
+                if (requestCode == REQUEST_ENABLE_BT) {
+                    val pairedDevices: Set<BluetoothDevice>? = bluetoothAdapter.bondedDevices
+                    leDeviceListAdapter.updateData(pairedDevices)
+                }
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Don't forget to unregister the ACTION_FOUND receiver.
+        activity?.unregisterReceiver(receiver)
+    }
 }
 
 
@@ -112,23 +182,33 @@ class LeDeviceListAdapter(val listener: (item: BluetoothDevice) -> Unit) :
     RecyclerView.Adapter<LeDeviceListAdapter.ViewHolder>() {
     private val _data = mutableListOf<BluetoothDevice>()
 
-    fun updateData(data: List<BluetoothDevice>) {
+    fun updateData(data: Collection<BluetoothDevice>?) {
         _data.clear()
-        _data.addAll(data)
+        data?.let { _data.addAll(it) }
         notifyDataSetChanged()
     }
 
-    fun addItem(item: BluetoothDevice) {
-        _data.add(item)
+    fun addItem(item: BluetoothDevice?) {
+        item?.let { _data.add(item) }
         notifyDataSetChanged()
+    }
 
+    fun addUnique(item: BluetoothDevice?) {
+        item ?: return
+        if (_data.find { it.address == item.address } == null) {
+            addItem(item)
+        } else {
+            val i = _data.indexOfFirst { item.address == it.address }
+            _data[i] = item
+            notifyItemChanged(i)
+        }
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater
-            .inflate(android.R.layout.simple_list_item_2, parent, false) as TextView
+            .inflate(android.R.layout.simple_list_item_2, parent, false)
         return ViewHolder(view)
     }
 
@@ -149,4 +229,5 @@ class LeDeviceListAdapter(val listener: (item: BluetoothDevice) -> Unit) :
             tv2.text = item.address
         }
     }
+
 }

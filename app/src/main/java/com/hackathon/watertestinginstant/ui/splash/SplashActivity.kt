@@ -27,30 +27,27 @@ class SplashActivity : AppCompatActivity() {
 
         val animDrawable = flash_layout.background as AnimationDrawable
         animDrawable.setEnterFadeDuration(10)
-        animDrawable.setExitFadeDuration(5000)
+        animDrawable.setExitFadeDuration(1000)
         animDrawable.start()
 
         // go straight to main if a token is stored
         context = this
 
-        CoroutineScope(Dispatchers.Main).launch{
+        CoroutineScope(Dispatchers.Main).launch {
             delay(1000)
-            withContext(Dispatchers.Main){
-                if(WaterTestingApplication.mAuth.currentUser != null){
-                    MainActivity.newInstance(context)
-                    finish()
-                } else {
-                    LoginActivity.newInstance(context)
-                    finish()
-                }
+            if (WaterTestingApplication.mAuth.currentUser != null) {
+                MainActivity.newInstance(context)
+                finish()
+            } else {
+                LoginActivity.newInstance(context)
+                finish()
             }
         }
     }
 
-    private fun delay(){
+    private fun delay() {
 
     }
-
 
 
 }

@@ -1,6 +1,5 @@
 package com.hackathon.watertestinginstant.bluetooth
 
-import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
 import android.content.BroadcastReceiver
@@ -8,12 +7,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.util.Log
-import androidx.lifecycle.ViewModel
-import com.hackathon.watertestinginstant.appl.BLUETOOTH_SPP
 import com.hackathon.watertestinginstant.appl.INTENT_ACTION_DISCONNECT
-import com.hackathon.watertestinginstant.ui.main.MainViewModel
 import com.hackathon.watertestinginstant.ui.main.home.ConnectBluetoothViewModel
-import com.hackathon.watertestinginstant.ui.util.toHex
+import com.hackathon.watertestinginstant.util.toHex
 import java.io.IOException
 import java.util.*
 import java.util.concurrent.Executors

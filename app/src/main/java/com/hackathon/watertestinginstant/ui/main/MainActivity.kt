@@ -10,24 +10,22 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.observe
 import androidx.navigation.NavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
-import com.hackathon.watertestinginstant.bluetooth.BluetoothReceiver
 import com.hackathon.watertestinginstant.database.AppDataBase
-import com.hackathon.watertestinginstant.ui.util.isInternetConnection
-import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
+import com.hackathon.watertestinginstant.util.isInternetConnection
+import com.hackathon.watertestinginstant.util.showSnackbarShort
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.nav_header_drawer.*
-
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
@@ -60,6 +58,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         viewModel = ViewModelProviders.of(
             this,
             ViewModelFactory(AppDataBase.getInstance(WaterTestingApplication.application).waterDao())
@@ -78,11 +77,11 @@ class MainActivity : AppCompatActivity() {
             addAction(BluetoothAdapter.ACTION_STATE_CHANGED)
 
         }
-
 //        receiver = BluetoothReceiver(this)
 //        this.registerReceiver(receiver, filter)
         setUpNavigationDrawer()
     }
+
 
     override fun onStart() {
         super.onStart()
@@ -100,8 +99,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpNavigationDrawer() {
         viewModel.user.observe(this, Observer {
-            nav_view_name.text = it.displayName
-            nav_view_email.text = it.email
+            val tvName = navigation_view.getHeaderView(0).findViewById<TextView>(R.id.nav_view_name)
+            val tvEmail= navigation_view.getHeaderView(0).findViewById<TextView>(R.id.nav_view_email)
+            tvName.text = it.displayName
+            tvEmail.text = it.email
         })
     }
 
@@ -136,6 +137,7 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.header_menu, menu);
         return true;
     }
+
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

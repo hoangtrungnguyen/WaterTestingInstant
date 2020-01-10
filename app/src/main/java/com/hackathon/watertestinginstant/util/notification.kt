@@ -1,4 +1,4 @@
-package com.hackathon.watertestinginstant.notification
+package com.hackathon.watertestinginstant.util
 
 import android.app.NotificationChannel
 import android.app.NotificationManager

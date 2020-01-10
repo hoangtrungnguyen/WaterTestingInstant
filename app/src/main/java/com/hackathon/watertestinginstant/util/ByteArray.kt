@@ -1,4 +1,4 @@
-package com.hackathon.watertestinginstant.ui.util
+package com.hackathon.watertestinginstant.util
 fun ByteArray.toHex() = joinToString("") { String.format("%02X", (it.toInt() and 0xff)) }
 
 /**

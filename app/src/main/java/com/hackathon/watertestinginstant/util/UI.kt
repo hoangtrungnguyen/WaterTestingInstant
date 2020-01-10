@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.hackathon.watertestinginstant.ui.util
+package com.hackathon.watertestinginstant.util
 import android.app.Activity
 import android.bluetooth.BluetoothClass
 import android.content.Context
@@ -12,11 +12,6 @@ import android.widget.EditText
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import com.google.android.material.snackbar.Snackbar
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.content.ContextCompat.getSystemService
-
-
-
 
 
 internal fun Activity.showSnackbarShort(text: CharSequence) {

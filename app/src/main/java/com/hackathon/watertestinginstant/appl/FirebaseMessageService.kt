@@ -1,4 +1,4 @@
-package com.hackathon.watertestinginstant.notification
+package com.hackathon.watertestinginstant.appl
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -12,8 +12,8 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.hackathon.watertestinginstant.R
+import com.hackathon.watertestinginstant.util.FIREBASE_SERVICE
 import com.hackathon.watertestinginstant.ui.login.LoginActivity
-import com.hackathon.watertestinginstant.ui.main.MainActivity
 
 class FirebaseMessageService : FirebaseMessagingService() {
     private val TAG = this.javaClass.simpleName

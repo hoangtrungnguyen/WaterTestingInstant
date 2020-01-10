@@ -7,27 +7,27 @@
         <item
             android:id="@+id/profile"
             android:icon="@drawable/account_circle_24px"
-            android:title="Profile"/>
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Settings" />
+            android:title="@string/profile"/>
+<!--        <item-->
+<!--            android:id="@+id/nav_tools"-->
+<!--            android:icon="@drawable/ic_menu_manage"-->
+<!--            android:title="@string/settings" />-->
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/communicate">
         <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+<!--            <item-->
+<!--                android:id="@+id/nav_share"-->
+<!--                android:icon="@drawable/ic_menu_share"-->
+<!--                android:title="@string/share" />-->
             <item
                 android:id="@+id/feedback"
                 android:icon="@drawable/feedback_24px"
-                android:title="Services"/>
+                android:title="@string/services"/>
             <item
                 android:id="@+id/help"
                 android:icon="@drawable/help_24px"
-                android:title="Help"/>
+                android:title="@string/help"/>
         </menu>
     </item>
 </menu>

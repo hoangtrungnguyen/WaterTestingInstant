@@ -14,14 +14,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.hackathon.watertestinginstant.R
-import com.hackathon.watertestinginstant.appl.ViewModelFactory
-import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.data.Result
-import com.hackathon.watertestinginstant.database.AppDataBase
 import com.hackathon.watertestinginstant.ui.main.MainActivity
-import com.hackathon.watertestinginstant.ui.util.afterTextChanged
-import com.hackathon.watertestinginstant.ui.util.showError
-import com.hackathon.watertestinginstant.ui.util.showSnackbarShort
+import com.hackathon.watertestinginstant.util.afterTextChanged
+import com.hackathon.watertestinginstant.util.showError
+import com.hackathon.watertestinginstant.util.showSnackbarShort
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 
 /**
@@ -109,7 +106,7 @@ class SignUpFragment : Fragment() {
         }
 
         signin.setOnClickListener {
-            findNavController().navigate(R.id.action_signUpFragment_to_signInFragment);
+            findNavController().popBackStack()
         }
     }
 }

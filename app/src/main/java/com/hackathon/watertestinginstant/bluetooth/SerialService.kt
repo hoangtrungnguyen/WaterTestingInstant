@@ -6,15 +6,8 @@ import android.bluetooth.BluetoothGattCallback
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothProfile
 import android.content.Intent
-import android.os.Binder
-import android.os.Handler
 import android.os.IBinder
-import android.os.Looper
 import android.util.Log
-import com.hackathon.watertestinginstant.notification.createMessageNotification
-import com.hackathon.watertestinginstant.notification.createNotification
-import java.util.*
-
 
 
 private val TAG = BluetoothLeService::class.java.simpleName
