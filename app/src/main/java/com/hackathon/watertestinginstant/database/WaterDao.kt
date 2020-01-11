@@ -1,17 +1,14 @@
 package com.hackathon.watertestinginstant.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.hackathon.watertestinginstant.data.model.WaterData
 import java.util.*
 
 
 @Dao
 interface WaterDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(data: WaterData)
 
     @Query("DELETE FROM WaterDataTable")

@@ -9,15 +9,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.hackathon.watertestinginstant.R
-import com.hackathon.watertestinginstant.data.Result
+import com.hackathon.watertestinginstant.data.model.User
 import com.hackathon.watertestinginstant.ui.main.MainActivity
 import com.hackathon.watertestinginstant.util.afterTextChanged
-import com.hackathon.watertestinginstant.util.showError
+import com.hackathon.watertestinginstant.util.hideKeyBoard
 import com.hackathon.watertestinginstant.util.showSnackbarShort
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 
@@ -47,9 +50,9 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        username.afterTextChanged {
+        useremail.afterTextChanged {
             loginViewModel.loginDataChanged(
-                username.text.toString(),
+                useremail.text.toString(),
                 password.text.toString()
             )
         }
@@ -57,13 +60,13 @@ class SignUpFragment : Fragment() {
         password.apply {
             //For test purpose only
             this.setText("12345678")
-            username.setText("user2@gmail.com")
+            useremail.setText("user43@gmail.com")
 
 
 
             afterTextChanged {
                 loginViewModel.loginDataChanged(
-                    username.text.toString(),
+                    useremail.text.toString(),
                     password.text.toString()
                 )
             }
@@ -72,7 +75,7 @@ class SignUpFragment : Fragment() {
                 when (actionId) {
                     EditorInfo.IME_ACTION_DONE ->
                         loginViewModel.login(
-                            username.text.toString(),
+                            useremail.text.toString(),
                             password.text.toString()
                         )
                 }
@@ -87,26 +90,60 @@ class SignUpFragment : Fragment() {
             val loginResult = it
 
             loading.visibility = View.GONE
-            if (loginResult is Result.Success && loginResult.data != null) {
+            if (loginResult.isSuccess && loginResult.getOrNull() != null) {
                 MainActivity.newInstance(context!!)
                 activity?.setResult(Activity.RESULT_OK)
                 activity?.finish()
             }
-            if (loginResult is Result.Error) {
-                activity?.showError(loginResult.exception)
+            it.onFailure {
+                activity?.showSnackbarShort(it.message ?: "unknown")
                 activity?.setResult(Activity.RESULT_CANCELED)
             }
 
+
+        })
+
+        loginViewModel.signUpResult.observe(viewLifecycleOwner, Observer {
+            it.onSuccess {
+                activity!!.showSnackbarShort(it)
+                loading.visibility = View.GONE
+            }
+
+            it.onFailure {
+                activity!!.showSnackbarShort(it.message ?: "Unknown exception")
+                loading.visibility = View.GONE
+            }
         })
 
 
         signup.setOnClickListener {
             loading.visibility = View.VISIBLE
-            loginViewModel.signUp(username.text.toString(), password.text.toString())
+            loginViewModel.signUp(
+                User(
+                    email = useremail.text.toString(),
+                    pass = password.text.toString(),
+                    phone = phone_number.text.toString(),
+                    address = address.selectedItem.toString()
+                )
+            )
+            activity?.hideKeyBoard()
         }
 
         signin.setOnClickListener {
             findNavController().popBackStack()
+        }
+
+
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter.createFromResource(
+            context!!,
+            R.array.address_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            address.adapter = adapter
         }
     }
 }

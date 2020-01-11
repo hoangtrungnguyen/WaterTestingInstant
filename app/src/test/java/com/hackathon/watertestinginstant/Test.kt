@@ -25,4 +25,7 @@ fun main() = runBlocking<Unit> {
     flow.collect { value -> println(value) }
     println("Calling collect again...")
     flow.collect { value -> println(value) }
+
+
+
 }

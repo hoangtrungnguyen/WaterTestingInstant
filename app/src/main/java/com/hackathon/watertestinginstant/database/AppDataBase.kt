@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 
-@Database(entities = [WaterData::class], version = 1)
+@Database(entities = [WaterData::class], version = 2)
 //@TypeConverters(Converters::class)
 abstract class AppDataBase : RoomDatabase() {
     abstract fun waterDao(): WaterDao

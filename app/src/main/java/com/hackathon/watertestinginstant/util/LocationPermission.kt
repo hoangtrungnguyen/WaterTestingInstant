@@ -23,3 +23,4 @@ internal fun Activity.requestLocationPermission() =
 
 internal fun isLocationPermissionGranted(requestCode: Int, grantResults: IntArray) =
         requestCode == REQUEST_PERMISSION_COARSE_LOCATION && grantResults[0] == PackageManager.PERMISSION_GRANTED
+

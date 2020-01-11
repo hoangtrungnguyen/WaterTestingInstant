@@ -1,7 +1,11 @@
 package com.hackathon.watertestinginstant.ui.main.home
 
 
-import android.annotation.SuppressLint
+    import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -11,23 +15,35 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.hackathon.watertestinginstant.appl.NOTIFICATION_DATA
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
+import com.hackathon.watertestinginstant.appl.WaterTestingApplication
+import com.hackathon.watertestinginstant.data.model.WaterData
 import com.hackathon.watertestinginstant.database.AppDataBase
 import com.hackathon.watertestinginstant.ui.customview.ProgressBarAnimation
 import com.hackathon.watertestinginstant.ui.customview.fadeOut
+import com.hackathon.watertestinginstant.ui.main.MainViewModel
+import com.hackathon.watertestinginstant.ui.main.PACKAGE_MAIN
+import com.hackathon.watertestinginstant.ui.main.history.HistoryAdapter
+import com.hackathon.watertestinginstant.util.showDailog
 import kotlinx.android.synthetic.main.fragment_landing.*
 import kotlinx.coroutines.*
 
 
-/**
- * A simple [Fragment] subclass.
- */
+const val MAP_VIEW_BUNDLE_KEY = "MapViewBundleKey"
+
 @Suppress("DEPRECATION")
 class LandingFragment : Fragment() {
     private val TAG = this.javaClass.simpleName
 
     private lateinit var viewModelConnect: ConnectBluetoothViewModel
 
+    private lateinit var viewModelMain: MainViewModel
+
+    private lateinit var receiver: BroadcastReceiver
+
+    private val adapter = HistoryAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +51,30 @@ class LandingFragment : Fragment() {
             activity!!,
             ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
         )[ConnectBluetoothViewModel::class.java]
+        activity?.let {
+            viewModelMain = ViewModelProviders.of(it, ViewModelFactory(AppDataBase.getInstance(
+                WaterTestingApplication.application).waterDao())).get(MainViewModel::class.java)
+        }
+
+
+        receiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                Log.d(TAG,"intent ${intent == null}")
+                if(intent?.action == NOTIFICATION_DATA){
+                    val data = intent.getSerializableExtra(PACKAGE_MAIN) as WaterData
+                    Log.d(TAG,"intent ${data}")
+                    data.let { context?.showDailog(data as? HashMap<String, String>) }
+                }
+            }
+        }
+        LocalBroadcastManager.getInstance(context!!).registerReceiver(
+            receiver, IntentFilter(NOTIFICATION_DATA)
+        )
+
+        activity?.registerReceiver(receiver, IntentFilter(NOTIFICATION_DATA))
+
+
+
     }
 
     override fun onCreateView(
@@ -42,6 +82,7 @@ class LandingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(
             com.hackathon.watertestinginstant.R.layout.fragment_landing,
             container,
@@ -54,21 +95,21 @@ class LandingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        viewModelConnect.waterData.observe(viewLifecycleOwner, Observer {
-            it.sortedBy { it.time }
-            val waterData = it.firstOrNull()
-            waterData?.let {
-                ph.text = String.format("%.2f", waterData.PH)
-                turbidity.text = String.format("%.2f", waterData.Turbidity)
-                tds.text = String.format("%.2f", waterData.TDS)
-                date.text = waterData.time.toString()
-                nodataView.visibility = View.VISIBLE
-            }
-            if (waterData == null) {
-                viewWaterData.visibility = View.GONE
-                nodataView.visibility = View.VISIBLE
-            }
-        })
+//        viewModelConnect.waterData.observe(viewLifecycleOwner, Observer {
+//            it.sortedBy { it.time }
+//            val waterData = it.firstOrNull()
+//            waterData?.let {
+//                ph.text = String.format("%.2f", waterData.PH)
+//                turbidity.text = String.format("%.2f", waterData.Turbidity)
+//                tds.text = String.format("%.2f", waterData.TDS)
+//                date.text = waterData.time.toString()
+//                nodataView.visibility = View.VISIBLE
+//            }
+//            if (waterData == null) {
+//                viewWaterData.visibility = View.GONE
+//                nodataView.visibility = View.VISIBLE
+//            }
+//        })
 
         viewModelConnect.latest().observe(viewLifecycleOwner, Observer {
             val progressAnim = ProgressBarAnimation(main_progress_bar, 0F, it.toFloat())
@@ -134,15 +175,40 @@ class LandingFragment : Fragment() {
             }
         })
 
+        rcvData.adapter = adapter
 
-        mapFragment()
+        viewModelMain.waterData.observe(viewLifecycleOwner, Observer { it
+            val waterData = it.sortedBy { it.time }
+            waterData.lastOrNull()?.let {
+                adapter.updateData(listOf(it))
+            }
+        })
+
+
+        viewNearby_container.setOnClickListener {
+//            val action = LandingFragmentDirections.actionLandingFragmentToMapFragment()
+//            findNavController().navigate(action    )
+        }
+
+
+
     }
 
-    fun mapFragment() {
-//        map.setOnM
-//        (map as SupportMapFragment).getMapAsync { mapFragment  }
-//        mapFragment?.onMapReady(mapFragment.)
 
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
+    }
+
+    override fun onStart() {
+        super.onStart()
+    }
+
+    override fun onStop() {
+        super.onStop()
     }
 }
 

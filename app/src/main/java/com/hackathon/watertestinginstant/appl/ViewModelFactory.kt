@@ -28,7 +28,7 @@ class ViewModelFactory (val waterDao: WaterDao): ViewModelProvider.Factory {
         } else if(modelClass.isAssignableFrom(MainViewModel::class.java)){
             return MainViewModel( application = WaterTestingApplication.application, waterDao = waterDao) as T
         } else if (modelClass.isAssignableFrom(HistoryViewModel::class.java))
-            return HistoryViewModel(waterDao) as T
+            return HistoryViewModel(waterDao, WaterTestingApplication.application) as T
         else if (modelClass.isAssignableFrom(ProfileViewModel::class.java))
             return ProfileViewModel(waterDao) as T
         else if (modelClass.isAssignableFrom(ConnectBluetoothViewModel::class.java))

@@ -6,8 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hackathon.watertestinginstant.appl.BASE_URL
-import com.hackathon.watertestinginstant.appl.BASE_URL_MARS
-import com.hackathon.watertestinginstant.data.model.Message
 import com.hackathon.watertestinginstant.data.model.WaterData
 import com.hackathon.watertestinginstant.database.WaterDao
 import com.hackathon.watertestinginstant.network.MarsProperty
@@ -16,9 +14,6 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.*
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody
-import okhttp3.ResponseBody
 import retrofit2.*
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
@@ -47,21 +42,26 @@ class ProfileViewModel(val waterDao: WaterDao) : ViewModel() {
 
     }
 
-    fun callApi() {
+    fun callApi(message: String = "last test") {
         viewModelScope.launch {
             try {
-                val body = RequestBody.create(
-                    "text/plain".toMediaTypeOrNull(),
-                    "nguyen_test"
-                )
-//                val res = WaterApi.retrofitService.requestBody(body).await()
+//                To explain a bit calling the suspended function getPosts() pretty much allowed
+//                the function to wait for a result before processing
+//                the if else condition within the main or UI thread.
+                val response = WaterApi.retrofitService.saveTestingData(message)
 
-                WaterApi.retrofitService.saveTestingData(body).await()
-//                Log.d("Network", value.toString())
-//                result.postValue(kotlin.Result.success(value))
-//            mars.postValue(kotlin.Result.success(value))
-            } catch (e: java.lang.Exception) {
-                result.postValue(kotlin.Result.failure(e))
+                withContext(Dispatchers.Main) {
+                    if (response.isSuccessful) {
+                        //Do something with response e.g show to the UI.
+                        result.postValue(Result.success(response.body() ?: "NULL"))
+                    } else {
+                        result.postValue(Result.failure(java.lang.Exception("Fail with code ${response.code()}")))
+                    }
+                }
+            } catch (e: HttpException) {
+                result.postValue(Result.failure(e))
+            } catch (e: Throwable) {
+                result.postValue(Result.failure(e))
             }
         }
     }
@@ -106,7 +106,7 @@ class ProfileViewModel(val waterDao: WaterDao) : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             val value = client.sampleKt("Test")
             try {
-                Log.d("222222222222",value.request().toString())
+                Log.d("222222222222", value.request().toString())
                 val json = value.await()
                 result.postValue(Result.success(json))
             } catch (e: java.lang.Exception) {
@@ -141,7 +141,8 @@ class ProfileViewModel(val waterDao: WaterDao) : ViewModel() {
     fun saveData(/*data: WaterData*/) {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                val item = WaterData(TDS = Random(15).nextDouble(), PH = Random(7).nextDouble())
+                val item =
+                    WaterData(TDS = Random(15).nextDouble(), PH = Random(7).nextDouble())
                 waterDao.insert(item)
             }
         }

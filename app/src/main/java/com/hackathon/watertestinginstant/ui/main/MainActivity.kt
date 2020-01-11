@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.telephony.TelephonyManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -15,18 +16,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.navigation.NavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.hackathon.watertestinginstant.R
+import com.hackathon.watertestinginstant.appl.NOTIFICATION_DATA
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
+import com.hackathon.watertestinginstant.data.model.WaterData
 import com.hackathon.watertestinginstant.database.AppDataBase
 import com.hackathon.watertestinginstant.util.isInternetConnection
+import com.hackathon.watertestinginstant.util.showDailog
 import com.hackathon.watertestinginstant.util.showSnackbarShort
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.nav_header_drawer.*
 
+
+val PACKAGE_MAIN = "com.hackathon.watertestinginstant.ui.main.MainActivity"
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -47,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private val TAG = this.javaClass.simpleName
+    private val TAG = "MainActivity"
 
     private lateinit var viewModel: MainViewModel
 
@@ -64,6 +70,7 @@ class MainActivity : AppCompatActivity() {
             ViewModelFactory(AppDataBase.getInstance(WaterTestingApplication.application).waterDao())
         ).get(MainViewModel::class.java)
 
+
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         } // Else, need to wait for onRestoreInstanceState
@@ -75,11 +82,13 @@ class MainActivity : AppCompatActivity() {
             addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED)
             addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)
             addAction(BluetoothAdapter.ACTION_STATE_CHANGED)
-
+//            addAction()
         }
-//        receiver = BluetoothReceiver(this)
-//        this.registerReceiver(receiver, filter)
+
+
         setUpNavigationDrawer()
+
+        if(!isInternetConnection()) showSnackbarShort("No internet connection")
     }
 
 
@@ -100,9 +109,15 @@ class MainActivity : AppCompatActivity() {
     private fun setUpNavigationDrawer() {
         viewModel.user.observe(this, Observer {
             val tvName = navigation_view.getHeaderView(0).findViewById<TextView>(R.id.nav_view_name)
-            val tvEmail= navigation_view.getHeaderView(0).findViewById<TextView>(R.id.nav_view_email)
+            val tvEmail =
+                navigation_view.getHeaderView(0).findViewById<TextView>(R.id.nav_view_email)
             tvName.text = it.displayName
             tvEmail.text = it.email
+        })
+
+        viewModel.waterData.observe(this, Observer {
+            Log.d(TAG,it.toString())
+            showSnackbarShort(it.toString())
         })
     }
 
@@ -139,7 +154,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.sync -> {
@@ -169,10 +183,35 @@ class MainActivity : AppCompatActivity() {
         bottom_nav.selectedItemId = tabs[bottomPosition] ?: R.id.home
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
 
     override fun onPause() {
         super.onPause()
         isPause = true
-//        this.unregisterReceiver(receiver)
     }
+
+    fun getDeviceId() {
+        val tm = baseContext.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+//         Log.d("MainActivity" , "deviceid ${tm.deviceId}")
+//        val androidId = Settings.Secure.getString(getContentResolver(),Settings.Secure.ANDROID_ID);
+//        requestPermissions(,9)
+
+//        val tmDevice: String
+//        val tmSerial: String
+//        val androidId: String
+//        tmDevice = "" + tm.deviceId
+//        tmSerial = "" + tm.simSerialNumber
+//        androidId = "" + android.provider.Settings.Secure.getString(
+//            getContentResolver(),
+//            android.provider.Settings.Secure.ANDROID_ID
+//        )
+//
+//        val deviceUuid =
+//            UUID.fromString(androidId.hashCode(), tmDevice.hashCode().toLong() shl 32 or tmSerial.hashCode())
+//        val deviceId = deviceUuid.toString()
+
+    }
+
 }

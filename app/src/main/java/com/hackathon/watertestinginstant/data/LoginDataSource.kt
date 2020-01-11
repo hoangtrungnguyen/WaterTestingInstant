@@ -1,12 +1,10 @@
 package com.hackathon.watertestinginstant.data
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
-import com.hackathon.watertestinginstant.data.model.LoggedInUser
+import com.hackathon.watertestinginstant.data.model.User
 import java.io.IOException
-import java.lang.NullPointerException
 
 
 /**
@@ -15,20 +13,16 @@ import java.lang.NullPointerException
 class LoginDataSource {
     private val TAG: String = this@LoginDataSource.javaClass.simpleName
 
-    val result = MutableLiveData<Result<LoggedInUser>>()
+    val result = MutableLiveData<Result<User>>()
 
     val mAuth: FirebaseAuth? = WaterTestingApplication.mAuth
-    fun login(username: String, password: String)/*: Result<LoggedInUser>*/ {
+    fun login(user:User)/*: Result<User>*/ {
         try {
-            // TODO: handle loggedInUser authentication
-//            val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(), "Jane Doe")
-            // Configure Google Sign In
 
 
 
-//            return Result.Success(fakeUser)
         } catch (e: Throwable) {
-            result.postValue(Result.Error(IOException("Error logging in", e)))
+            result.postValue(Result.failure(IOException("Error logging in", e)))
         }
     }
 

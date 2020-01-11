@@ -30,9 +30,6 @@ object RetrofitClient {
         val logging = HttpLoggingInterceptor()
         // set your desired log level
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-        logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
-//        logging.setLevel(HttpLoggingInterceptor.Level.NONE)
-        logging.setLevel(HttpLoggingInterceptor.Level.HEADERS)
         val httpClient = OkHttpClient.Builder()
         // add your other interceptors …
         // add logging as last interceptor

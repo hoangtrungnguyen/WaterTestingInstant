@@ -37,7 +37,7 @@
             android:selectAllOnFocus="true"
             android:inputType="textEmailAddress"
             android:hint="@string/prompt_email"
-            android:id="@+id/username"
+            android:id="@+id/useremail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

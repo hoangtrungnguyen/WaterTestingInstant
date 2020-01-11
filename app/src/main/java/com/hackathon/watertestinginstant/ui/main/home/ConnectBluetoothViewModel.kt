@@ -2,15 +2,20 @@ package com.hackathon.watertestinginstant.ui.main.home
 
 import android.bluetooth.*
 import androidx.lifecycle.*
+import com.google.android.gms.maps.model.LatLng
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication.Companion.application
 import com.hackathon.watertestinginstant.bluetooth.ACTION_DATA_AVAILABLE
 import com.hackathon.watertestinginstant.bluetooth.SerialSocket
 import com.hackathon.watertestinginstant.data.model.WaterData
 import com.hackathon.watertestinginstant.database.WaterDao
+import com.hackathon.watertestinginstant.network.WaterApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import kotlin.random.Random
 
 
@@ -77,6 +82,19 @@ class ConnectBluetoothViewModel(val waterDao: WaterDao, application: WaterTestin
     }
 
 
+    fun getNearby(currentLoc: LatLng) {
+        WaterApi.service.nearby(currentLoc).enqueue(object : Callback<List<LatLng>>{
+            override fun onFailure(call: Call<List<LatLng>>, t: Throwable) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onResponse(call: Call<List<LatLng>>, response: Response<List<LatLng>>) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+        })
+    }
+
     fun connectAndReceive(macAddress: String) {
         val blu = BluetoothAdapter.getDefaultAdapter()
         val device = blu.bondedDevices.first { it.address == macAddress }
@@ -108,6 +126,15 @@ class ConnectBluetoothViewModel(val waterDao: WaterDao, application: WaterTestin
 
         })
 
+    }
+
+
+    fun nearByUser(){
+
+    }
+
+    fun getData(){
+//        WaterApi.service.signIn("s").enqueue(object : Callback<Objects>())
     }
 
 

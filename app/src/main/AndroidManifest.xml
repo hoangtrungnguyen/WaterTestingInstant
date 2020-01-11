@@ -15,9 +15,11 @@
          ACCESS_COARSE_LOCATION instead.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="com.google.android.things.permission.MANAGE_BLUETOOTH" />
 
     <application
+
         android:name=".appl.WaterTestingApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_icon_water_blue"

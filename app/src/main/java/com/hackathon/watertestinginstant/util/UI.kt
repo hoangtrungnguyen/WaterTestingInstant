@@ -1,7 +1,9 @@
 @file:Suppress("DEPRECATION")
 
 package com.hackathon.watertestinginstant.util
+
 import android.app.Activity
+import android.app.AlertDialog
 import android.bluetooth.BluetoothClass
 import android.content.Context
 import android.text.Editable
@@ -49,8 +51,30 @@ fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
     })
 }
 
-fun Context.setBkg(view: View, @ColorRes res: Int){
+fun Context.setBkg(view: View, @ColorRes res: Int) {
     view.setBackgroundColor(this.resources.getColor(res))
 }
 
 val s = BluetoothClass.Service.INFORMATION
+
+
+fun Context.showDailog(data: HashMap<String, String>?) {
+    AlertDialog.Builder(this)
+        .setTitle("You are in danger water range at ${data?.get("time")}")
+        .setMessage("There is an user at district ${data?.get("address")}")
+
+        .setPositiveButton(
+            android.R.string.yes
+        ) { dialog, which ->
+
+        }
+
+        // A null listener allows the button to dismiss the dialog and take no further action.
+        .setNegativeButton(android.R.string.no) { dialog, which ->
+            {
+
+            }
+        }
+        .setIcon(android.R.drawable.ic_dialog_alert)
+        .show()
+}

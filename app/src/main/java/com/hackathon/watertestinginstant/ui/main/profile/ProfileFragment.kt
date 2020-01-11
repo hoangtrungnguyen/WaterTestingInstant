@@ -70,7 +70,7 @@ class ProfileFragment : Fragment() {
         })
 
         add_dummy_data.setOnClickListener { profileViewModel.saveData() }
-        call_api.setOnClickListener { profileViewModel.maintain() }
+        call_api.setOnClickListener { profileViewModel.callApi() }
         sync.setOnClickListener { profileViewModel.syncData() }
 
         add_device.setOnClickListener {

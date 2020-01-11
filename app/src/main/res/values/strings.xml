@@ -79,5 +79,15 @@
     <string name="services">Services</string>
     <string name="help">Help</string>
 
+    <string-array name="address_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 
 </resources>

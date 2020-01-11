@@ -21,9 +21,9 @@ import com.hackathon.watertestinginstant.ui.main.MainActivity
 import com.hackathon.watertestinginstant.util.hideKeyBoard
 import com.hackathon.watertestinginstant.util.showError
 import com.hackathon.watertestinginstant.util.showSnackbarShort
-import com.hackathon.watertestinginstant.data.Result
 import com.hackathon.watertestinginstant.util.afterTextChanged
 import kotlinx.android.synthetic.main.fragment_sign_in.*
+import java.lang.Exception
 
 /**
  * A simple [Fragment] subclass.
@@ -56,7 +56,7 @@ class SignInFragment : Fragment() {
             login.isEnabled = loginState.isDataValid
 
             if (loginState.usernameError != null) {
-                username.error = getString(loginState.usernameError)
+                useremail.error = getString(loginState.usernameError)
             }
             if (loginState.passwordError != null) {
                 password.error = getString(loginState.passwordError)
@@ -70,13 +70,13 @@ class SignInFragment : Fragment() {
             val loginResult = it
 
             loading.visibility = View.GONE
-            if (loginResult is Result.Success && loginResult.data != null) {
+            if (loginResult.isSuccess && loginResult.getOrNull() != null) {
                 MainActivity.newInstance(context!!)
                 activity?.setResult(Activity.RESULT_OK)
                 activity?.finish()
             }
-            if (loginResult is Result.Error) {
-                activity?.showError(loginResult.exception)
+            loginResult.onFailure {
+                activity?.showSnackbarShort(it.message ?: "Unknown Exception")
             }
         })
 
@@ -89,9 +89,10 @@ class SignInFragment : Fragment() {
         })
 
 
-        username.afterTextChanged {
+
+        useremail.afterTextChanged {
             loginViewModel.loginDataChanged(
-                username.text.toString(),
+                useremail.text.toString(),
                 password.text.toString()
             )
         }
@@ -99,13 +100,13 @@ class SignInFragment : Fragment() {
         password.apply {
             //For test purpose only
             this.setText("12345678")
-            username.setText("user2@gmail.com")
+            useremail.setText("user43@gmail.com")
 
 
 
             afterTextChanged {
                 loginViewModel.loginDataChanged(
-                    username.text.toString(),
+                    useremail.text.toString(),
                     password.text.toString()
                 )
             }
@@ -114,7 +115,7 @@ class SignInFragment : Fragment() {
                 when (actionId) {
                     EditorInfo.IME_ACTION_DONE ->
                         loginViewModel.login(
-                            username.text.toString(),
+                            useremail.text.toString(),
                             password.text.toString()
                         )
                 }
@@ -126,7 +127,7 @@ class SignInFragment : Fragment() {
         login.setOnClickListener {
             loading.visibility = View.VISIBLE
             activity?.hideKeyBoard()
-            loginViewModel.login(username.text.toString(), password.text.toString())
+            loginViewModel.login(useremail.text.toString(), password.text.toString())
 
         }
         tvSignInGoogle.setOnClickListener {
@@ -136,7 +137,7 @@ class SignInFragment : Fragment() {
         signup.setOnClickListener { findNavController().navigate(R.id.action_signInFragment_to_signUpFragment) }
 
         tvSignInGoogle.setOnClickListener {
-//            (activity as? MainActivity)?.findViewById<View>(R.id.loadingMain)?.visibility = View.VISIBLE
+            //            (activity as? MainActivity)?.findViewById<View>(R.id.loadingMain)?.visibility = View.VISIBLE
             loading.visibility = View.VISIBLE
             startActivityForResult(
                 AuthUI.getInstance()

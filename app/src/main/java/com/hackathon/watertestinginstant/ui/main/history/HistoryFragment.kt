@@ -29,7 +29,7 @@ class HistoryFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        historyViewModel = ViewModelProviders.of(
+            historyViewModel = ViewModelProviders.of(
             this,
             ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
         )[HistoryViewModel::class.java]
@@ -46,25 +46,37 @@ class HistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        historyViewModel.getHistoryServer()
         initView()
+        loading.visibility = View.VISIBLE
+
     }
 
     private fun initView() {
         with(rcvData) {
             this.adapter = adapterHistory
-            addItemDecoration(object : RecyclerView.ItemDecoration(){
+            addItemDecoration(object : RecyclerView.ItemDecoration() {
                 override fun getItemOffsets(
                     outRect: Rect,
                     view: View,
                     parent: RecyclerView,
                     state: RecyclerView.State
                 ) {
-                    view.setPadding(10,10,10,10)
+                    view.setPadding(10, 10, 10, 10)
                 }
             })
         }
         historyViewModel.waterData.observe(viewLifecycleOwner, Observer {
             it?.let { adapterHistory.updateData(it) }
+
         })
+
+        historyViewModel.state.observe(viewLifecycleOwner, Observer {
+            loading.visibility = if (it == State.FINISH) View.GONE else View.VISIBLE
+        })
+
+//        historyViewModel.serverWaterData.observe(viewLifecycleOwner, Observer {
+//            it?.let { adapterHistory.updateData(it) }
+//        })
     }
 }
