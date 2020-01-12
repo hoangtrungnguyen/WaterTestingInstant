@@ -21,7 +21,7 @@ class MapFragment : SupportMapFragment(), OnMapReadyCallback {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, p2: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(
-            R.layout.fragment_map,
+            R.layout.fragment_landing,
             container,
             false
         )

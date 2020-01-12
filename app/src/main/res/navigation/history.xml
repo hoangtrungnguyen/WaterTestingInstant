@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/history"
-    app:startDestination="@id/historyFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/history"
+    app:startDestination="@id/dashboardFragment">
 
     <fragment
-        android:id="@+id/historyFragment"
+        android:id="@+id/dashboardFragment"
         android:name="com.hackathon.watertestinginstant.ui.main.history.HistoryFragment"
-        android:label="History Testing" >
-        <action
-            android:id="@+id/action_dashboardFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.hackathon.watertestinginstant.ui.main.history.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
-        <argument
-            android:name="waterData"
-            app:argType="com.hackathon.watertestinginstant.data.model.WaterData" />
-    </fragment>
+        android:label="DashboardFragment" />
 </navigation>

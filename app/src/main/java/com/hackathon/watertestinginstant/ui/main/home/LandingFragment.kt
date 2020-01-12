@@ -1,7 +1,7 @@
 package com.hackathon.watertestinginstant.ui.main.home
 
 
-import android.annotation.SuppressLint
+    import android.annotation.SuppressLint
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -22,8 +22,6 @@ import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.data.model.WaterData
 import com.hackathon.watertestinginstant.database.AppDataBase
 import com.hackathon.watertestinginstant.ui.customview.ProgressBarAnimation
-import com.hackathon.watertestinginstant.ui.customview.changeBkgAnimate
-import com.hackathon.watertestinginstant.ui.customview.circularCardViewChange
 import com.hackathon.watertestinginstant.ui.customview.fadeOut
 import com.hackathon.watertestinginstant.ui.main.MainViewModel
 import com.hackathon.watertestinginstant.ui.main.PACKAGE_MAIN
@@ -31,10 +29,6 @@ import com.hackathon.watertestinginstant.ui.main.history.HistoryAdapter
 import com.hackathon.watertestinginstant.util.showDailog
 import kotlinx.android.synthetic.main.fragment_landing.*
 import kotlinx.coroutines.*
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.util.*
-import kotlin.collections.HashMap
 
 
 const val MAP_VIEW_BUNDLE_KEY = "MapViewBundleKey"
@@ -49,9 +43,7 @@ class LandingFragment : Fragment() {
 
     private lateinit var receiver: BroadcastReceiver
 
-    private val adapter = HistoryAdapter {
-
-    }
+    private val adapter = HistoryAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,22 +52,17 @@ class LandingFragment : Fragment() {
             ViewModelFactory(AppDataBase.getInstance(context!!).waterDao())
         )[ConnectBluetoothViewModel::class.java]
         activity?.let {
-            viewModelMain = ViewModelProviders.of(
-                it, ViewModelFactory(
-                    AppDataBase.getInstance(
-                        WaterTestingApplication.application
-                    ).waterDao()
-                )
-            ).get(MainViewModel::class.java)
+            viewModelMain = ViewModelProviders.of(it, ViewModelFactory(AppDataBase.getInstance(
+                WaterTestingApplication.application).waterDao())).get(MainViewModel::class.java)
         }
 
 
         receiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
-                Log.d(TAG, "intent ${intent == null}")
-                if (intent?.action == NOTIFICATION_DATA) {
+                Log.d(TAG,"intent ${intent == null}")
+                if(intent?.action == NOTIFICATION_DATA){
                     val data = intent.getSerializableExtra(PACKAGE_MAIN) as WaterData
-                    Log.d(TAG, "intent ${data}")
+                    Log.d(TAG,"intent ${data}")
                     data.let { context?.showDailog(data as? HashMap<String, String>) }
                 }
             }
@@ -85,6 +72,7 @@ class LandingFragment : Fragment() {
         )
 
         activity?.registerReceiver(receiver, IntentFilter(NOTIFICATION_DATA))
+
 
 
     }
@@ -122,8 +110,6 @@ class LandingFragment : Fragment() {
 //                nodataView.visibility = View.VISIBLE
 //            }
 //        })
-        date.text =
-            org.joda.time.LocalDate.now().toString("EEE, dd MMM yyy", Locale.ENGLISH)
 
         viewModelConnect.latest().observe(viewLifecycleOwner, Observer {
             val progressAnim = ProgressBarAnimation(main_progress_bar, 0F, it.toFloat())
@@ -133,7 +119,7 @@ class LandingFragment : Fragment() {
             CoroutineScope(Job()).launch {
                 withContext(Dispatchers.Main) {
                     try {
-                        while (progressStatus < 100) {
+                        while (progressStatus < it) {
 
                             progressStatus += 1
                             // Update the progress bar and display the
@@ -142,20 +128,9 @@ class LandingFragment : Fragment() {
                             water_quality.text = "${progressStatus}%"
                             delay(5)
                         }
-
                         when {
                             (it < 50) -> {
                                 water_quality.setTextColor(Color.parseColor("#F44336"))
-                                delay(500)
-                                circularRevealCardView.circularCardViewChange(
-                                    resources.getColor(android.R.color.white),
-                                    Color.parseColor("#B71C1C")
-                                )
-                                delay(500)
-                                water_quality.text = "Bad"
-                                water_quality.setTextColor(resources.getColor(android.R.color.white))
-                                water_quality.fadeOut()
-
 //                                main_progress_bar.progressDrawable = (
 //                                        DrawableGradient(
 //                                            intArrayOf(
@@ -168,13 +143,6 @@ class LandingFragment : Fragment() {
                             }
                             (it < 75) -> {
                                 water_quality.setTextColor(Color.parseColor("#EF6C00"))
-                                circularRevealCardView.circularCardViewChange(
-                                    resources.getColor(android.R.color.white),
-                                    Color.parseColor("#FF9800")
-                                )
-                                water_quality.text = "Normal"
-                                water_quality.setTextColor(resources.getColor(android.R.color.black))
-                                water_quality.fadeOut()
 //                                main_progress_bar.progressDrawable =
 //                                    DrawableGradient(
 //                                        intArrayOf(
@@ -186,13 +154,6 @@ class LandingFragment : Fragment() {
                             }
                             (it < 100) -> {
                                 water_quality.setTextColor(Color.parseColor("#0277BD"))
-                                circularRevealCardView.circularCardViewChange(
-                                    resources.getColor(android.R.color.white),
-                                    Color.parseColor("#0288D1")
-                                )
-                                water_quality.text = "Good"
-                                water_quality.setTextColor(resources.getColor(android.R.color.white))
-                                water_quality.fadeOut()
 //                                main_progress_bar.progressDrawable = (
 //                                        DrawableGradient(
 //                                            intArrayOf(
@@ -204,6 +165,7 @@ class LandingFragment : Fragment() {
 //                                        )
                             }
                         }
+
                         analyzing.text = "Analyze finish"
                         analyzing.fadeOut()
                     } catch (e: Exception) {
@@ -211,13 +173,11 @@ class LandingFragment : Fragment() {
                     }
                 }
             }
-
         })
 
         rcvData.adapter = adapter
 
-        viewModelMain.waterData.observe(viewLifecycleOwner, Observer {
-            it
+        viewModelMain.waterData.observe(viewLifecycleOwner, Observer { it
             val waterData = it.sortedBy { it.time }
             waterData.lastOrNull()?.let {
                 adapter.updateData(listOf(it))
@@ -226,9 +186,10 @@ class LandingFragment : Fragment() {
 
 
         viewNearby_container.setOnClickListener {
-            //            val action = LandingFragmentDirections.actionLandingFragmentToMapFragment()
+//            val action = LandingFragmentDirections.actionLandingFragmentToMapFragment()
 //            findNavController().navigate(action    )
         }
+
 
 
     }

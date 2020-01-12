@@ -15,8 +15,7 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 import java.util.zip.Inflater
 
-class HistoryAdapter(val listener: (item: WaterData) -> Unit) :
-    RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
+class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
     var _data = mutableListOf<WaterData>()
         set(value) {
             field = value
@@ -41,13 +40,11 @@ class HistoryAdapter(val listener: (item: WaterData) -> Unit) :
 
     override fun getItemCount(): Int = _data.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) =
-        holder.bind(_data[position], listener)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(_data[position])
 
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(item: WaterData, listener: (item: WaterData) -> Unit) {
-            view.setOnClickListener { listener(item) }
+        fun bind(item: WaterData) {
             val tvDate: TextView = view.findViewById(R.id.date)
             val tvHP: TextView = view.findViewById(R.id.ph)
             val tvTurbidity: TextView = view.findViewById(R.id.turbidity)
