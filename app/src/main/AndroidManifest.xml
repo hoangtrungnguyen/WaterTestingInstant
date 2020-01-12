@@ -17,7 +17,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="com.google.android.things.permission.MANAGE_BLUETOOTH" />
-
+    <!-- Required if your app targets Android 10 (API level 29) or higher -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
     <application
 
         android:name=".appl.WaterTestingApplication"
@@ -37,7 +38,7 @@
 <!--        <uses-library android:name="com.google.android.things" />-->
 
         <receiver
-            android:name=".bluetooth.BluetoothReceiver"
+            android:name="com.hackathon.watertestinginstant.service.bluetooth.BluetoothReceiver"
             android:enabled="true"
             android:exported="false"><!--receive from outside android source-->
             <intent-filter>
@@ -45,7 +46,13 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".bluetooth.BluetoothLeService" />
+        <receiver
+            android:allowBackup="true"
+            android:name=".service.geo.GeofenceBroadcastReceiver">
+
+        </receiver>
+
+        <service android:name="com.hackathon.watertestinginstant.service.bluetooth.BluetoothLeService" />
 
         <service
             android:name=".appl.FirebaseMessageService"
@@ -53,6 +60,10 @@
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
+        </service>
+
+        <service android:name=".service.geo.TrackerService">
+
         </service>
 
         <service

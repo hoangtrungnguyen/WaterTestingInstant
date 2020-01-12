@@ -1,4 +1,4 @@
-package com.hackathon.watertestinginstant.database
+package com.hackathon.watertestinginstant.service.database
 
 import android.content.Context
 import android.content.SharedPreferences

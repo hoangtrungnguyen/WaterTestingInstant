@@ -1,4 +1,4 @@
-package com.hackathon.watertestinginstant.database
+package com.hackathon.watertestinginstant.service.database
 
 import android.content.Context
 import androidx.room.*
@@ -6,7 +6,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.hackathon.watertestinginstant.data.model.Converters
 import com.hackathon.watertestinginstant.data.model.WaterData
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 

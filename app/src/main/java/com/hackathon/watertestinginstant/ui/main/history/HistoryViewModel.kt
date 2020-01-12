@@ -1,17 +1,14 @@
 package com.hackathon.watertestinginstant.ui.main.history
 
-import android.os.Build
 import android.util.Log
 import androidx.lifecycle.*
+import com.google.android.gms.maps.model.LatLng
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.data.model.WaterData
-import com.hackathon.watertestinginstant.data.respone.Noti
-import com.hackathon.watertestinginstant.database.WaterDao
-import com.hackathon.watertestinginstant.network.WaterApi
+import com.hackathon.watertestinginstant.service.database.WaterDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.time.LocalDate
 
 enum class State {
     LOADING,
@@ -60,9 +57,10 @@ class HistoryViewModel(val waterDao: WaterDao, val application: WaterTestingAppl
                                 WaterData(
                                     PH = (data?.get("ph") as? String)?.toDouble() ?: 0.0,
                                     TDS = (data?.get("tds") as? String)?.toDouble() ?: 0.0,
-                                    Turbidity = (data?.get("turbidity") as? String)?.toDouble()
-                                        ?: 0.0,
-                                    date = (data?.get("date") as? String)?.toString() ?: "NULL"
+                                    Turbidity = (data?.get("turbidity") as? String)?.toDouble() ?: 0.0,
+                                    date = (data?.get("date") as? String)?.toString() ?: "NULL",
+                                    latLng = LatLng((data?.get("latitude") as? String)?.toDouble() ?: 0.0,(data?.get("longtitude") as? String)?.toDouble() ?: 0.0)
+
                                 )
                             )
                         }

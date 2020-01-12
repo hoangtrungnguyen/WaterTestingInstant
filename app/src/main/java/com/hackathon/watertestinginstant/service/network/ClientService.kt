@@ -1,4 +1,4 @@
-package com.hackathon.watertestinginstant.network
+package com.hackathon.watertestinginstant.service.network
 
 import com.google.android.gms.maps.model.LatLng
 import com.hackathon.watertestinginstant.data.model.User

@@ -9,17 +9,15 @@ import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.data.model.WaterData
-import com.hackathon.watertestinginstant.database.AppDataBase
-import com.hackathon.watertestinginstant.network.WaterApi
+import com.hackathon.watertestinginstant.service.database.AppDataBase
 import com.hackathon.watertestinginstant.util.FIREBASE_SERVICE
 import com.hackathon.watertestinginstant.ui.login.LoginActivity
 import com.hackathon.watertestinginstant.ui.main.MainActivity
-import com.hackathon.watertestinginstant.ui.main.PACKAGE_MAIN
-import com.hackathon.watertestinginstant.ui.splash.SplashActivity
 
 const val DEVICE_TOKEN = "DeviceToken"
 const val NOTIFICATION_DATA = "notificationData"
@@ -54,19 +52,24 @@ class FirebaseMessageService : FirebaseMessagingService() {
 
         // Check if message contains a data payload.
         remoteMessage.data.isNotEmpty().let {
+            val data = remoteMessage.data
             Log.d(TAG, "Message data payload: " + remoteMessage.data)
             val waterData = WaterData(
                 PH = remoteMessage.data["ph"]?.toDouble() ?: 7.0,
                 Turbidity = remoteMessage.data["turbidity"]?.toDouble() ?: 0.0,
                 TDS = remoteMessage.data["tds"]?.toDouble() ?: 0.0,
-                date = remoteMessage.data["time"] ?: "Null"
+                date = remoteMessage.data["time"] ?: "Null",
+                latLng = LatLng((data.get("latitude"))?.toDouble() ?: 0.0,(data.get("longtitude"))?.toDouble() ?: 0.0)
+
             )
             AppDataBase.getInstance(this).waterDao().insert(waterData)
         }
+
             // Check if message contains a notification payload.
         remoteMessage.notification?.let {
             Log.d(TAG, "Message Notification Body: ${it.body}")
         }
+
         // if id notification == this user id
         remoteMessage.let {
             sendNotification(it.notification?.body ?: "NULL ", HashMap(it.data))
@@ -119,7 +122,7 @@ class FirebaseMessageService : FirebaseMessagingService() {
 
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.common_google_signin_btn_icon_dark)
+            .setSmallIcon(R.drawable.ic_icon_water_blue)
             .setContentTitle("Message from server")
             .setContentText(messageBody)
             .setAutoCancel(true)

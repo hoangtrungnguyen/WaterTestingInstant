@@ -5,11 +5,11 @@ import androidx.lifecycle.*
 import com.google.android.gms.maps.model.LatLng
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication.Companion.application
-import com.hackathon.watertestinginstant.bluetooth.ACTION_DATA_AVAILABLE
-import com.hackathon.watertestinginstant.bluetooth.SerialSocket
+import com.hackathon.watertestinginstant.service.bluetooth.ACTION_DATA_AVAILABLE
+import com.hackathon.watertestinginstant.service.bluetooth.SerialSocket
 import com.hackathon.watertestinginstant.data.model.WaterData
-import com.hackathon.watertestinginstant.database.WaterDao
-import com.hackathon.watertestinginstant.network.WaterApi
+import com.hackathon.watertestinginstant.service.database.WaterDao
+import com.hackathon.watertestinginstant.service.network.WaterApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

@@ -1,12 +1,9 @@
-package com.hackathon.watertestinginstant.bluetooth
+package com.hackathon.watertestinginstant.service.bluetooth
 
 import android.app.Activity
 import android.bluetooth.*
-import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.util.Log
-import androidx.core.app.ActivityCompat.startActivityForResult
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 
 
