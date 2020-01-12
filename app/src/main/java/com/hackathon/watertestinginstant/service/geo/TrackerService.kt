@@ -118,7 +118,7 @@ class TrackerService : Service() {
                                     location.latitude,
                                     location.longitude
                                 )
-                            ) < 0.1
+                            ) < 0.9
                         }
                         if(b) buildNotification()
                     }

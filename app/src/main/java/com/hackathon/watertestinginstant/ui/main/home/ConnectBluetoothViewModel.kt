@@ -41,9 +41,11 @@ class ConnectBluetoothViewModel(val waterDao: WaterDao, application: WaterTestin
 
     fun latest(): LiveData<Double> {
         return Transformations.map(waterDao.getLatest()) {
-            if(it.Turbidity < 2 && it.TDS < 100) Random.nextDouble(75.0,100.0)
-            else if (it.Turbidity < 6 && it.TDS< 400) Random.nextDouble(40.0,75.0)
-            else Random.nextDouble(0.0,40.0)
+            it?.let {
+                if (it.Turbidity < 2 && it.TDS < 100) Random.nextDouble(75.0, 100.0)
+                else if (it.Turbidity < 6 && it.TDS < 400) Random.nextDouble(40.0, 75.0)
+                else Random.nextDouble(0.0, 40.0)
+            }
         }
     }
 

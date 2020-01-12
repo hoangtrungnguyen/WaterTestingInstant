@@ -1,6 +1,7 @@
 package com.hackathon.watertestinginstant.ui.main
 
 import android.Manifest
+import android.app.ActivityManager
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.content.BroadcastReceiver
@@ -30,6 +31,7 @@ import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.service.database.AppDataBase
 import com.hackathon.watertestinginstant.service.geo.TrackerService
+import com.hackathon.watertestinginstant.service.network.WaterApi.service
 import com.hackathon.watertestinginstant.util.isInternetConnection
 import com.hackathon.watertestinginstant.util.showSnackbarShort
 import kotlinx.android.synthetic.main.activity_main.*
@@ -37,6 +39,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 private val PERMISSIONS_REQUEST_GPS = 211
 
 val PACKAGE_MAIN = "com.hackathon.watertestinginstant.ui.main.MainActivity"
+
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -96,7 +99,7 @@ class MainActivity : AppCompatActivity() {
 
 
         setUpNavigationDrawer()
-        if(!isInternetConnection()) showSnackbarShort("No internet connection")
+        if (!isInternetConnection()) showSnackbarShort("No internet connection")
     }
 
     private fun checkGPS() {
@@ -114,7 +117,8 @@ class MainActivity : AppCompatActivity() {
             Manifest.permission.ACCESS_FINE_LOCATION
         )
         if (permission == PackageManager.PERMISSION_GRANTED) {
-            startTrackerService()
+            if (!isMyServiceRunning(TrackerService::class.java))
+                startTrackerService()
         } else {
             ActivityCompat.requestPermissions(
                 this,
@@ -124,9 +128,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun startTrackerService(){
-        startService(Intent(this,TrackerService::class.java))
+    private fun startTrackerService() {
+        startService(Intent(this, TrackerService::class.java))
 
+    }
+
+    private fun isMyServiceRunning(serviceClass: Class<*>): Boolean {
+        val manager: ActivityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        for (service: ActivityManager.RunningServiceInfo in manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     override fun onRequestPermissionsResult(
@@ -135,9 +149,11 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         if (requestCode == PERMISSIONS_REQUEST_GPS && grantResults.size == 1
-            && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            && grantResults[0] == PackageManager.PERMISSION_GRANTED
+        ) {
             // Start the service when the permission is granted
-            startTrackerService();
+            if (!isMyServiceRunning(TrackerService::class.java))4
+                startTrackerService();
         }
     }
 
@@ -157,15 +173,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpNavigationDrawer() {
         viewModel.user.observe(this, Observer {
-            val tvName = navigation_view.getHeaderView(0).findViewById<TextView>(com.hackathon.watertestinginstant.R.id.nav_view_name)
+            val tvName = navigation_view.getHeaderView(0)
+                .findViewById<TextView>(com.hackathon.watertestinginstant.R.id.nav_view_name)
             val tvEmail =
-                navigation_view.getHeaderView(0).findViewById<TextView>(com.hackathon.watertestinginstant.R.id.nav_view_email)
+                navigation_view.getHeaderView(0)
+                    .findViewById<TextView>(com.hackathon.watertestinginstant.R.id.nav_view_email)
             tvName.text = it.displayName
             tvEmail.text = it.email
         })
 
         viewModel.waterData.observe(this, Observer {
-            Log.d(TAG,it.toString())
+            Log.d(TAG, it.toString())
 //            showSnackbarShort(it.toString())
         })
     }
@@ -174,8 +192,13 @@ class MainActivity : AppCompatActivity() {
      * Called on first creation and when restoring state.
      */
     private fun setupBottomNavigationBar() {
-        val bottomNavigationView = findViewById<BottomNavigationView>(com.hackathon.watertestinginstant.R.id.bottom_nav)
-        val navGraphIds = listOf(com.hackathon.watertestinginstant.R.navigation.home, com.hackathon.watertestinginstant.R.navigation.history, com.hackathon.watertestinginstant.R.navigation.profile)
+        val bottomNavigationView =
+            findViewById<BottomNavigationView>(com.hackathon.watertestinginstant.R.id.bottom_nav)
+        val navGraphIds = listOf(
+            com.hackathon.watertestinginstant.R.navigation.home,
+            com.hackathon.watertestinginstant.R.navigation.history,
+            com.hackathon.watertestinginstant.R.navigation.profile
+        )
 
         // Setup the bottom navigation view with a list of navigation graphs
         val controller = bottomNavigationView.setupWithNavController(
@@ -229,7 +252,8 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "Index out of bound")
             return
         }
-        bottom_nav.selectedItemId = tabs[bottomPosition] ?: com.hackathon.watertestinginstant.R.id.home
+        bottom_nav.selectedItemId =
+            tabs[bottomPosition] ?: com.hackathon.watertestinginstant.R.id.home
     }
 
     override fun onResume() {

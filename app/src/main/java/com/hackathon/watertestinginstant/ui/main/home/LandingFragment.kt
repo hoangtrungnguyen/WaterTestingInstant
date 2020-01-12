@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.navigation.fragment.findNavController
 import com.hackathon.watertestinginstant.appl.NOTIFICATION_DATA
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
@@ -27,6 +28,7 @@ import com.hackathon.watertestinginstant.ui.customview.fadeOut
 import com.hackathon.watertestinginstant.ui.main.MainViewModel
 import com.hackathon.watertestinginstant.ui.main.PACKAGE_MAIN
 import com.hackathon.watertestinginstant.ui.main.history.HistoryAdapter
+import com.hackathon.watertestinginstant.ui.main.history.HistoryFragmentDirections
 import com.hackathon.watertestinginstant.util.showDailog
 import kotlinx.android.synthetic.main.fragment_landing.*
 import kotlinx.coroutines.*
@@ -47,7 +49,8 @@ class LandingFragment : Fragment() {
     private lateinit var receiver: BroadcastReceiver
 
     private val adapter = HistoryAdapter {
-
+        val action = LandingFragmentDirections.actionLandingFragmentToDetailFragment2(it)
+        findNavController().navigate(action)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -123,35 +126,36 @@ class LandingFragment : Fragment() {
             org.joda.time.LocalDate.now().toString("EEE, dd MMM yyy", Locale.ENGLISH)
 
         viewModelConnect.latest().observe(viewLifecycleOwner, Observer {
-            val progressAnim = ProgressBarAnimation(main_progress_bar, 0F, it.toFloat())
-            progressAnim.start()
-            var progressStatus: Int = 0
+            it?.let {
+                val progressAnim = ProgressBarAnimation(main_progress_bar, 0F, it.toFloat())
+                progressAnim.start()
+                var progressStatus: Int = 0
 
-            CoroutineScope(Job()).launch {
-                withContext(Dispatchers.Main) {
-                    try {
-                        while (progressStatus < 100) {
+                CoroutineScope(Job()).launch {
+                    withContext(Dispatchers.Main) {
+                        try {
+                            while (progressStatus < 100) {
 
-                            progressStatus += 1
-                            // Update the progress bar and display the
-                            //current value in the text view
-                            main_progress_bar.progress = progressStatus;
-                            water_quality.text = "${progressStatus}%"
-                            delay(5)
-                        }
+                                progressStatus += 1
+                                // Update the progress bar and display the
+                                //current value in the text view
+                                main_progress_bar.progress = progressStatus;
+                                water_quality.text = "${progressStatus}%"
+                                delay(5)
+                            }
 
-                        when {
-                            (it < 50) -> {
-                                water_quality.setTextColor(Color.parseColor("#F44336"))
-                                delay(500)
-                                circularRevealCardView.circularCardViewChange(
-                                    resources.getColor(android.R.color.white),
-                                    Color.parseColor("#B71C1C")
-                                )
-                                delay(500)
-                                water_quality.text = "Bad"
-                                water_quality.setTextColor(resources.getColor(android.R.color.white))
-                                water_quality.fadeOut()
+                            when {
+                                (it < 50) -> {
+                                    water_quality.setTextColor(Color.parseColor("#F44336"))
+                                    delay(500)
+                                    circularRevealCardView.circularCardViewChange(
+                                        resources.getColor(android.R.color.white),
+                                        Color.parseColor("#B71C1C")
+                                    )
+                                    delay(500)
+                                    water_quality.text = "Bad"
+                                    water_quality.setTextColor(resources.getColor(android.R.color.white))
+                                    water_quality.fadeOut()
 
 //                                main_progress_bar.progressDrawable = (
 //                                        DrawableGradient(
@@ -162,16 +166,16 @@ class LandingFragment : Fragment() {
 //                                            ), 0
 //                                        ).SetTransparency(10)
 //                                        )
-                            }
-                            (it < 75) -> {
-                                water_quality.setTextColor(Color.parseColor("#EF6C00"))
-                                circularRevealCardView.circularCardViewChange(
-                                    resources.getColor(android.R.color.white),
-                                    Color.parseColor("#FF9800")
-                                )
-                                water_quality.text = "Normal"
-                                water_quality.setTextColor(resources.getColor(android.R.color.black))
-                                water_quality.fadeOut()
+                                }
+                                (it < 75) -> {
+                                    water_quality.setTextColor(Color.parseColor("#EF6C00"))
+                                    circularRevealCardView.circularCardViewChange(
+                                        resources.getColor(android.R.color.white),
+                                        Color.parseColor("#FF9800")
+                                    )
+                                    water_quality.text = "Normal"
+                                    water_quality.setTextColor(resources.getColor(android.R.color.black))
+                                    water_quality.fadeOut()
 //                                main_progress_bar.progressDrawable =
 //                                    DrawableGradient(
 //                                        intArrayOf(
@@ -180,16 +184,16 @@ class LandingFragment : Fragment() {
 //                                            Color.parseColor("#FFB300")
 //                                        ), 0
 //                                    ).SetTransparency(10)
-                            }
-                            (it < 100) -> {
-                                water_quality.setTextColor(Color.parseColor("#0277BD"))
-                                circularRevealCardView.circularCardViewChange(
-                                    resources.getColor(android.R.color.white),
-                                    Color.parseColor("#0288D1")
-                                )
-                                water_quality.text = "Good"
-                                water_quality.setTextColor(resources.getColor(android.R.color.white))
-                                water_quality.fadeOut()
+                                }
+                                (it < 100) -> {
+                                    water_quality.setTextColor(Color.parseColor("#0277BD"))
+                                    circularRevealCardView.circularCardViewChange(
+                                        resources.getColor(android.R.color.white),
+                                        Color.parseColor("#0288D1")
+                                    )
+                                    water_quality.text = "Good"
+                                    water_quality.setTextColor(resources.getColor(android.R.color.white))
+                                    water_quality.fadeOut()
 //                                main_progress_bar.progressDrawable = (
 //                                        DrawableGradient(
 //                                            intArrayOf(
@@ -199,16 +203,24 @@ class LandingFragment : Fragment() {
 //                                            ), 0
 //                                        ).SetTransparency(10)
 //                                        )
+                                }
                             }
+                            analyzing.text = "Analyze finish"
+                            analyzing.fadeOut()
+                        } catch (e: Exception) {
+                            Log.d(TAG, e.message.toString())
                         }
-                        analyzing.text = "Analyze finish"
-                        analyzing.fadeOut()
-                    } catch (e: Exception) {
-                        Log.d(TAG, e.message.toString())
                     }
                 }
-            }
 
+            }
+            if(it == null){
+                circularRevealCardView.circularCardViewChange(
+                    resources.getColor(android.R.color.white),
+                    Color.parseColor("#0288D1")
+                )
+                analyzing.text = "No data"
+            }
         })
 
         rcvData.adapter = adapter

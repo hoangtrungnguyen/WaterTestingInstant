@@ -65,7 +65,9 @@ class HistoryFragment : Fragment() {
             })
         }
         historyViewModel.waterData.observe(viewLifecycleOwner, Observer {
-            it?.let { adapterHistory.updateData(it) }
+
+            it?.let {
+                adapterHistory.updateData(it) }
 
         })
 

@@ -13,7 +13,7 @@ interface WaterDao {
     @Query("DELETE FROM WaterDataTable")
     fun deleteAll()
 
-    @Query("SELECT * FROM WaterDataTable ORDER BY time DESC")
+    @Query("SELECT * FROM WaterDataTable ORDER BY time ASC")
     fun getLatest(): LiveData<WaterData>
 
     @Query("SELECT * FROM WaterDataTable")

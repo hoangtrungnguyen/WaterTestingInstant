@@ -29,9 +29,21 @@
         <action
             android:id="@+id/action_landingFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.hackathon.watertestinginstant.ui.main.home.MapFragment"
         android:label="Near By User" />
+    <fragment
+        android:id="@+id/detailFragment2"
+        android:name="com.hackathon.watertestinginstant.ui.main.history.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="waterData"
+            app:argType="com.hackathon.watertestinginstant.data.model.WaterData" />
+    </fragment>
 </navigation>

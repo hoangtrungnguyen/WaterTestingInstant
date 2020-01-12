@@ -63,6 +63,7 @@ class FirebaseMessageService : FirebaseMessagingService() {
 
             )
             AppDataBase.getInstance(this).waterDao().insert(waterData)
+
         }
 
             // Check if message contains a notification payload.

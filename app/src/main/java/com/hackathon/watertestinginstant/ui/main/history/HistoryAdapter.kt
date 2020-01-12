@@ -63,7 +63,8 @@ class HistoryAdapter(val listener: (item: WaterData) -> Unit) :
             } catch (e: Exception) {
 
             }
-            tvHP.text = String.format("%.2f", item.PH)
+            if(item.PH < 2) tvHP.text = "NaN"
+            else tvHP.text = String.format("%.2f", item.PH)
             tvTDS.text = String.format("%.2f", item.TDS)
         }
     }
