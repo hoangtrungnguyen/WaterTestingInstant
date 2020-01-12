@@ -2,19 +2,14 @@ package com.hackathon.watertestinginstant
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.hackathon.watertestinginstant.network.ApiService
-import com.hackathon.watertestinginstant.network.WaterApi
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import com.hackathon.watertestinginstant.service.network.ApiService
+import com.hackathon.watertestinginstant.service.network.WaterApi
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
 import org.junit.Before
-import retrofit2.Retrofit
-import kotlin.coroutines.CoroutineContext
 
 /**
  * Instrumented test, which will execute on an Android device.

@@ -1,4 +1,4 @@
-package com.hackathon.watertestinginstant.bluetooth
+package com.hackathon.watertestinginstant.service.bluetooth
 
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
@@ -10,14 +10,10 @@ import android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.navigation.NavDeepLinkBuilder
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.ui.main.MainActivity
 import com.hackathon.watertestinginstant.ui.main.home.TerminalFragment
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 
 class BluetoothReceiver(val main: MainActivity) : BroadcastReceiver() {

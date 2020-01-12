@@ -8,11 +8,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.firebase.ui.auth.AuthUI
-import com.google.android.gms.maps.SupportMapFragment
-import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.NOTIFICATION_DATA
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
-import com.hackathon.watertestinginstant.database.AppDataBase
+import com.hackathon.watertestinginstant.service.database.AppDataBase
 import com.hackathon.watertestinginstant.util.isLocationPermissionGranted
 import com.hackathon.watertestinginstant.util.requestLocationPermission
 import com.hackathon.watertestinginstant.util.showDailog

@@ -11,8 +11,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.data.model.User
-import com.hackathon.watertestinginstant.database.AppDataBase
-import com.hackathon.watertestinginstant.network.WaterApi
+import com.hackathon.watertestinginstant.service.database.AppDataBase
+import com.hackathon.watertestinginstant.service.network.WaterApi
 import com.hackathon.watertestinginstant.util.isInternetConnection
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

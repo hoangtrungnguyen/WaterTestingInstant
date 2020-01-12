@@ -20,9 +20,8 @@ import com.hackathon.watertestinginstant.appl.NOTIFICATION_DATA
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
 import com.hackathon.watertestinginstant.data.model.WaterData
-import com.hackathon.watertestinginstant.database.AppDataBase
+import com.hackathon.watertestinginstant.service.database.AppDataBase
 import com.hackathon.watertestinginstant.ui.customview.ProgressBarAnimation
-import com.hackathon.watertestinginstant.ui.customview.changeBkgAnimate
 import com.hackathon.watertestinginstant.ui.customview.circularCardViewChange
 import com.hackathon.watertestinginstant.ui.customview.fadeOut
 import com.hackathon.watertestinginstant.ui.main.MainViewModel
@@ -31,8 +30,6 @@ import com.hackathon.watertestinginstant.ui.main.history.HistoryAdapter
 import com.hackathon.watertestinginstant.util.showDailog
 import kotlinx.android.synthetic.main.fragment_landing.*
 import kotlinx.coroutines.*
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.HashMap
 

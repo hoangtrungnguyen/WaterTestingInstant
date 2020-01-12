@@ -1,9 +1,8 @@
-package com.hackathon.watertestinginstant.database
+package com.hackathon.watertestinginstant.service.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.hackathon.watertestinginstant.data.model.WaterData
-import java.util.*
 
 
 @Dao

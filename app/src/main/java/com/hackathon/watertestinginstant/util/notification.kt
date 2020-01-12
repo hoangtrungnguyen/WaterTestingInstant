@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.hackathon.watertestinginstant.R
@@ -93,6 +94,15 @@ fun Service.createMessageNotification(message: String) {
 }
 
 
-fun Context.notificationReceiver() {
-
+fun Context.notificationBuilder(action: String) : NotificationCompat.Builder{
+    val broadcastIntent = PendingIntent.getBroadcast(
+        this, 0, Intent(action), PendingIntent.FLAG_UPDATE_CURRENT
+    )
+    // Create the persistent notification
+    val builder = NotificationCompat.Builder(this)
+        .setContentTitle(getString(R.string.app_name))
+        .setOngoing(true)
+        .setContentIntent(broadcastIntent)
+        .setSmallIcon(R.drawable.ic_icon_water_blue)
+    return builder
 }

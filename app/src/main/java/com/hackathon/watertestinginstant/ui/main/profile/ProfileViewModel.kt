@@ -7,9 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hackathon.watertestinginstant.appl.BASE_URL
 import com.hackathon.watertestinginstant.data.model.WaterData
-import com.hackathon.watertestinginstant.database.WaterDao
-import com.hackathon.watertestinginstant.network.MarsProperty
-import com.hackathon.watertestinginstant.network.WaterApi
+import com.hackathon.watertestinginstant.service.database.WaterDao
+import com.hackathon.watertestinginstant.service.network.MarsProperty
+import com.hackathon.watertestinginstant.service.network.WaterApi
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

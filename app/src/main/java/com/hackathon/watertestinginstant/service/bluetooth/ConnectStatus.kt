@@ -1,4 +1,4 @@
-package com.hackathon.watertestinginstant.bluetooth
+package com.hackathon.watertestinginstant.service.bluetooth
 
 sealed class ConnectStatus {
 

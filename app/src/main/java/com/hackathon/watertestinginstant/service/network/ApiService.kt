@@ -1,11 +1,10 @@
-package com.hackathon.watertestinginstant.network
+package com.hackathon.watertestinginstant.service.network
 
 import com.squareup.moshi.Json
 import kotlinx.coroutines.Deferred
 import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*
-import java.util.*
 
 interface ApiService {
     @GET("realestate")

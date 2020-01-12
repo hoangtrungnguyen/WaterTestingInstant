@@ -1,7 +1,6 @@
-package com.hackathon.watertestinginstant.network
+package com.hackathon.watertestinginstant.service.network
 
 import com.hackathon.watertestinginstant.appl.BASE_URL
-import com.hackathon.watertestinginstant.appl.BASE_URL_MARS
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
