@@ -19,6 +19,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.database.FirebaseDatabase
 import com.hackathon.watertestinginstant.appl.WaterTestingApplication
+import kotlin.math.abs
 
 
 class TrackerService : Service() {
@@ -65,14 +66,22 @@ class TrackerService : Service() {
         }
     }
 
-    private fun getDirtyLocation(){
+    private fun getDirtyLocation() {
         store.collection("DirtyLocation")
             .get()
             .addOnSuccessListener { docs ->
                 val docSnap = docs
                 for (doc in docSnap) {
-                    val obj = doc.data
-                    Log.d(TAG, obj.toString())
+//                    val obj = doc.toObject(LatLng::class.java)
+                    doc?.let {
+                        Log.d(TAG, doc.data.toString())
+                        dirtyLocations.add(
+                            LatLng(
+                                it.data["latitude"] as? Double ?: 0.0,
+                                it.data["longtitude"] as? Double ?: 0.0
+                            )
+                        )
+                    }
                 }
 
             }
@@ -100,10 +109,40 @@ class TrackerService : Service() {
                     val location = locationResult!!.lastLocation
                     if (location != null) {
                         Log.d(TAG, "location update $location")
-//                        location =
+//                        dirtyLocations.contains(location.)
+                        val b = dirtyLocations.any {
+                            abs(
+                                getDistanceInKm(
+                                    it.latitude,
+                                    it.longitude,
+                                    location.latitude,
+                                    location.longitude
+                                )
+                            ) < 0.1
+                        }
+                        if(b) buildNotification()
                     }
                 }
             }, null)
         }
+    }
+
+
+    private fun getDistanceInKm(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
+        val R = 6371; // Radius of the earth in km
+        val dLat = deg2rad(lat2 - lat1);  // deg2rad below
+        val dLon = deg2rad(lon2 - lon1);
+        val a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2)
+        ;
+        val c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        val d = R * c; // Distance in km
+        return d;
+    }
+
+    fun deg2rad(deg: Double): Double {
+        return deg * (Math.PI / 180)
     }
 }
