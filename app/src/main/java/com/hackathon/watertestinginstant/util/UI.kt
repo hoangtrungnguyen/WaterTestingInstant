@@ -78,3 +78,4 @@ fun Context.showDailog(data: HashMap<String, String>?) {
         .setIcon(android.R.drawable.ic_dialog_alert)
         .show()
 }
+

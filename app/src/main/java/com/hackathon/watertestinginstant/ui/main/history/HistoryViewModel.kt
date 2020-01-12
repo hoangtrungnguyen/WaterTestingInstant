@@ -60,8 +60,7 @@ class HistoryViewModel(val waterDao: WaterDao, val application: WaterTestingAppl
                                 WaterData(
                                     PH = (data?.get("ph") as? String)?.toDouble() ?: 0.0,
                                     TDS = (data?.get("tds") as? String)?.toDouble() ?: 0.0,
-                                    Turbidity = (data?.get("turbidity") as? String)?.toDouble()
-                                        ?: 0.0,
+                                    Turbidity = (data?.get("turbidity") as? String)?.toDouble() ?: 0.0,
                                     date = (data?.get("date") as? String)?.toString() ?: "NULL"
                                 )
                             )

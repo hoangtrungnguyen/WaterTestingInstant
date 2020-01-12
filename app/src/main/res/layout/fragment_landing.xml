@@ -11,37 +11,48 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.home.LandingFragment">
 
-        <ProgressBar
-            android:id="@+id/main_progress_bar"
-            style="?android:attr/progressBarStyleHorizontal"
+        <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+            android:id="@+id/circularRevealCardView"
+            app:cardCornerRadius="200dp"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_marginTop="44dp"
-            android:background="@drawable/circle_shape"
-            android:indeterminate="false"
-            android:max="100"
-            android:progress="30"
-            android:progressDrawable="@drawable/circular_progress_bar"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/water_quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLength="5"
+                android:text="02"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/circularRevealCardView"
+                app:layout_constraintEnd_toEndOf="@+id/circularRevealCardView"
+                app:layout_constraintStart_toStartOf="@+id/circularRevealCardView"
+                app:layout_constraintTop_toTopOf="@+id/circularRevealCardView"
+                tools:text="75sssddddddddddddddddddddddddddddddddddddd%" />
 
-        <TextView
-            android:id="@+id/water_quality"
-            android:layout_width="wrap_content"
+        </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
+
+        <ProgressBar
+            android:id="@+id/main_progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="5"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/main_progress_bar"
-            app:layout_constraintEnd_toEndOf="@id/main_progress_bar"
-            app:layout_constraintStart_toStartOf="@id/main_progress_bar"
-            app:layout_constraintTop_toTopOf="@id/main_progress_bar"
-            tools:layout_editor_absoluteX="149dp"
-            tools:layout_editor_absoluteY="88dp"
-            tools:text="75%" />
+            android:layout_marginTop="24dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/circularRevealCardView" />
+
 
         <TextView
             android:id="@+id/analyzing"
@@ -55,6 +66,7 @@
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.47"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/main_progress_bar" />
 
@@ -64,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            tools:visibility="gone"
+            tools:visibility="visible"
             android:layout_marginEnd="16dp"
             android:text="Mon, 14 - 02 - 2019"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
@@ -80,6 +92,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            tools:listitem="@layout/item_history"
+            tools:itemCount="1"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

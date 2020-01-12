@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
+        android:visibility="gone"
         android:id="@+id/call_api"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
         tools:text="ưyyyyyyyyyyyyyyyy8b yyyyyyyyyyyyyyyqnwwwwwwwwwwww" />
 
     <Button
+        android:visibility="gone"
         android:id="@+id/sync"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,6 +36,7 @@
         app:layout_constraintVertical_bias="0.45" />
 
     <Button
+        android:visibility="gone"
         android:id="@+id/add_dummy_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,6 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/sync" />
 
     <Button
+        android:visibility="gone"
         android:id="@+id/add_device"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

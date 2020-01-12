@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.hackathon.watertestinginstant.R
 import com.hackathon.watertestinginstant.appl.ViewModelFactory
@@ -25,7 +26,10 @@ class HistoryFragment : Fragment() {
 
     private lateinit var historyViewModel: HistoryViewModel
 
-    private val adapterHistory = HistoryAdapter()
+    private val adapterHistory = HistoryAdapter{
+        val action = HistoryFragmentDirections.actionDashboardFragmentToDetailFragment(it)
+        findNavController().navigate(action)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

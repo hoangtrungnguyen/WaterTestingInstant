@@ -41,6 +41,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loginViewModel = ViewModelProviders.of(this, ViewModelFactory(AppDataBase.getInstance(this).waterDao()))[LoginViewModel::class.java]
         setContentView(com.hackathon.watertestinginstant.R.layout.activity_login)
         if(!isLocationPermissionGranted()){
             requestLocationPermission()

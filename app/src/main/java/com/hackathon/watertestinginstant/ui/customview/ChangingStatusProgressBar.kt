@@ -12,8 +12,12 @@ import androidx.annotation.ColorRes
 import android.opengl.ETC1.getHeight
 import androidx.core.view.ViewCompat.setAlpha
 import android.graphics.drawable.GradientDrawable
-
-
+import android.view.View
+import android.animation.ValueAnimator
+import android.animation.ValueAnimator.AnimatorUpdateListener
+import android.R
+import androidx.vectordrawable.graphics.drawable.ArgbEvaluator
+import com.google.android.material.circularreveal.cardview.CircularRevealCardView
 
 
 @Suppress("DEPRECATION")
@@ -53,4 +57,18 @@ class DrawableGradient internal constructor(colors: IntArray, cornerRadius: Int)
 
         return this
     }
+}
+
+fun View.changeBkgAnimate(colorFrom: Int, colorTo: Int){
+    val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), colorFrom, colorTo)
+    colorAnimation.duration = 250 // milliseconds
+    colorAnimation.addUpdateListener { animator -> this.setBackgroundColor(animator.animatedValue as Int) }
+    colorAnimation.start()
+}
+
+fun CircularRevealCardView.circularCardViewChange(colorFrom: Int, colorTo: Int){
+    val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), colorFrom, colorTo)
+    colorAnimation.duration = 250 // milliseconds
+    colorAnimation.addUpdateListener { animator -> this.setCardBackgroundColor(animator.animatedValue as Int) }
+    colorAnimation.start()
 }

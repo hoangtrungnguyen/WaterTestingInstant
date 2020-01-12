@@ -26,6 +26,7 @@ fun main() = runBlocking<Unit> {
     println("Calling collect again...")
     flow.collect { value -> println(value) }
 
-
+    val a = "Lat:23,123Lng:23,123".split("L[atng]{2}:")
+    println(a)
 
 }

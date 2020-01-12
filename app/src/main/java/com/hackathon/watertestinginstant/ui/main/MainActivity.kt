@@ -117,7 +117,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.waterData.observe(this, Observer {
             Log.d(TAG,it.toString())
-            showSnackbarShort(it.toString())
+//            showSnackbarShort(it.toString())
         })
     }
 
